@@ -1,0 +1,15 @@
+# main links
+main:
+   - title: "About"
+     url: /about/
+   - title: "Project"
+     url: /categories/project/
+   - title: "Study"
+     url: /categories/study/
+   - title: "Category"
+     url: /categories/
+   - title: "Search"
+     url: /search/
+
+  # - title: "Sitemap"
+  #   url: /sitemap/
