@@ -1,18 +1,20 @@
 
-# Blog  
-
+## Blog  
 
 https://yganalyst.github.io/
 
 
-# Category  
+## Book reviwew  
 
-1. Python 기초  
-- [Do it! 점프 투 파이썬](https://wikidocs.net/39)을 스터디하면서 메모해둔 내용  
+1. [Do it! 점프 투 파이썬](https://wikidocs.net/39)  
 
-2. Pandas 기초  
-- [판다스 머신러닝 데이터 분석](http://www.yes24.com/Product/Goods/74258258)을 스터디하면서 메모해둔 내용  
+2. [판다스 머신러닝 데이터 분석](http://www.yes24.com/Product/Goods/74258258)    
 
-3. Machine Learning 기초  
-- 핸즈온 머신러닝 스터디 중
+3. 핸즈온 머신러닝  
 
+4. 파이썬으로 웹 크롤러 만들기 2판  
+
+
+## Project  
+
+1. 
