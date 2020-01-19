@@ -28,16 +28,13 @@ tags:
 last_modified_at: 2019-12-01T19:00-19:30
 ---
 
-
-## Kaggle 타이타닉 생존자 예측1 - EDA  
+## 1. 데이터 기본정보  
 
 - url : https://www.kaggle.com/c/titanic  
 - train set : 891 row
 - test set : 418 row
 - Classification Problem
 
-
-### 1. 데이터 기본정보  
 
 ```python
 import pandas as pd
@@ -190,7 +187,7 @@ df.head()
 > 티켓 정보(Ticket)는 활용할 방법이 딱히 떠오르지 않는다.  
 > 승객 이름(Name)에서는 Mrs, Mr, Miss 등을 뽑아내서 쓸 수 있을 것 같다.
 
-### 2. 데이터 기초통계
+## 2. 데이터 기초통계
 
 개인적으로는 데이터를 read해 올 때, 처음에는 값들을 있는 그대로 가져오기 위해 `dtype=str`로 모든 값을 문자형으로 불러오는 편이다.  
 이제 필요한 컬럼의 타입을 변경하자  
@@ -424,7 +421,7 @@ df.describe(include='all')
 
 > 승객 연령(Age), 승선항구(Embarked)의 경우 결측값에 대한 처리가 필요할 것 같다.(삭제하거나, 대체하거나)
 
-### 3. 시각화를 통한 탐색 
+## 3. 시각화를 통한 탐색 
 
 우선 각 변수별로 생존여부와 어떤 관계가 있는지 간단하게 시각화를 통해 파악을 시작해보자.  
 
