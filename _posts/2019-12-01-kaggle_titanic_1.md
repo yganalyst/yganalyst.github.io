@@ -28,14 +28,16 @@ tags:
 last_modified_at: 2019-12-01T19:00-19:30
 ---
 
-## Kaggle 타이타닉 생존자 예측 1 - EDA
+
+## Kaggle 타이타닉 생존자 예측1 - EDA  
+
 - url : https://www.kaggle.com/c/titanic  
 - train set : 891 row
 - test set : 418 row
 - Classification Problem
 
-### 1. 데이터 기본정보  
 
+### 1. 데이터 기본정보  
 
 ```python
 import pandas as pd
@@ -272,10 +274,10 @@ df.describe(include='all')
     </tr>
     <tr>
       <td>top</td>
-      <td>678</td>
+      <td>773</td>
       <td>NaN</td>
       <td>3</td>
-      <td>Barbara, Miss. Saiide</td>
+      <td>Daly, Mr. Eugene Patrick</td>
       <td>male</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -426,7 +428,7 @@ df.describe(include='all')
 
 우선 각 변수별로 생존여부와 어떤 관계가 있는지 간단하게 시각화를 통해 파악을 시작해보자.  
 
-범주형 변수인 성별(Sex), 클래스(Pclass), 승선 항구(Embarked)에 따른 생존여부이다. 
+범주형 변수인 **성별(Sex), 클래스(Pclass), 승선 항구(Embarked)별 생존여부에 따른 도수분포표**이다. 
 
 
 ```python
@@ -466,7 +468,7 @@ feature별로 단순 생존,사망에 대한 빈도수를 관찰해본 결과,
 
 하지만 단순히 위의 히스토그램과 같이 관찰했을때, 애초에 탑승자가 더 많기 때문에 사망자가 더 많은 것일 확률도 배제할 수 없다.  
 
-이번엔 연령대에 따른 생존여부 도수분포표이다.  
+이번엔 **연령대에 따른 생존여부 도수분포표**이다.  
 
 
 ```python
@@ -497,7 +499,7 @@ plt.show()
 
 하지만, Age의 경우 177개의 결측값이 있기 때문에 이를 적절하게 처리하는 것이 선행되어야 할 것이다.  
 
-다음은 연령별, 티켓 요금 분포를 생존여부에 따른 산점도이다.  
+다음은 **연령별, 티켓 요금 분포를 생존여부에 따른 산점도**이다.  
 
 
 ```python
@@ -515,7 +517,24 @@ plt.show()
 
 눈에 띄는 특징은 없는 것 같다.  
 
+다음은 **승선한 항구별, 티켓 등급별 승객 수** 이다.  
+승선한 지역이 상류층 지역일 경우에 티켓 등급이 상위등급인 사람이 많지 않을까 라는 생각이 들었다.  
+
+
+```python
+plt.figure(figsize=(7,5))
+df.groupby(['Embarked','Pclass'])['PassengerId'].count().plot(kind='bar', color="darkgreen")
+plt.xticks(rotation=0)
+plt.show()
+```
+
+
+![png](/assets/images/kaggle/titanic_4.png)
+
+
+애초에 Southampton지역에서 탑승한 승객이 가장 많기도 하고, Queenstown에서 탑승한 승객이 대부분 3등급이라는 사실을 제외하고는 판단짓기 어려운 결과인 것 같다.  
+
+
+
 우선은 이제 feature engineering 단계로 넘어가서 전처리 및 파생변수 등을 생성하고
 그때그때 다시 EDA를 해보기로 한다.  
-
-
