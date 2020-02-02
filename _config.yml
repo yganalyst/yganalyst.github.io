@@ -129,7 +129,7 @@ author:
       url: "https://github.com/yganalyst"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/tlsdydrms"
+      # url: "https://instagram.com/tlsdydrms"
 
 # Site Footer
 footer:
