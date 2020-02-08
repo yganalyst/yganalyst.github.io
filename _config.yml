@@ -108,7 +108,7 @@ analytics:
 author:
   name             : "YG analyst"
   avatar           : "/assets/images/my.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "데이터 분석 전문가를 꿈꾸는 도시공학도의 블로그"
+  bio              : "Identifing urban phenomenon with data science."
   location         : "Seoul"
   email            :
   links:
