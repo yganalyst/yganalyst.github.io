@@ -1,5 +1,5 @@
 ---
-title: "YG Analyst"
+title: "Yonggeun Shin"
 permalink: /about/
 layout: single
 ---
