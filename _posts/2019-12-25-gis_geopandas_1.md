@@ -1,5 +1,5 @@
 ---
-title:  "[Geopandas #1] GIS 공간데이터의 기본 이해하기"
+title:  "[GIS] Geopandas를 활용 및 공간데이터의 기본 이해하기"
 excerpt: "GIS 공간데이터를 이해하고 geopandas를 이용해서 다루는 방법을 알아보자"
 toc: true
 toc_sticky: true
