@@ -76,7 +76,7 @@ pt_119.crs = {'init':'epsg:4326'}
 pt_119 = pt_119.to_crs({'init':'epsg:5179'})
 ```
 
-# Python  
+# Geopandas  
 
 ## 1. 객체 속성  
 
@@ -91,6 +91,7 @@ pt_119 = pt_119.to_crs({'init':'epsg:5179'})
 8. `geom_type` : 공간 객체 타입  
 
 
+### area  
 ```python
 # area
 seoul_area.geometry.area.head()
@@ -108,7 +109,7 @@ seoul_area.geometry.area.head()
 
 
 
-
+### length  
 ```python
 # length
 seoul_area.geometry.length.head()
@@ -128,7 +129,7 @@ seoul_area.geometry.length.head()
 
 polygon의 `length`는 테두리의 길이(둘레)가 될 것이다.  
 
-
+### boundary  
 ```python
 # boundary
 seoul_area.geometry[0].boundary
@@ -143,7 +144,7 @@ seoul_area.geometry[0].boundary
 
 `boundary`는 polygon객체의 테두리로 `Linestring`객체를 반환한다.  
 
-
+### centroid  
 ```python
 # centroid  
 seoul_area.geometry.centroid.head()
@@ -163,7 +164,7 @@ seoul_area.geometry.centroid.head()
 
 `centroid`는 다각형의 무게중심점으로 중학교 수학시간에 배웠던 것 같다. 자세한 내용은 [여기](https://en.wikipedia.org/wiki/Centroid)를 참고  
 
-
+### xy와 coords  
 ```python
 # xy와 coords
 print(pt_119['geometry'][0].xy)
@@ -179,7 +180,7 @@ print(list(pt_119['geometry'][0].coords))
 `xy`와 `coords`는 사실 shaply의 공간 객체인 `Point`와 `LineString`의 속성이기 때문에 `GeoDataFrame`과 `GeoSeries`에 바로 적용할 수 없다.  
 또한 Polygon의 좌표를 뽑기 위해선 `boundary`로 Line객체를 만들고 속성을 뽑아야 한다.  
 
-
+### is_valid  
 ```python
 # is_valid
 seoul_area.geometry.is_valid.head()
@@ -209,6 +210,7 @@ seoul_area.geometry.is_valid.head()
 5. `distance` : 두 공간 사이의 직선(최단)거리를 계산한다.  
 
 
+### within과 contain  
 ```python
 ax = seoul_area.plot(column="SGG_NM", figsize=(8,8), alpha=0.8)
 pt_119.plot(ax=ax, marker='v', color='black', label='Firestation')
@@ -360,7 +362,7 @@ select_pt
 마지막으로 distance는 점과 다각형, 라인 등 두 공간 사이의 직선거리를 계산해준다.  
 위에서 찾은 안전센터중, 양천안전센터와 발산안전센터 사이의 거리를 구해보자.  
 
-
+### distance  
 ```python
 # distance
 dist = select_pt['geometry'].loc[0].distance(select_pt['geometry'].loc[101])
@@ -381,7 +383,7 @@ print("약 %s m" % round(dist))
 
 `buffer`는 객체 타입에 상관없이 해당 객체를 감싸는 원형의 반경을 생성해내고, `envelope`은 Polygon 타입에 대하여 사각형 형태의 반경을 만들어 낸다.  
 
-
+### buffer & envelope  
 ```python
 # buffer & envelope
 yangcheon = pt_119.geometry.iloc[0]
@@ -418,6 +420,8 @@ print(invalid_area.buffer(0).is_valid) # buffer로 보정
 
 이렇게 아주 살짝의 `buffer`만으로도(0도 가능하다) 유효한 객체가 된다(안될경우 조금씩 증가).  
 
+
+### convexhull  
 `convexhull`이란 2차원 평면상에 여러개의 점이 있을 때 일부를 이용하여 내부에 모든 점을 포함시키는 다각형을 만드는 것을 의미한다.  
 (자세한 내용은 [여기](https://www.crocus.co.kr/1288)를 참고하자)  
 강동구 Polygon으로 확인해보자.  
@@ -436,6 +440,7 @@ plt.show()
 ![png](/assets/images/gis/geopandas_2/output_37_0.png)
 
 
+### unary_union와 dissolve  
 이제 `unary_union`와 `dissolve`를 알아보기 위해 서울시 생활권 계획에 따른 5개 생활권을 그룹핑해보자.  
 
 
@@ -467,7 +472,7 @@ ax.set_axis_off()
 
 ![png](/assets/images/gis/geopandas_2/output_40_0.png)
 
-
+### overlay  
 다음은 `overlay`이다.  
 공간 연산 규칙의 기본 4가지는 아래와 같다. 이는 개별 객체(Polygon, LineString)에 대한 연산이 아니라 데이터 프레임 전체를 다룰 수 있는 Geopandas 기능이다. 개별 객체에 대한 기능은 `shapely`의 함수이며 이를 연계하여 Geopandas에서 활용하게 되는 것이다.  
 

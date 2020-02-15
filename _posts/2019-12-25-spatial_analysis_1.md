@@ -180,7 +180,7 @@ print(polygon.geom_type)
 1. Point : [서울특별시 소방서 위치정보](http://data.seoul.go.kr/dataList/OA-12740/S/1/datasetView.do)
 2. Polygon : [서울특별시 행정경계_법정동](http://data.nsdi.go.kr/dataset)
 
-출처는 위 링크를 타고가면 되고, 해당 데이터는 [github repo](D:\spatial_analysis\data)에 올려두었다. 
+출처는 위 링크를 타고가면 되고, 해당 데이터는 [github](https://github.com/yganalyst/spatial_analysis/tree/master/data)에 올려두었다. 
 
 ![png](/assets/images/gis/geopandas_1/shape_data.PNG){: .align-center}
 
