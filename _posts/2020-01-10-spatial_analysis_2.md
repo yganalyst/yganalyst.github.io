@@ -476,7 +476,7 @@ ax.set_axis_off()
 다음은 `overlay`이다.  
 공간 연산 규칙의 기본 4가지는 아래와 같다. 이는 개별 객체(Polygon, LineString)에 대한 연산이 아니라 데이터 프레임 전체를 다룰 수 있는 Geopandas 기능이다. 개별 객체에 대한 기능은 `shapely`의 함수이며 이를 연계하여 Geopandas에서 활용하게 되는 것이다.  
 
-![PNG](image/spatial_manipulation.PNG){: .align-center}{: width="50%" height="50%"}  
+![PNG](/assets/images/gis/geopandas_2/spatial_manipulation.PNG){: .align-center}{: width="80%" height="80%"}  
 
 [Geopandas 공식 org](https://geopandas.org/set_operations.html)의 예제로 알아보자.  
 
