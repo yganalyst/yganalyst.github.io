@@ -245,6 +245,7 @@ print(seoul_area.geometry[0].contains(pt_119.geometry[17]))
 - 서울시 시군구(N) 중, 고덕안전센터(1)를 포함하는 곳은? : `contains`  
 
 
+### intersects & crosses  
 
 ```python
 # 강동구와 송파구는 맞닿아 있다.
@@ -356,13 +357,13 @@ select_pt
 </table>
 </div>
 
-
-
 양천구에는 총 6개의 안전센터가 있네요.  
+
+### distance  
+
 마지막으로 distance는 점과 다각형, 라인 등 두 공간 사이의 직선거리를 계산해준다.  
 위에서 찾은 안전센터중, 양천안전센터와 발산안전센터 사이의 거리를 구해보자.  
 
-### distance  
 ```python
 # distance
 dist = select_pt['geometry'].loc[0].distance(select_pt['geometry'].loc[101])
