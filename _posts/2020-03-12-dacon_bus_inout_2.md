@@ -4,7 +4,7 @@ excerpt: "Dacon에서 주최되었던 제주 퇴근시간 버스 승하차 인�
 toc: true
 toc_sticky: true
 header:
-  teaser: /assets/images/sql_logo.png
+  teaser: /assets/images/dacon_logo.png
 
 categories:
   - project
