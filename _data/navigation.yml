@@ -43,7 +43,7 @@ sidebar-contents:
     children:
       - title: "Spatial Analysis"
         url: /categories/#spatial_analysis
-      - title: "QGIS""
+      - title: "QGIS"
         url: /categories/#qgis
   - title: Project
     children:
