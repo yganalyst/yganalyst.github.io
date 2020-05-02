@@ -293,18 +293,20 @@ defaults:
       comments: true
       share: true
       related: true
+      toc_ads: true
       toc_sticky: true
       sidebar:
         title: Category
         nav: "sidebar-contents"
-  # _pages
   - scope:
-      path: ""
+      path: "_pages"
       type: pages
     values:
-      layout: single
-      author_profile: true
-      read_time: false
-      comments: false
-      share: true
-      related: false
+      sidebar:
+        title: Category
+        nav: "sidebar-contents"
+sidebar:
+  - title: "Title"
+    text: "Some text here."
+  - title: "Another Title"
+    text: "More text here."
