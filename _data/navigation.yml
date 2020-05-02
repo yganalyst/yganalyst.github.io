@@ -15,7 +15,7 @@ main:
   #   url: /sitemap/
 
 sidebar-contents:
-  - title: Python
+  - title: "Python"
     children:
       - title: "Data handling"
         url: /categories/#data_handling
@@ -23,7 +23,7 @@ sidebar-contents:
         url: /categories/#web
       - title: "etc."
         url: /categories/#etc
-  - title: Algorithm
+  - title: "Algorithm"
     children:
       - title: "Statistics"
         url: /categories/#Statistics
@@ -31,7 +31,7 @@ sidebar-contents:
         url: /categories/#ML
       - title: "Neural Network"
         url: /categories/#NN
-  - title: SYSTEM & DB
+  - title: "SYSTEM & DB"
     children:
       - title: "SQL"
         url: /categories/#sql
@@ -39,13 +39,13 @@ sidebar-contents:
         url: /categories/#aws
       - title: "system"
         url: /categories/#system
-  - title: GIS
+  - title: "GIS"
     children:
       - title: "Spatial Analysis"
         url: /categories/#spatial_analysis
       - title: "QGIS"
         url: /categories/#qgis
-  - title: Project
+  - title: "Project"
     children:
       - title: "Competition"
         url: /categories/#competition
