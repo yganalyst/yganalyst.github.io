@@ -12,17 +12,17 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dirt" # "air", "aqua", "contrast", "dark", "default", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
 title                    : "Urban Data Science"
 title_separator          : "-"
-name                     : "YG analyst"
+name                     : "yganalyst"
 description              : "Identifing urban phenomenon with data science."
 url                      : "https://yganalyst.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : "Aliceleeme/aliceleeme.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "yganalyst/yganalyst.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # "/assets/images/my.jpg"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
@@ -64,8 +64,8 @@ reCaptcha:
   secret                 :
 atom_feed:
   path                   : # blank (default) uses feed.xml
-search                   : # true, false (default)
-search_full_content      : # true, false (default)
+search                   :  true, false (default)
+search_full_content      :  true, false (default)
 search_provider          : # lunr (default), algolia, google
 algolia:
   application_id         : # YOUR_APPLICATION_ID
@@ -106,10 +106,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "YG analyst"
+  name             : "yganalyst"
   avatar           : "/assets/images/my.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Identifing urban phenomenon with data science."
-  location         : "Seoul"
+  location         : "Seoul, Korea"
   email            :
   links:
     - label: "Email"
@@ -294,7 +294,9 @@ defaults:
       share: true
       related: true
       toc_sticky: true
-
+      sidebar:
+        title: Category
+        nav: "sidebar-contents"
   # _pages
   - scope:
       path: ""

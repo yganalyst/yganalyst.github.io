@@ -14,8 +14,7 @@ $indent-var: 1.3em !default;
 
 /* system typefaces */
 $serif: Georgia, Times, serif !default;
-$sans-serif: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
-  "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
+$sans-serif: -apple-system, BlinkMacSystemFont, "NanumSquareRound", "Nanum Gothic", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 
 /* sans serif typefaces */
@@ -56,7 +55,7 @@ $lighter-gray: mix(#fff, $gray, 90%) !default;
 $background-color: #fff !default;
 $code-background-color: #fafafa !default;
 $code-background-color-dark: $light-gray !default;
-$text-color: $dark-gray !default;
+$text-color: #fff !default;
 $muted-text-color: mix(#fff, $text-color, 35%) !default;
 $border-color: $lighter-gray !default;
 $form-background-color: $lighter-gray !default;
@@ -86,6 +85,7 @@ $foursquare-color: #0072b1 !default;
 $github-color: #171516 !default;
 $gitlab-color: #e24329 !default;
 $instagram-color: #517fa4 !default;
+$keybase-color: #ef7639 !default;
 $lastfm-color: #d51007 !default;
 $linkedin-color: #007bb6 !default;
 $mastodon-color: #2b90d9 !default;
@@ -142,9 +142,6 @@ $max-width: $x-large !default;
    Grid
    ========================================================================== */
 
-// $right-sidebar-width-narrow: 100px !default;
-// $right-sidebar-width: 150px !default;
-// $right-sidebar-width-wide: 450px !default;
 $right-sidebar-width-narrow: 200px !default;
 $right-sidebar-width: 300px !default;
 $right-sidebar-width-wide: 400px !default;

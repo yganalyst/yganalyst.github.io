@@ -13,3 +13,41 @@ main:
 
   # - title: "Sitemap"
   #   url: /sitemap/
+
+sidebar-contents:
+  - title: Python
+    children:
+      - title: "Data handling"
+        url: /categories/#data_handling
+      - title: "Web-related"
+        url: /categories/#web
+      - title: "etc."
+        url: /categories/#etc
+  - title: Algorithm
+    children:
+      - title: "Statistics"
+        url: /categories/#Statistics
+      - title: "Machine Learning"
+        url: /categories/#ML
+      - title: "Neural Network"
+        url: /categories/#NN
+  - title: SYSTEM & DB
+    children:
+      - title: "SQL"
+        url: /categories/#sql
+      - title: "AWS"
+        url: /categories/#aws
+      - title: "system"
+        url: /categories/#system
+  - title: GIS
+    children:
+      - title: "Spatial Analysis"
+        url: /categories/#spatial_analysis
+      - title: "QGIS""
+        url: /categories/#qgis
+  - title: Project
+    children:
+      - title: "Competition"
+        url: /categories/#competition
+      - title: "Toy Project"
+        url: /categories/#toy_project

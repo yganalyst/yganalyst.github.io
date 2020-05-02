@@ -63,7 +63,7 @@
 
   img {
     width: 100%;
-    
+    max-width : 150px;
     &.emoji {
       width: 20px;
       height: 20px;
@@ -315,4 +315,3 @@
     margin-right: initial;
   }
 }
-
