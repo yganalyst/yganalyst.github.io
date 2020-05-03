@@ -3,7 +3,7 @@ main:
    - title: "소개"
      url: /about/
    - title: "프로젝트"
-     url: /categories/project/
+     url: /categories/toy_project/
    - title: "카테고리"
      url: /categories/
 
