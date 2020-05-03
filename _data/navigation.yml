@@ -18,7 +18,7 @@ sidebar-contents:
   - title: "Python"
     children:
       - title: "Data handling"
-        url: /categories/#data_handling
+        url: /categories/#data-handling
       - title: "Web-related"
         url: /categories/#web
       - title: "etc."
