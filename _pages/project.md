@@ -1,9 +1,9 @@
 ---
-title: "Data analysis Project"
+title: "프로젝트 저장소"
 permalink: /categories/project/
 layout: category
 author_profile: true
 taxonomy: project
 ---
 
-도시의 다양한 사회적 문제를 다룬 데이터 분석 프로젝트입니다.
+📈 Data Competetion & Toy Porject ⚡

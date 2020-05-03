@@ -1,5 +1,5 @@
 ---
-title: "Yonggeun Shin"
+title: "소개"
 permalink: /about/
 layout: single
 ---
@@ -7,6 +7,7 @@ layout: single
 ![jpg](/assets/images/my.jpg "내사진"){: width="45%" height="45%"}  
 
 
+### YounGeun Shin
 
 나는 도시공학을 전공했고 데이터를 기반으로 도시 사회의 복잡한 현상들을 규명하고, 인사이트를 도출해낼 수 있는 사람이 되고 싶다.  
 

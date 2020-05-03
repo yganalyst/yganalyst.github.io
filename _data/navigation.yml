@@ -1,10 +1,10 @@
 # main links
 main:
-   - title: "About"
+   - title: "소개"
      url: /about/
-   - title: "Project"
+   - title: "프로젝트"
      url: /categories/project/
-   - title: "Category"
+   - title: "카테고리"
      url: /categories/
 
   # - title: "Study"
@@ -23,15 +23,15 @@ sidebar-contents:
         url: /categories/#web
       - title: "etc."
         url: /categories/#etc
-  - title: "Algorithm"
+  - title: "알고리즘"
     children:
       - title: "Statistics"
-        url: /categories/#Statistics
+        url: /categories/#statistics
       - title: "Machine Learning"
         url: /categories/#ML
       - title: "Neural Network"
         url: /categories/#NN
-  - title: "SYSTEM & DB"
+  - title: "시스템 & 데이터베이스"
     children:
       - title: "SQL"
         url: /categories/#sql
@@ -45,7 +45,7 @@ sidebar-contents:
         url: /categories/#spatial_analysis
       - title: "QGIS"
         url: /categories/#qgis
-  - title: "Project"
+  - title: "프로젝트"
     children:
       - title: "Competition"
         url: /categories/#competition
