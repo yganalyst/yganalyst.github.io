@@ -28,9 +28,9 @@ sidebar-contents:
       - title: "Statistics"
         url: /categories/#statistics
       - title: "Machine Learning"
-        url: /categories/#ML
+        url: /categories/#ml
       - title: "Neural Network"
-        url: /categories/#NN
+        url: /categories/#nn
   - title: "시스템 & 데이터베이스"
     children:
       - title: "SQL"
