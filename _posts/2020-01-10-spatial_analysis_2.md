@@ -1,5 +1,5 @@
 ---
-title:  "[Geopandas #2] 공간정보 데이터를 자유롭게 변형, 가공, 처리하기"
+title:  "[GIS] 공간정보 데이터를 자유롭게 변형, 가공, 처리하기"
 excerpt: "geopandas를 이용해서 공간데이터를 변형하거나 연산처리하는 방법을 알아보자"
 toc: true
 toc_sticky: true
@@ -7,7 +7,7 @@ header:
   teaser: /assets/images/gis_logo.jpg
 
 categories:
-  - study
+  - spatial_analysis
 
 tags:
   - python

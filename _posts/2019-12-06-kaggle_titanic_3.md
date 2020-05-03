@@ -7,7 +7,7 @@ header:
   teaser: /assets/images/kaggle_logo.jpg
 
 categories:
-  - project
+  - competition
 
 tags:
   - python

@@ -7,7 +7,7 @@ header:
   teaser: /assets/images/dacon_logo.png
 
 categories:
-  - project
+  - competition
 
 tags:
   - dacon
