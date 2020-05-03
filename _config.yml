@@ -18,6 +18,7 @@ minimal_mistakes_skin    : "dirt" # "air", "aqua", "contrast", "dark", "default"
 locale                   : "ko"
 title                    : "Urban Data Science"
 title_separator          : "-"
+subtitle                 : # 즐거운 소프트웨어 놀이터 site tagline that appears below site title in masthead
 name                     : "yganalyst"
 description              : "Identifing urban phenomenon with data science."
 url                      : "https://yganalyst.github.io"
