@@ -42,7 +42,7 @@ sidebar-contents:
   - title: "GIS"
     children:
       - title: "Spatial Analysis"
-        url: /categories/#spatial_analysis
+        url: /categories/#spatial-analysis
       - title: "QGIS"
         url: /categories/#qgis
   - title: "프로젝트"
