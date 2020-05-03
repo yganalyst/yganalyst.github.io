@@ -15,7 +15,7 @@
 minimal_mistakes_skin    : "dirt" # "air", "aqua", "contrast", "dark", "default", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "en-US"
+locale                   : "ko"
 title                    : "Urban Data Science"
 title_separator          : "-"
 name                     : "yganalyst"
@@ -64,8 +64,8 @@ reCaptcha:
   secret                 :
 atom_feed:
   path                   : # blank (default) uses feed.xml
-search                   :  # true, false (default)
-search_full_content      :  # true, false (default)
+search                   : true # true, false (default)
+search_full_content      : true # true, false (default)
 search_provider          : # lunr (default), algolia, google
 algolia:
   application_id         : # YOUR_APPLICATION_ID
@@ -296,14 +296,14 @@ defaults:
       toc_ads: true
       toc_sticky: true
       sidebar:
-        title: Category
+        title: 카테고리
         nav: "sidebar-contents"
   - scope:
       path: "_pages"
       type: pages
     values:
       sidebar:
-        title: Category
+        title: 카테고리
         nav: "sidebar-contents"
 sidebar:
   - title: "Title"
