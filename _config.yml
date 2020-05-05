@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "dirt" # "air", "aqua", "contrast", "dark", "default"
 
 # Site Settings
 locale                   : "ko"
-title                    : "Urban Data Science"
+title                    : "yg's blog"
 title_separator          : "-"
 subtitle                 : # 즐거운 소프트웨어 놀이터 site tagline that appears below site title in masthead
 name                     : "yganalyst"
@@ -25,8 +25,8 @@ url                      : "https://yganalyst.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "yganalyst/yganalyst.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # "/assets/images/my.jpg"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
+logo                     : "/assets/images/logo1.png" # path of logo image to display in the masthead, e.g. 
+masthead_title           : "Urban Data Science" # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
