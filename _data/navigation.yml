@@ -21,6 +21,8 @@ sidebar-contents:
         url: /categories/#data-handling
       - title: "Web-related"
         url: /categories/#web
+      - title: "Pythonic"
+        url: /categories/#pythonic
       - title: "etc."
         url: /categories/#etc
   - title: "알고리즘"
