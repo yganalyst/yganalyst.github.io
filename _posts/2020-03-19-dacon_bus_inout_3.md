@@ -41,7 +41,7 @@ last_modified_at: 2020-03-12T19:00-19:30
 
 # 개요  
 
-이번 포스팅에서는 지난 [feature engineering 포스팅](https://yganalyst.github.io/project/dacon_bus_inout_2/)에 이어서 여러가지 머신러닝 알고리즘을 적용해서, 최종 산출물을 내보기로 한다.  
+이번 포스팅에서는 지난 [feature engineering 포스팅](https://yganalyst.github.io/competition/dacon_bus_inout_2/)에 이어서 여러가지 머신러닝 알고리즘을 적용해서, 최종 산출물을 내보기로 한다.  
 (미완성)  
   
   
@@ -211,7 +211,7 @@ skfolds = StratifiedKFold(n_splits=10,shuffle=True, random_state=208)     # 계�
 # 3. Model Selection  
 
 이전에 공부했었던 모델을 바탕으로 적용해보려고 했다.  
-CART알고리즘을 기본으로 하는 [Descision Tree](https://yganalyst.github.io/study/ML_chap5/)와 Tree의 앙상블 모델인 [Random Foreset](https://yganalyst.github.io/study/ML_chap6-3/), [xgboost](https://yganalyst.github.io/study/ML_chap6-4/#3-xgbosst)를 활용했다.  
+CART알고리즘을 기본으로 하는 [Descision Tree](https://yganalyst.github.io/ml/ML_chap5/)와 Tree의 앙상블 모델인 [Random Foreset](https://yganalyst.github.io/ml/ML_chap6-3/), [xgboost](https://yganalyst.github.io/ml/ML_chap6-4/#3-xgbosst)를 활용했다.  
 자세한 내용은 이전에 포스팅했었던 위의 링크를 타고 가면 된다.  
 
 ## 3-1. Tree  

@@ -53,7 +53,7 @@ last_modified_at: 2020-01-10T19:00-19:30
 
 # 개요  
 
-[이전 포스팅](https://yganalyst.github.io/study/spatial_analysis_1/)에서 이어서, 서울특별시 시군구 영역(polyhon)과 소방안전센터(Point)위치 정보를 활영하여 공간 분석에 활용되는 다양한 처리 및 분석기법들을 알아보자.  
+[이전 포스팅](https://yganalyst.github.io/spatial_analysis/spatial_analysis_1/)에서 이어서, 서울특별시 시군구 영역(polyhon)과 소방안전센터(Point)위치 정보를 활영하여 공간 분석에 활용되는 다양한 처리 및 분석기법들을 알아보자.  
 
 
 ```python

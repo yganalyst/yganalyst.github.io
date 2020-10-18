@@ -60,7 +60,7 @@ test = pd.read_csv(mydir + "test.csv", dtype=str)
 
 ## 1. 텍스트 전처리(Name)  
 
-승객 이름의 정보에서 Mr., Miss. 등의 정보를 [정규표현식](https://yganalyst.github.io/study/memo_6/)을 이용해서 추출한다.  
+승객 이름의 정보에서 Mr., Miss. 등의 정보를 [정규표현식](https://yganalyst.github.io/data_handling/memo_6/)을 이용해서 추출한다.  
 
 
 ```python
@@ -233,7 +233,7 @@ for ls_df in [train, test]:
 
 ### 2-2. Embarked  
 
-Embarked 같은 경우 결측치가 2개 밖에 없는데, [EDA](https://yganalyst.github.io/project/kaggle_titanic_1/)에서 살펴 본 것 처럼 약 72%가 Southampton에 해당하기 때문에 결측값으로 그냥 넣어주기로 하자.  
+Embarked 같은 경우 결측치가 2개 밖에 없는데, [EDA](https://yganalyst.github.io/competition/kaggle_titanic_1/)에서 살펴 본 것 처럼 약 72%가 Southampton에 해당하기 때문에 결측값으로 그냥 넣어주기로 하자.  
 
 
 
@@ -262,7 +262,7 @@ test['Fare'] = np.where(test['Fare'].isnull(), test['Fare_median'], test['Fare']
 ### 3-1. 범주형 변수 변환(binning)    
 
 연령대의 경우 0세 - 80세 까지 넓은 연령층이 분포하고 있고 20대 - 40대 사이가 대부분을 차지하고 있었기 때문에, scale을 고르게 조절해주어 왜곡을 보정해줄 수 있다.  
-연속형 변수의 범주형 변수 변환으로 Binning이라고도 한다([참고](https://yganalyst.github.io/study/Pd_7/)).  
+연속형 변수의 범주형 변수 변환으로 Binning이라고도 한다([참고](https://yganalyst.github.io/data_handling/Pd_7/)).  
   
   
 왜곡을 보정함과 동시에 원천 데이터의 손실시키는 단점도 존재한다.  

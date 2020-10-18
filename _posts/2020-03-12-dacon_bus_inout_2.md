@@ -30,7 +30,7 @@ last_modified_at: 2020-03-12T19:00-19:30
 
 # 개요  
 
-이번 포스팅에서는 지난 [EDA 포스팅](https://yganalyst.github.io/project/dacon_bus_inout_1/)에 이어서 내부데이터와 외부데이터를 이용해서 여러가지 파생변수들을 생성하고, 기계학습이 가능한 형태로 Dataset을 구성해보기로 한다.  
+이번 포스팅에서는 지난 [EDA 포스팅](https://yganalyst.github.io/competition/dacon_bus_inout_1/)에 이어서 내부데이터와 외부데이터를 이용해서 여러가지 파생변수들을 생성하고, 기계학습이 가능한 형태로 Dataset을 구성해보기로 한다.  
   
    
    
