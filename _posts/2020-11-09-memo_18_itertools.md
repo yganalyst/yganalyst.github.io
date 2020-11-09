@@ -48,7 +48,7 @@ import itertools
   
 # 팩토리얼  
 
-![png](/assets/images/memo/memo_18_f1.png){: width="80%" height="80%"} 
+![png](/assets/images/memo/memo_18_f1.png)  
 
 팩토리얼은 **서로 다른 n개의 원소를 나열하는 경우의 수**로 n부터 1까지 모든 수를 곱하면 된다.  
 
@@ -72,7 +72,7 @@ factorial(6)
   
 # 순열  
 
-![png](/assets/images/memo/memo_18_p1.png){: width="80%" height="80%"} 
+![png](/assets/images/memo/memo_18_p1.png)  
 
 순열은 **서로 다른 n개 중에 r개를 나열하는 경우의 수(순서 O)**로 `permutations` 함수를 이용할 수 있다.  
 
@@ -102,7 +102,7 @@ print(result)
   
 # 중복순열  
 
-![png](/assets/images/memo/memo_18_p2.png){: width="80%" height="80%"} 
+![png](/assets/images/memo/memo_18_p2.png)  
 
 중복순열은 **중복 가능한 n개 중에 r개를 나열하는 경우의 수(순서 O)**로 `product` 함수에 `repeat`인자를 통해 이용할 수 있다.  
 
@@ -135,7 +135,7 @@ print(result)
   
 # 조합  
 
-![png](/assets/images/memo/memo_18_c1.png){: width="80%" height="80%"} 
+![png](/assets/images/memo/memo_18_c1.png)  
 
 조합은 **서로 다른 n개 중에 r개를 선택하는 경우의 수(순서 X)**로 `combinations` 함수를 통해 이용할 수 있다.  
 
@@ -158,7 +158,7 @@ print(result)
   
 # 중복조합  
 
-![png](/assets/images/memo/memo_18_c2.png){: width="80%" height="80%"} 
+![png](/assets/images/memo/memo_18_c2.png)  
 
 중복조합은 **중복 가능한 n개 중에 r개를 선택하는 경우의 수(순서 X)**로 `combinations_with_replacement` 함수를 통해 이용할 수 있다.  
 
