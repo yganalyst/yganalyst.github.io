@@ -33,7 +33,7 @@ last_modified_at: 2020-11-09T19:00-19:30
 
 ![jpg](/assets/images/python_logo.jpg){: .align-center}{: width="80%" height="80%"} 
 
-
+<br/>
 이번 포스팅에서는 `itertools`라는 파이썬 라이브러리를 활용해서, 원소들의 순열과 조합을 통해 경우의 수를 추출해내는 방법에 대해 알아보자.  
 
 ```python
@@ -44,9 +44,9 @@ import itertools
 ([grid search 방식](https://yganalyst.github.io/ml/ML_chap1/#6-1-%EA%B7%B8%EB%A6%AC%EB%93%9C-%ED%83%90%EC%83%89--gridsearchcv)이나, `keras-tuner` 등을 활용하면 이런 과정을 자동적으로 수행해주긴 한다)  
 
 
-  
-  
-# 팩토리얼  
+<br/>
+# 경우의 수  
+## 팩토리얼  
 
 ![png](/assets/images/memo/memo_18_f1.png)  
 
@@ -68,9 +68,8 @@ factorial(6)
 720
 ```
 
-  
-  
-# 순열  
+<br/>
+## 순열  
 
 ![png](/assets/images/memo/memo_18_p1.png)  
 
@@ -99,8 +98,8 @@ print(result)
  ('4', '3')]
 ```
   
-  
-# 중복순열  
+<br/>
+## 중복순열  
 
 ![png](/assets/images/memo/memo_18_p2.png)  
 
@@ -132,8 +131,8 @@ print(result)
  ('4', '4')]
 ```
   
-  
-# 조합  
+<br/>
+## 조합  
 
 ![png](/assets/images/memo/memo_18_c1.png)  
 
@@ -155,8 +154,8 @@ print(result)
  ('3', '4')]
 ```
   
-  
-# 중복조합  
+<br/>
+## 중복조합  
 
 ![png](/assets/images/memo/memo_18_c2.png)  
 
@@ -181,7 +180,7 @@ print(result)
  ('3', '4'),
  ('4', '4')]
 ```
-
+<br/>
 # 리스트들 내 모든 원소 조합  
 
 초반에 언급한 것 처럼 하이퍼 파라미터마다 돌려보고 싶은 값들을 설정하고 모든 경우의 수를 뽑는 것도 역시 `product`함수를 통해 가능하다.  
@@ -205,7 +204,7 @@ print(result)
 
 
   
-  
+<br/>
 # Reference  
 
 https://ghwlchlaks.github.io/permutation-combination-python  
