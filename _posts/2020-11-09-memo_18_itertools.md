@@ -68,7 +68,6 @@ factorial(6)
 720
 ```
 
-<br/>
 ## 순열  
 
 ![png](/assets/images/memo/memo_18_p1.png)  
@@ -98,7 +97,6 @@ print(result)
  ('4', '3')]
 ```
   
-<br/>
 ## 중복순열  
 
 ![png](/assets/images/memo/memo_18_p2.png)  
@@ -131,7 +129,7 @@ print(result)
  ('4', '4')]
 ```
   
-<br/>
+  
 ## 조합  
 
 ![png](/assets/images/memo/memo_18_c1.png)  
@@ -154,7 +152,7 @@ print(result)
  ('3', '4')]
 ```
   
-<br/>
+  
 ## 중복조합  
 
 ![png](/assets/images/memo/memo_18_c2.png)  
@@ -180,6 +178,7 @@ print(result)
  ('3', '4'),
  ('4', '4')]
 ```
+  
 <br/>
 # 리스트들 내 모든 원소 조합  
 
