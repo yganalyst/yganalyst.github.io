@@ -31,7 +31,7 @@ last_modified_at: 2019-12-05T19:00-19:30
 
 # 개요  
 
-![jpg](/assets/images/kaggle_logo.jpg){: .align-center}{: width="60%" height="60%"} 
+![jpg](/assets/images/kaggle_logo.jpg){: .align-center}{: width="80%" height="80%"} 
 
 
 사실 데이터 분석 프로젝트라는게 교과서적으로  

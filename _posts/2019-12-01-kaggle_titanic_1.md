@@ -30,7 +30,7 @@ last_modified_at: 2019-12-01T19:00-19:30
 
 # 1. 데이터 정보  
 
-![jpg](/assets/images/kaggle_logo.jpg){: .align-center}{: width="60%" height="60%"} 
+![jpg](/assets/images/kaggle_logo.jpg){: .align-center}{: width="80%" height="80%"} 
 
 - url : https://www.kaggle.com/c/titanic  
 - train set : 891 row

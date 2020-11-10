@@ -30,7 +30,7 @@ last_modified_at: 2019-12-06T19:00-19:30
 
 # 개요  
 
-![jpg](/assets/images/kaggle_logo.jpg){: .align-center}{: width="60%" height="60%"} 
+![jpg](/assets/images/kaggle_logo.jpg){: .align-center}{: width="80%" height="80%"} 
 
 이번 포스팅에서는 기계학습이 가능한 형태로 정제된 데이터셋을 여러가지 모델에 적용하여 캐글 프로젝트에 제출해 보는 시간을 가져보기로 하자.  
 
