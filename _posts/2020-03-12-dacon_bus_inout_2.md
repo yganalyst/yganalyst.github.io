@@ -30,11 +30,13 @@ last_modified_at: 2020-03-12T19:00-19:30
 
 # 개요  
 
+![png](/assets/images/dacon_logo.png){: .align-center}{: width="60%" height="60%"} 
+
 이번 포스팅에서는 지난 [EDA 포스팅](https://yganalyst.github.io/competition/dacon_bus_inout_1/)에 이어서 내부데이터와 외부데이터를 이용해서 여러가지 파생변수들을 생성하고, 기계학습이 가능한 형태로 Dataset을 구성해보기로 한다.  
   
    
    
-
+<br/>
 # Feature engineering  
 
 
@@ -109,6 +111,8 @@ bus_bts['user_category'] = bus_bts['user_category'].astype(int)
 bus_bts['user_count'] = bus_bts['user_count'].astype(float)
 ```
 
+  
+<br/>
 # 파생변수 구성(내부데이터 활용)   
 
 ## 1. 시내, 시외 재구분  
@@ -904,6 +908,8 @@ cat_group_pv.head()
 
 - 일별, 노선별, 승차 정류소별, 승객 유형별(cols) 승차인원수    
 
+  
+<br/>
 # 외부 데이터(날씨) 활용  
 
 기상청 날씨데이터는 제주도의 4개 측정소(제주, 고산, 성산, 서귀포)를 기준으로 기상을 관측한다.  
@@ -1438,8 +1444,8 @@ station_loc.head()
 </table>
 </div>
 
-
-
+  
+<br/>
 # 정리  
 
 **1. 내부데이터**  
@@ -1456,7 +1462,7 @@ station_loc.head()
 - 가까운 날씨 측정소 및 거리    
 - 평균 강수량, 기온, 습도, 지면온도, 풍속 (오전 오후 각각)  
 
-## view  
+## View  
 
 - 시내, 시외 재구분  
 - 요일특성(요일별, 주말여부, 공휴일 여부)  

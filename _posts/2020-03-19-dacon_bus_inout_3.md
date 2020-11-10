@@ -41,11 +41,13 @@ last_modified_at: 2020-03-12T19:00-19:30
 
 # 개요  
 
+![png](/assets/images/dacon_logo.png){: .align-center}{: width="60%" height="60%"} 
+
 이번 포스팅에서는 지난 [feature engineering 포스팅](https://yganalyst.github.io/competition/dacon_bus_inout_2/)에 이어서 여러가지 머신러닝 알고리즘을 적용해서, 최종 산출물을 내보기로 한다.  
 (미완성)  
   
   
-
+<br/>
 # Modeling  
 
 
@@ -146,7 +148,7 @@ X_test = test[x_cols + x_dummy_cols]
 ```
 
   
-
+<br/>
 # 1. Scaling  
 
 - dummy변수들은 제외하고 스케일링(독립변수만, 표준화로)진행    
@@ -170,7 +172,7 @@ X_test[x_cols] = scaler(X_test[x_cols], opt='standard')
 
   
   
-  
+<br/>
 # 2. Sampling method  
 
 **계층적 k겹 샘플링(startified Kfold Sampling)**  
@@ -207,7 +209,7 @@ skfolds = StratifiedKFold(n_splits=10,shuffle=True, random_state=208)     # 계�
 
 
   
-  
+<br/>
 # 3. Model Selection  
 
 이전에 공부했었던 모델을 바탕으로 적용해보려고 했다.  
@@ -444,7 +446,7 @@ sub_df.to_csv('xgb_test_1.csv', index = False)
 ```
 
   
-  
+<br/>
 # 4. Parameter Tunning  
 
 ## 4-1. gridSearch - RandomForest  

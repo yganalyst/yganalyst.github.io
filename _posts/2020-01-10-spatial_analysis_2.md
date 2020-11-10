@@ -53,6 +53,9 @@ last_modified_at: 2020-01-10T19:00-19:30
 
 # 개요  
 
+![png](/assets/images/gis_logo.jpg){: .align-center}{: width="60%" height="60%"} 
+
+
 [이전 포스팅](https://yganalyst.github.io/spatial_analysis/spatial_analysis_1/)에서 이어서, 서울특별시 시군구 영역(polyhon)과 소방안전센터(Point)위치 정보를 활영하여 공간 분석에 활용되는 다양한 처리 및 분석기법들을 알아보자.  
 
 
@@ -76,9 +79,9 @@ pt_119.crs = {'init':'epsg:4326'}
 pt_119 = pt_119.to_crs({'init':'epsg:5179'})
 ```
 
-# Geopandas  
-
-## 1. 객체 속성  
+  
+<br/>
+# 1. 객체 속성  
 
 1. `area` : 면적 계산  
 2. `length` : 길이 계산   
@@ -90,8 +93,8 @@ pt_119 = pt_119.to_crs({'init':'epsg:5179'})
 7. `is_valid` : 도형 유효성 검사(boolean)  
 8. `geom_type` : 공간 객체 타입  
 
-
-### area  
+  
+## area  
 ```python
 # area
 seoul_area.geometry.area.head()
@@ -108,8 +111,8 @@ seoul_area.geometry.area.head()
     dtype: float64
 
 
-
-### length  
+  
+## length  
 ```python
 # length
 seoul_area.geometry.length.head()
@@ -129,7 +132,8 @@ seoul_area.geometry.length.head()
 
 polygon의 `length`는 테두리의 길이(둘레)가 될 것이다.  
 
-### boundary  
+  
+## boundary  
 ```python
 # boundary
 seoul_area.geometry[0].boundary
@@ -144,7 +148,7 @@ seoul_area.geometry[0].boundary
 
 `boundary`는 polygon객체의 테두리로 `Linestring`객체를 반환한다.  
 
-### centroid  
+## centroid  
 ```python
 # centroid  
 seoul_area.geometry.centroid.head()
@@ -164,7 +168,8 @@ seoul_area.geometry.centroid.head()
 
 `centroid`는 다각형의 무게중심점으로 중학교 수학시간에 배웠던 것 같다. 자세한 내용은 [여기](https://en.wikipedia.org/wiki/Centroid)를 참고  
 
-### xy와 coords  
+  
+## xy와 coords  
 ```python
 # xy와 coords
 print(pt_119['geometry'][0].xy)
@@ -180,7 +185,8 @@ print(list(pt_119['geometry'][0].coords))
 `xy`와 `coords`는 사실 shaply의 공간 객체인 `Point`와 `LineString`의 속성이기 때문에 `GeoDataFrame`과 `GeoSeries`에 바로 적용할 수 없다.  
 또한 Polygon의 좌표를 뽑기 위해선 `boundary`로 Line객체를 만들고 속성을 뽑아야 한다.  
 
-### is_valid  
+  
+## is_valid  
 ```python
 # is_valid
 seoul_area.geometry.is_valid.head()
@@ -201,7 +207,9 @@ seoul_area.geometry.is_valid.head()
 `is_valid`는 도형이 유효한지를 검사할 때 사용한다. 공간데이터는 좌표나 제작 출처에 따라서 조금씩 모양이 다르기도 하고, 삐져나오거나 마감처리가 잘 안되어 있거나 한 경우가 있는데 처리하지 않으면 에러가 난다.  
 위를 보니 index1의 객체가 유효하지가 않다고 나와있다. 밑에서 더 알아보자.  
 
-## 2. 공간 관계  
+  
+<br/>
+# 2. 공간 관계  
 
 1. `within` : 포함되는지 여부  
 2. `contain` : 포함하고 있는지 여부    
@@ -210,7 +218,7 @@ seoul_area.geometry.is_valid.head()
 5. `distance` : 두 공간 사이의 직선(최단)거리를 계산한다.  
 
 
-### within과 contain  
+## within과 contain  
 ```python
 ax = seoul_area.plot(column="SGG_NM", figsize=(8,8), alpha=0.8)
 pt_119.plot(ax=ax, marker='v', color='black', label='Firestation')
@@ -244,8 +252,8 @@ print(seoul_area.geometry[0].contains(pt_119.geometry[17]))
 - 서울시 119안전센터(N) 중, 강동구(1)에 포함되는 곳은? : `within`  
 - 서울시 시군구(N) 중, 고덕안전센터(1)를 포함하는 곳은? : `contains`  
 
-
-### intersects & crosses  
+  
+## intersects & crosses  
 
 ```python
 # 강동구와 송파구는 맞닿아 있다.
@@ -359,7 +367,8 @@ select_pt
 
 양천구에는 총 6개의 안전센터가 있네요.  
 
-### distance  
+  
+## distance  
 
 마지막으로 distance는 점과 다각형, 라인 등 두 공간 사이의 직선거리를 계산해준다.  
 위에서 찾은 안전센터중, 양천안전센터와 발산안전센터 사이의 거리를 구해보자.  
@@ -372,8 +381,9 @@ print("약 %s m" % round(dist))
 
     약 4092 m
     
-
-## 3. 공간 연산 및 변형  
+  
+<br/>
+# 3. 공간 연산 및 변형  
 
 1. `buffer` : 주어진 거리 내의 모든 점을 이어 Polygon을 만들고(Point,Linestring 적용 시)거나 주어진 거리만큼 확장한다(Polygon 적용 시).    
 2. `envelope` : Polygon을 감싸는 가장 작은 사각형 Polygon 객체를 만든다.  
@@ -384,7 +394,9 @@ print("약 %s m" % round(dist))
 
 `buffer`는 객체 타입에 상관없이 해당 객체를 감싸는 원형의 반경을 생성해내고, `envelope`은 Polygon 타입에 대하여 사각형 형태의 반경을 만들어 낸다.  
 
-### buffer & envelope  
+  
+## buffer & envelope  
+
 ```python
 # buffer & envelope
 yangcheon = pt_119.geometry.iloc[0]
@@ -421,8 +433,9 @@ print(invalid_area.buffer(0).is_valid) # buffer로 보정
 
 이렇게 아주 살짝의 `buffer`만으로도(0도 가능하다) 유효한 객체가 된다(안될경우 조금씩 증가).  
 
+  
+## convexhull  
 
-### convexhull  
 `convexhull`이란 2차원 평면상에 여러개의 점이 있을 때 일부를 이용하여 내부에 모든 점을 포함시키는 다각형을 만드는 것을 의미한다.  
 (자세한 내용은 [여기](https://www.crocus.co.kr/1288)를 참고하자)  
 강동구 Polygon으로 확인해보자.  
@@ -440,8 +453,9 @@ plt.show()
 
 ![png](/assets/images/gis/geopandas_2/output_37_0.png)
 
+  
+## unary_union와 dissolve  
 
-### unary_union와 dissolve  
 이제 `unary_union`와 `dissolve`를 알아보기 위해 서울시 생활권 계획에 따른 5개 생활권을 그룹핑해보자.  
 
 
@@ -473,7 +487,10 @@ ax.set_axis_off()
 
 ![png](/assets/images/gis/geopandas_2/output_40_0.png)
 
-### overlay  
+
+## overlay  
+
+
 다음은 `overlay`이다.  
 공간 연산 규칙의 기본 4가지는 아래와 같다. 이는 개별 객체(Polygon, LineString)에 대한 연산이 아니라 데이터 프레임 전체를 다룰 수 있는 Geopandas 기능이다. 개별 객체에 대한 기능은 `shapely`의 함수이며 이를 연계하여 Geopandas에서 활용하게 되는 것이다.  
 
@@ -604,7 +621,9 @@ plt.show()
 
 `difference`는 전자(df1)에서 후자(df2)의 차집합에 해당하는 Polygon 데이터를 추출한다.  
 
-## 3. 정리  
+  
+<br/>
+# 3. 정리  
 
 이제 다시 서울시 시군구별 shp와, 119소방안전센터 데이터로 배운것을 활용해보며 마무리해보자.  
 
