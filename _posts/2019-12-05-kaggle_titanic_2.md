@@ -29,7 +29,10 @@ last_modified_at: 2019-12-05T19:00-19:30
 ---
 
 
-## 개요  
+# 개요  
+
+![jpg](/assets/images/kaggle_logo.jpg){: .align-center}{: width="60%" height="60%"} 
+
 
 사실 데이터 분석 프로젝트라는게 교과서적으로  
 EDA > Feature Engineering > Modeling > Validation > Application 뭐 이렇게 딱 정해진 순서로 가야한다는 법은 없다.  
@@ -58,7 +61,9 @@ train['Survived'] = train['Survived'].astype(int)
 test = pd.read_csv(mydir + "test.csv", dtype=str)
 ```
 
-## 1. 텍스트 전처리(Name)  
+  
+<br/>
+# 1. 텍스트 전처리(Name)  
 
 승객 이름의 정보에서 Mr., Miss. 등의 정보를 [정규표현식](https://yganalyst.github.io/data_handling/memo_6/)을 이용해서 추출한다.  
 
@@ -217,9 +222,11 @@ test['Name_fix'] = test['Name'].str.extract('( [A-Z]+\w*)', expand=False).str.st
 test['Name_fix'] = np.where(test['Name_fix'].isin(['Mr','Miss','Mrs','Master']), test['Name_fix'], 'Others')
 ```
 
-## 2. 결측치 처리(Age, Embarked)  
-
-### 2-1. Age  
+  
+<br/>
+# 2. 결측치 처리(Age, Embarked)  
+  
+## 2-1. Age  
 
 아까 생성했던 Name_fix컬럼의 그룹별 중앙값 나이로 결측치를 보완하자.   
 
@@ -231,7 +238,8 @@ for ls_df in [train, test]:
     ls_df['Age'] = np.where(ls_df['Age'].isnull(), ls_df['Age_median'], ls_df['Age'])
 ```
 
-### 2-2. Embarked  
+  
+## 2-2. Embarked  
 
 Embarked 같은 경우 결측치가 2개 밖에 없는데, [EDA](https://yganalyst.github.io/competition/kaggle_titanic_1/)에서 살펴 본 것 처럼 약 72%가 Southampton에 해당하기 때문에 결측값으로 그냥 넣어주기로 하자.  
 
@@ -241,7 +249,8 @@ Embarked 같은 경우 결측치가 2개 밖에 없는데, [EDA](https://yganaly
 train['Embarked'].fillna("S", inplace=True)
 ```
 
-### 2-3. Fare  
+  
+## 2-3. Fare  
 
 test 데이터에는 Fare컬럼에 1개의 결측치가 존재한다.  
 우선 단순하게 Pclass별 Fare의 중앙값으로 대체해 주기로하자.  
@@ -257,9 +266,11 @@ test['Fare_median'] = test.groupby(['Pclass'])['Fare'].transform('median')
 test['Fare'] = np.where(test['Fare'].isnull(), test['Fare_median'], test['Fare'])
 ```
 
-## 3. 파생변수 생성 (Age, SibSp & Parch)  
-
-### 3-1. 범주형 변수 변환(binning)    
+  
+<br/>
+# 3. 파생변수 생성 (Age, SibSp & Parch)  
+  
+## 3-1. 범주형 변수 변환(binning)    
 
 연령대의 경우 0세 - 80세 까지 넓은 연령층이 분포하고 있고 20대 - 40대 사이가 대부분을 차지하고 있었기 때문에, scale을 고르게 조절해주어 왜곡을 보정해줄 수 있다.  
 연속형 변수의 범주형 변수 변환으로 Binning이라고도 한다([참고](https://yganalyst.github.io/data_handling/Pd_7/)).  
@@ -313,7 +324,8 @@ test['Age_bin'] = pd.cut(test['Age'],
                           include_lowest = True)
 ```
 
-### 3-2. 가족 구성원 수 (SibSp & Parch)  
+  
+## 3-2. 가족 구성원 수 (SibSp & Parch)  
 
  - SibSp : 동반한 형제자매, 배우자 수 
  - Parch : 동반한 부모, 자식 수  
@@ -345,7 +357,9 @@ plt.show()
 test['Family_cnt'] = test['SibSp'].astype(int) + test['Parch'].astype(int)
 ```
 
-## 4. Feature추출 및 매핑  
+  
+<br/>
+# 4. Feature추출 및 매핑  
 
 1차적인 전처리가 마무리 되었다고 가정하고, 사용할 Feature만 추려보자.  
 

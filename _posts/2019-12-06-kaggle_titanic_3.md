@@ -28,10 +28,15 @@ tags:
 last_modified_at: 2019-12-06T19:00-19:30
 ---
 
+# 개요  
+
+![jpg](/assets/images/kaggle_logo.jpg){: .align-center}{: width="60%" height="60%"} 
 
 이번 포스팅에서는 기계학습이 가능한 형태로 정제된 데이터셋을 여러가지 모델에 적용하여 캐글 프로젝트에 제출해 보는 시간을 가져보기로 하자.  
 
-## 1. 문제 정의  
+  
+<br/>
+# 1. 문제 정의  
 
 - y가 이진변수(생존 or 사망)인 classification 문제  
 - 독립변수의 상관성, 다중공선성은 고려하지 않음  
@@ -122,7 +127,9 @@ train_data = train[feature_1[1:]].copy()
 target = train[['Survived']].copy()
 ```
 
-## 2. 모델선택 및 검증   
+  
+<br/>
+# 2. 모델선택 및 검증   
 
 binary classification 문제에서 공부했었던 대표적인 모델들을 사이킷런 라이브러리를 통해 사용해보자. 
 - Support Vector Machines  
@@ -196,8 +203,9 @@ for model in [SVC(),SGDClassifier(),RandomForestClassifier(),DecisionTreeClassif
     KNeighborsClassifier : 80.0%
     
 
-
-## 3. Test  
+  
+<br/>
+# 3. Test  
 
 교차검증 모델에서 가장 정확도가 높은 SVC를 선택하여, 이제 드디어 test 데이터셋에 적용해보자.  
 
@@ -269,7 +277,9 @@ submission_df.head()
 submission_df.to_csv('submission.csv', index=False)
 ```
 
-## 4. Submission  
+  
+<br/>
+# 4. Submission  
 
 이제 `submission.csv`파일을 제출해보자.  
 
