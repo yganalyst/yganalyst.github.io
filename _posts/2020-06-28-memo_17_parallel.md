@@ -26,11 +26,14 @@ last_modified_at: 2020-06-28T13:00-14:30
 
 # 개요  
 
+![jpg](/assets/images/python_logo.jpg){: .align-center}{: width="80%" height="80%"} 
+
 대용량 데이터를 다루기 위해서는 병렬처리 활용 방식을 필수적으로 알아두는게 필요하다. 데이터 전처리 방식들도 중요하지만 그 방식에 대한 연산속도 및 메모리 관리도 같이 해주는게 필요하다.  
 머신러닝/딥러닝 프레임워크를 활용하게 되면 학습 과정에서 function내 병렬처리 되도록 기능을 제공하지만, 데이터 가공 과정에서 주로 활용하는 Pandas에서는 따로 제공하지 않는다.  
 - 추가로 가상메모리에서 작업을 도와주는 Dask 라이브러리도 업로드할 예정이다.
 
   
+<br/>
 # Multiprocessing  
 
 파이썬 `multiprocessing`라이브러리의 `Pool`과 `Process`를 활용하여 병렬구조로 연산을 처리할 수 있다.  
@@ -247,7 +250,8 @@ value 8 is in PID : 32832
 
 
   
-## Reference  
+<br/>
+# Reference  
 
 https://inma.tistory.com/104  
 
