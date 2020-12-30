@@ -1,0 +1,298 @@
+---
+title:  "[군집분석] 계층적,비계층적(K-means, DBSCAN) 클러스터링"
+excerpt: "클러스터링의 종류와 구현 방법에 대해 알아보자"
+toc: true
+toc_sticky: true
+header:
+  teaser: /assets/images/tens_sci.png
+
+categories:
+  - ML
+
+tags:
+  - python
+  - 데이터
+  - 기초
+  - 데이터 분석
+  - 머신러닝
+  - clustering
+
+last_modified_at: 2020-12-30T20:00-20:30
+---
+
+# 개요  
+
+![png](/assets/images/tens_sci.png){: .align-center}{: width="60%" height="60%"} 
+
+이번 포스팅에서는 군집분석(clustering)의 종류와 구현 방법에 대해서 알아보자.  
+
+군집분석이란 개체들을 분류(classification)하기 위한 기준이 없는 상태에서 주어진 데이터의 속성값들을 고려해 유사한 개체끼리 그룹(클러스터)화하는 방법이다. 그룹내 차이를 줄이고 그룹간 차이는 최대화 하도록 하여 대표성을 찾는 원리로 구현되는 것이 일반적이다.  
+즉, 비지도 학습(Unsupervised Learning)에 해당된다.  
+
+## 군집분석의 유형  
+
+다양한 군집분석(Clustering) 방법들이 생겨나고 있지만 큰 유형은 다음과 같다.  
+
+
+- **비계층적 군집분석(Non-Hierarchical Clustering)**  
+ - 중심 기반(Center-based) : ex. K-menas  
+ - 밀도 기반(Density-based) : ex. DBSCAN  
+
+- **계층적 군집분석(Hierarchical Clustering)**  
+
+이 유형들에 대해 세부적으로 알아보고 Python으로 구현해보자.  
+
+  
+<br/>
+# 1. 비계층적 군집분석  
+
+비계층적 군집분석(Non-Hierarchical Clustering)이란, 말그대로 계층을 두지않고 그룹화를 할 유사도 측정 방식에 따라 최적의 계속적으로 그룹(cluster)을 찾아나가는 방법이다.  
+
+## 1-1. K-means algorithm  
+
+K-means는 중심기반(Center-based) 클러스터링 방법으로 유사한 데이터는 중심점(centroid)을 기반으로 분포할 것이다는 가정을 기반으로 한다.  
+
+n개의 데이터와 k(<=n)개의 중심점(centroid)이 주어졌을때 각 그룹 내의 데이터와 중심점간의 비용(거리)을 최소화하는 방향으로 계속 업데이트를 해줌으로써 그룹화를 수행하는 기법이다.  
+
+말이 어려우니 아래 그림과 함께 보자  
+
+![png](/assets/images/ML/clustering/kmeans1.png){: .align-center}  
+
+**1. 초기점(k) 설정**
+
+- k는 중심점(centroid)이자, 묶일 그룹(cluster)의 수와 같다.  
+- 위 예시에서는 k=3으로 설정
+
+**2. 그룹(cluster) 부여**
+
+- k개의 중심점(원)과 개별 데이터(네모)간의 거리를 측정한다.  
+- 가장 가까운 중심점으로 데이터를 부여한다.  
+
+
+**3. 중심점(centroid) 업데이트**
+
+- 할당된 데이터들의 평균값(mean)으로 새로운 중심점(centroid)을 업데이트한다.  
+
+**4. 최적화**
+
+- 2,3번 작업을 반복적으로 수행한다.  
+- 변화가 없으면 작업을 중단한다.  
+
+결국 아래와 같은 목적함수를 최소화하는 것을 목표로 하는 알고리즘인 것이다.
+
+![png](/assets/images/ML/clustering/kmeans2.png)
+
+> 3번의 중심점 업데이트를 위해 평균값(mean)을 사용하기 때문에 K-means라고 불리며, 이상치에 영향을 받는 단점을 보완하기 위해 중간값(medoids)을 활용한 K-medoids방법도 있다.  
+
+Python의 Scikit learn 라이브러리에서 제공하는 `KMeans`함수로 이를 간단하게 구현할 수 있다.  
+
+`KMeans(n_cluster=, init=, random_state=)`  
+
+함수의 파라미터는 위 3가지 정도만 알아두면 될 것 같다.  
+
+- `n_cluster` : k의 수  
+- `init` : 초기값 지정(default는 random)(배열의 수는 k와 동일해야함)  
+- `random_state` : random 시드 설정  
+
+K-means는 초기값에 따라 군집이 다르게 형성되므로 매번 다른 결과가 나오는 것을 방지하기 위해, 직접 초기값을 지정하거나(`init`) 시드를 고정(`random_state`)하는 방법이 있다.  
+
+예제 데이터는 Iris 데이터를 사용하였다  
+
+```python
+from sklearn import datasets
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+iris = datasets.load_iris()
+df = pd.DataFrame(iris.data)
+df.columns=['Sepal length','Sepal width','Petal length','Petal width']
+df = df[['Sepal length','Sepal width']].copy() 
+
+df.head()
+```
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sepal length</th>
+      <th>Sepal width</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+초기값 3개를 직접 지정하였고 가시적으로 확인하기 위하여 2개 변수만 사용하려고 한다.  
+
+
+```python
+x1,y1 = 5, 3.5
+x2,y2 = 6, 3
+x3,y3 = 7.5, 4
+
+plt.figure(figsize=(7,5))
+plt.title("Before", fontsize=15)
+plt.plot(df["Sepal length"], df["Sepal width"], "o", label="Data")
+plt.plot([x1,x2,x3], [y1,y2,y3], "rD", markersize=12, label='init_Centroid')
+plt.xlabel("Sepal length", fontsize=12)
+plt.ylabel("Sepal width", fontsize=12)
+plt.legend()
+plt.grid()
+plt.show()
+```
+
+
+![png](/assets/images/ML/clustering/output_3_0.png)
+
+
+이제 `KMeans`함수로 학습을 한 후에, 결과를 추출해보자.  
+
+- `labels_` : 최종적으로 군집화된 라벨을 추출  
+- `cluster_centers_` : 최종 중심점(centroid) 배열을 추출  
+
+
+```python
+from sklearn.cluster import KMeans
+kmeans = KMeans(n_clusters=3, init=np.array([(x1,y1),(x2,y2),(x3,y3)])).fit(df)
+df['cluster'] = kmeans.labels_
+final_centroid = kmeans.cluster_centers_
+```
+
+
+```python
+plt.figure(figsize=(7,5))
+plt.title("After", fontsize=15)
+plt.scatter(df['Sepal length'],df['Sepal width'],c=df['cluster'])
+plt.plot(final_centroid[:,0], final_centroid[:,1], "rD", markersize=12, label='final_Centroid')
+plt.xlabel("Sepal length", fontsize=12)
+plt.ylabel("Sepal width", fontsize=12)
+plt.legend()
+plt.grid()
+plt.show()
+```
+
+![png](/assets/images/ML/clustering/output_6_0.png)
+
+중심값(Centroid)이 이동하였고, 이것을 기반으로 군집화된 결과를 확인할 수 있다.  
+
+
+## 1-2. DBSCAN algorithm  
+
+DBSCAN는 밀도기반(Density-based) 클러스터링 방법으로 유사한 데이터는 서로 근접하게 분포할 것이다는 가정을 기반으로 한다. 위의 K-means와 달리 처음의 그룹의 수(k)를 설정하지 않고 자동적으로 최적의 그룹 수를 찾아나간다.  
+
+아래 그림을 통해 그 원리를 알아보자.  
+
+![png](/assets/images/ML/clustering/dbscan1.png){: .align-center}  
+
+- minPts : 반경 내 최소 개체(point) 수  
+- eps(epsilon) : 군집화할 반경  
+- Core : 중심점(minPts를 만족할 경우)  
+- Border : 경계점(minPts를 만족하진 않지만, 어느 Core 반경에 속한 경우)  
+- Noise : 어느 군집에도 속하지 않는 점  
+
+하나하나 살펴보자.  
+
+1. 먼저 하나의 점(파란색)을 중심으로 반경(eps) 내에 최소 점이 4개(minPts=4)이상 있으면, 하나의 군집으로 판단하며 해당 점(파란색)은 Core가 된다.  
+2. 반경 내에 점이 3개 뿐이므로 Core가 되진 않지만 Core1의 군집에 포함된 점으로, 이는 Border가 된다.  
+3. 1번과 마찬가지로 Core가 된다.  
+4. 그런데 반경내의 점중에 Core1이 포함되어 있어 군집을 연결하여 하나의 군집으로 묶인다.  
+
+이와 같은 방식으로 군집의 확산을 반복하면서, 자동으로 최적의 군집수가 도출된다.  
+
+![png](/assets/images/ML/clustering/dbscan2.png){: .align-center}  
+
+Python의 Scikit learn 라이브러리에서 제공하는 `DBSCAN`함수로 이를 간단하게 구현할 수 있다.  
+
+`DBSCAN(eps=, min_samples=)`  
+
+- `eps` : 반경 설정(속성값의 단위)  
+- `min_samples` : 최소 개체 수  
+
+함수의 파라미터는 위 2가지 정도만 알아두면 될 것 같다.  
+
+밀도기반 군집화의 명확한 이해를 위해, 예제 데이터로 Moon 데이터셋을 활용하였다.  
+
+
+
+
+
+## K-means와 DBSCAN 비교  
+
+
+
+
+
+
+
+# 2. 계층적 군집분석  
+
+
+
+
+
+
+
+
+  
+<br/>
+# Reference  
+
+https://brilliant.org/wiki/k-means-clustering/
+
+https://www.saedsayad.com/clustering_kmeans.htm
+
+https://bcho.tistory.com/1203
+
+https://bcho.tistory.com/1205
+
+https://todayisbetterthanyesterday.tistory.com/62
+
+https://blog.naver.com/PostView.nhn?blogId=bsw2428&logNo=221400954483&parentCategoryNo=&categoryNo=35&viewDate=&isShowPopularPosts=true&from=search
+
+https://m.blog.naver.com/PostView.nhn?blogId=samsjang&logNo=221023672149&proxyReferer=https:%2F%2Fwww.google.com%2F
+
