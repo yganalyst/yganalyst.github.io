@@ -22,7 +22,7 @@ last_modified_at: 2020-12-30T20:00-20:30
 
 # 개요  
 
-![png](/assets/images/tens_sci.png){: .align-center}{: width="60%" height="60%"} 
+![png](/assets/images/tens_sci.png){: .align-center}  
 
 이번 포스팅에서는 군집분석(clustering)의 종류와 구현 방법에 대해서 알아보자.  
 
@@ -35,8 +35,8 @@ last_modified_at: 2020-12-30T20:00-20:30
 
 
 - **비계층적 군집분석(Non-Hierarchical Clustering)**  
- - 중심 기반(Center-based) : ex. K-menas  
- - 밀도 기반(Density-based) : ex. DBSCAN  
+  - 중심 기반(Center-based) : ex. K-menas  
+  - 밀도 기반(Density-based) : ex. DBSCAN  
 
 - **계층적 군집분석(Hierarchical Clustering)**  
 
@@ -80,7 +80,7 @@ n개의 데이터와 k(<=n)개의 중심점(centroid)이 주어졌을때 각 그
 
 결국 아래와 같은 목적함수를 최소화하는 것을 목표로 하는 알고리즘인 것이다.
 
-![png](/assets/images/ML/clustering/kmeans2.png)
+![png](/assets/images/ML/clustering/kmeans2.png){: width="60%" height="60%"}  
 
 > 3번의 중심점 업데이트를 위해 평균값(mean)을 사용하기 때문에 K-means라고 불리며, 이상치에 영향을 받는 단점을 보완하기 위해 중간값(medoids)을 활용한 K-medoids방법도 있다.  
 
@@ -227,7 +227,7 @@ DBSCAN는 밀도기반(Density-based) 클러스터링 방법으로 유사한 데
 
 아래 그림을 통해 그 원리를 알아보자.  
 
-![png](/assets/images/ML/clustering/dbscan1.png){: .align-center}  
+![png](/assets/images/ML/clustering/dbscan1.png){: .align-center}{: width="60%" height="60%"}  
 
 - minPts : 반경 내 최소 개체(point) 수  
 - eps(epsilon) : 군집화할 반경  
@@ -244,10 +244,14 @@ DBSCAN는 밀도기반(Density-based) 클러스터링 방법으로 유사한 데
 
 이와 같은 방식으로 군집의 확산을 반복하면서, 자동으로 최적의 군집수가 도출된다.  
 
-![png](/assets/images/ML/clustering/dbscan2.png){: .align-center}  
+![png](/assets/images/ML/clustering/dbscan2.png){: .align-center}{: width="80%" height="80%"}    
 
-Python의 Scikit learn 라이브러리에서 제공하는 `DBSCAN`함수로 이를 간단하게 구현할 수 있다.  
+Python으로 이제 구현해보자.  
 
+밀도기반 군집화의 명확한 이해를 위해, 예제 데이터로 Moon 데이터셋을 활용하였다.  
+Moon 데이터는 `make_moons`함수로 생성할 수 있으며 샘플 수(`n_samples`)와 분산정도(`noise`)를 조절해서 생성할 수 있다.  
+
+Scikit learn 라이브러리에서 제공하는 `DBSCAN`함수로 이를 간단하게 구현할 수 있다.  
 `DBSCAN(eps=, min_samples=)`  
 
 - `eps` : 반경 설정(속성값의 단위)  
@@ -255,20 +259,157 @@ Python의 Scikit learn 라이브러리에서 제공하는 `DBSCAN`함수로 이�
 
 함수의 파라미터는 위 2가지 정도만 알아두면 될 것 같다.  
 
-밀도기반 군집화의 명확한 이해를 위해, 예제 데이터로 Moon 데이터셋을 활용하였다.  
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import make_moons
+
+x,y = make_moons(n_samples=300, noise=0.05, random_state=42)
+df=pd.DataFrame(x)
+df.head()
+```
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.622519</td>
+      <td>-0.372101</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.904269</td>
+      <td>-0.136303</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.069431</td>
+      <td>0.456117</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.933899</td>
+      <td>0.237483</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.180360</td>
+      <td>-0.490847</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 
+산점도를 뿌려보면 다음과 같다.  
 
+
+```python
+plt.figure(figsize=(7,5))
+plt.title("Before", fontsize=15)
+plt.plot(df[0], df[1], "o")
+plt.grid()
+plt.show()
+```
+
+
+![png](/assets/images/ML/clustering/output_2_0.png)
+
+
+이제 `DBSCAN`함수로 클러스터링을 수행해보자.  
+
+
+```python
+from sklearn.cluster import DBSCAN
+db_scan = DBSCAN(eps=0.3, min_samples=5).fit(df.values)
+df['cluster_db'] = db_scan.labels_
+```
+
+
+```python
+plt.figure(figsize=(7,5))
+plt.title("After - DBSCAN", fontsize=15)
+plt.scatter(df[0],df[1],c=df['cluster_db'])
+plt.grid()
+plt.show()
+```
+
+![png](/assets/images/ML/clustering/output_5_0.png)
+
+
+이와 같이 밀도 기반(Density-based)의 특징을 잘 보여줄 수 있는 예제이다.  
+
+그럼 동일 데이터로 K-means를 수행하면 어떨까?  
 
 ## K-means와 DBSCAN 비교  
 
+위와 동일한 Moon 데이터셋으로 `KMeans`를 활용해 작업을 수행해본 결과이다.  
 
 
+```python
+from sklearn.cluster import KMeans
+kmeans_ = KMeans(n_clusters=2, random_state=42).fit(df.values)
+df['cluster_km'] = kmeans_.labels_
+```
 
 
+```python
+plt.figure(figsize=(7,5))
+plt.title("After - KMeans", fontsize=15)
+plt.scatter(df[0],df[1],c=df['cluster_km'])
+plt.grid()
+plt.show()
+```
 
 
+![png](/assets/images/ML/clustering/output_10_0.png)
+
+
+앞서 배웠던 내용처럼 K-menas 군집분석 방법은 중심점(Centroid)라는 개념이 있으며, 이 중심점은 평균값(mean)에 의해 갱신되는 특징을 가지고 있기 때문이다.  
+
+이렇게 기하학적인 특징을 가진 데이터나 이상치가 있는 경우 K-menas는 왜곡된 결과를 초래할 가능성이 있으므로 EDA(탐색적 자료분석)를 통해 적절한 방법론을 적용할 줄 알아야 한다.  
+
+
+**K-menas**
+
+  - 군집의 수(k)를 미리 결정  
+  - 중심점(Centroid) 갱신을 통해 비용함수를 최적화  
+  - 이상치에 영향을 많이 받음  
+
+**DBSCAN**
+
+  - 반경(eps), 최소 개체 수(minPts)를 미리 결정  
+  - 자동적으로 군집의 수 결정  
+  - 군집 간 개체들이 섞이지 않음(최소 반경 내에 한해서)  
+  - 노이즈 개념으로 이상치 검출이 가능  
+
+
+  
+<br/>
 # 2. 계층적 군집분석  
 
 
