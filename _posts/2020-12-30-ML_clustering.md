@@ -270,7 +270,7 @@ DBSCAN는 밀도기반(Density-based) 클러스터링 방법으로 유사한 데
 
 이와 같은 방식으로 군집의 확산을 반복하면서, 자동으로 최적의 군집수가 도출된다.  
 
-![png](/assets/images/ML/clustering/dbscan2.png){: .align-center}{: width="40%" height="40%"}    
+![png](/assets/images/ML/clustering/dbscan2.png){: .align-center}{: width="50%" height="50%"}    
 
 Python으로 이제 구현해보자.  
 
