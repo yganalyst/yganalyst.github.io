@@ -15,14 +15,38 @@ tags:
   - 기초
   - 데이터 분석
   - 머신러닝
+  - hierarchical
   - clustering
+  - kmeans
+  - DBSCAN
+  - 중심기반
+  - 밀도기반
+  - 비계층
+  - 계층
+  - 클러스터링
+  - 군집분석
+  - sklearn
+  - centroid
+  - cluster_centers
+  - labels
+  - n_cluster
+  - init
+  - minpts
+  - eps
+  - epsilon
+  - core
+  - border
+  - noise
+  - make_moons
+  - min_sample
+  - 
 
 last_modified_at: 2020-12-30T20:00-20:30
 ---
 
 # 개요  
 
-![png](/assets/images/tens_sci.png){: .align-center}  
+![png](/assets/images/tens_sci.png){: .align-center}{: width="80%" height="80%"}  
 
 군집분석(clustering)이란 개체들을 분류(classification)하기 위한 기준이 없는 상태에서 주어진 데이터의 속성값들을 고려해 유사한 개체끼리 그룹(클러스터)화하는 방법이다. 그룹내 차이를 줄이고 그룹간 차이는 최대화 하도록 하여 대표성을 찾는 원리로 구현되는 것이 일반적이다.  
 즉, 비지도 학습(Unsupervised Learning)에 해당된다.  
@@ -246,7 +270,7 @@ DBSCAN는 밀도기반(Density-based) 클러스터링 방법으로 유사한 데
 
 이와 같은 방식으로 군집의 확산을 반복하면서, 자동으로 최적의 군집수가 도출된다.  
 
-![png](/assets/images/ML/clustering/dbscan2.png){: .align-center}{: width="60%" height="60%"}    
+![png](/assets/images/ML/clustering/dbscan2.png){: .align-center}{: width="40%" height="40%"}    
 
 Python으로 이제 구현해보자.  
 
