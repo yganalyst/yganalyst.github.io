@@ -57,12 +57,12 @@ last_modified_at: 2020-12-30T20:00-20:30
 
 
 - **비계층적 군집분석(Non-Hierarchical Clustering)**  
-  - 중심 기반(Center-based) : ex. K-menas  
-  - 밀도 기반(Density-based) : ex. DBSCAN  
+  - 중심 기반(Center-based) : K-means  
+  - 밀도 기반(Density-based) : DBSCAN  
 
 - **계층적 군집분석(Hierarchical Clustering)**  
 
-이번 포스팅에서는 먼저 **비계층적 군집분석 방법**인 **K-menas**와 **DBSCAN**에 대해 세부적으로 알아보고 Python으로 구현해보자.  
+이번 포스팅에서는 먼저 **비계층적 군집분석 방법**인 **K-means**와 **DBSCAN**에 대해 세부적으로 알아보고 Python으로 구현해보자.  
 
   
 <br/>
@@ -415,12 +415,12 @@ plt.show()
 ![png](/assets/images/ML/clustering/output_10_0.png)
 
 
-앞서 배웠던 내용처럼 K-menas 군집분석 방법은 중심점(Centroid)라는 개념이 있으며, 이 중심점은 평균값(mean)에 의해 갱신되는 특징을 가지고 있기 때문이다.  
+앞서 배웠던 내용처럼 K-means 군집분석 방법은 중심점(Centroid)라는 개념이 있으며, 이 중심점은 평균값(mean)에 의해 갱신되는 특징을 가지고 있기 때문이다.  
 
-이렇게 기하학적인 특징을 가진 데이터나 이상치가 있는 경우 K-menas는 왜곡된 결과를 초래할 가능성이 있으므로 EDA(탐색적 자료분석)를 통해 적절한 방법론을 적용할 줄 알아야 한다.  
+이렇게 기하학적인 특징을 가진 데이터나 이상치가 있는 경우 K-means 왜곡된 결과를 초래할 가능성이 있으므로 EDA(탐색적 자료분석)를 통해 적절한 방법론을 적용할 줄 알아야 한다.  
 
 
-**K-menas**
+**K-means**
 
   - 군집의 수(k)를 미리 결정  
   - 중심점(Centroid) 갱신을 통해 비용함수를 최적화  
