@@ -1,6 +1,6 @@
 ---
-title:  "[군집분석] 계층적,비계층적(K-means, DBSCAN) 클러스터링"
-excerpt: "클러스터링의 종류와 구현 방법에 대해 알아보자"
+title:  "[클러스터링] 비계층적(K-means, DBSCAN) 군집분석"
+excerpt: "비계층적 군집분석 방법인 K-means와 DBSCAN에 대해 알아보자"
 toc: true
 toc_sticky: true
 header:
@@ -24,9 +24,7 @@ last_modified_at: 2020-12-30T20:00-20:30
 
 ![png](/assets/images/tens_sci.png){: .align-center}  
 
-이번 포스팅에서는 군집분석(clustering)의 종류와 구현 방법에 대해서 알아보자.  
-
-군집분석이란 개체들을 분류(classification)하기 위한 기준이 없는 상태에서 주어진 데이터의 속성값들을 고려해 유사한 개체끼리 그룹(클러스터)화하는 방법이다. 그룹내 차이를 줄이고 그룹간 차이는 최대화 하도록 하여 대표성을 찾는 원리로 구현되는 것이 일반적이다.  
+군집분석(clustering)이란 개체들을 분류(classification)하기 위한 기준이 없는 상태에서 주어진 데이터의 속성값들을 고려해 유사한 개체끼리 그룹(클러스터)화하는 방법이다. 그룹내 차이를 줄이고 그룹간 차이는 최대화 하도록 하여 대표성을 찾는 원리로 구현되는 것이 일반적이다.  
 즉, 비지도 학습(Unsupervised Learning)에 해당된다.  
 
 ## 군집분석의 유형  
@@ -40,15 +38,15 @@ last_modified_at: 2020-12-30T20:00-20:30
 
 - **계층적 군집분석(Hierarchical Clustering)**  
 
-이 유형들에 대해 세부적으로 알아보고 Python으로 구현해보자.  
+이번 포스팅에서는 먼저 **비계층적 군집분석 방법**인 **K-menas**와 **DBSCAN**에 대해 세부적으로 알아보고 Python으로 구현해보자.  
 
   
 <br/>
-# 1. 비계층적 군집분석  
+# 비계층적 군집분석  
 
 비계층적 군집분석(Non-Hierarchical Clustering)이란, 말그대로 계층을 두지않고 그룹화를 할 유사도 측정 방식에 따라 최적의 계속적으로 그룹(cluster)을 찾아나가는 방법이다.  
 
-## 1-1. K-means algorithm  
+## K-means  
 
 K-means는 중심기반(Center-based) 클러스터링 방법으로 유사한 데이터는 중심점(centroid)을 기반으로 분포할 것이다는 가정을 기반으로 한다.  
 
@@ -57,6 +55,8 @@ n개의 데이터와 k(<=n)개의 중심점(centroid)이 주어졌을때 각 그
 말이 어려우니 아래 그림과 함께 보자  
 
 ![png](/assets/images/ML/clustering/kmeans1.png){: .align-center}  
+
+*출처 : https://brilliant.org/wiki/k-means-clustering/  
 
 **1. 초기점(k) 설정**
 
@@ -80,7 +80,9 @@ n개의 데이터와 k(<=n)개의 중심점(centroid)이 주어졌을때 각 그
 
 결국 아래와 같은 목적함수를 최소화하는 것을 목표로 하는 알고리즘인 것이다.
 
-![png](/assets/images/ML/clustering/kmeans2.png){: width="60%" height="60%"}  
+![png](/assets/images/ML/clustering/kmeans2.png){: width="70%" height="70%"}  
+
+*출처 : https://www.saedsayad.com/clustering_kmeans.htm  
 
 > 3번의 중심점 업데이트를 위해 평균값(mean)을 사용하기 때문에 K-means라고 불리며, 이상치에 영향을 받는 단점을 보완하기 위해 중간값(medoids)을 활용한 K-medoids방법도 있다.  
 
@@ -221,13 +223,13 @@ plt.show()
 중심값(Centroid)이 이동하였고, 이것을 기반으로 군집화된 결과를 확인할 수 있다.  
 
 
-## 1-2. DBSCAN algorithm  
+## DBSCAN  
 
 DBSCAN는 밀도기반(Density-based) 클러스터링 방법으로 유사한 데이터는 서로 근접하게 분포할 것이다는 가정을 기반으로 한다. 위의 K-means와 달리 처음의 그룹의 수(k)를 설정하지 않고 자동적으로 최적의 그룹 수를 찾아나간다.  
 
 아래 그림을 통해 그 원리를 알아보자.  
 
-![png](/assets/images/ML/clustering/dbscan1.png){: .align-center}{: width="60%" height="60%"}  
+![png](/assets/images/ML/clustering/dbscan1.png){: .align-center}{: width="80%" height="80%"}  
 
 - minPts : 반경 내 최소 개체(point) 수  
 - eps(epsilon) : 군집화할 반경  
@@ -244,7 +246,7 @@ DBSCAN는 밀도기반(Density-based) 클러스터링 방법으로 유사한 데
 
 이와 같은 방식으로 군집의 확산을 반복하면서, 자동으로 최적의 군집수가 도출된다.  
 
-![png](/assets/images/ML/clustering/dbscan2.png){: .align-center}{: width="80%" height="80%"}    
+![png](/assets/images/ML/clustering/dbscan2.png){: .align-center}{: width="60%" height="60%"}    
 
 Python으로 이제 구현해보자.  
 
@@ -408,16 +410,6 @@ plt.show()
   - 노이즈 개념으로 이상치 검출이 가능  
 
 
-  
-<br/>
-# 2. 계층적 군집분석  
-
-
-
-
-
-
-
 
   
 <br/>
@@ -425,15 +417,11 @@ plt.show()
 
 https://brilliant.org/wiki/k-means-clustering/
 
-https://www.saedsayad.com/clustering_kmeans.htm
-
 https://bcho.tistory.com/1203
 
 https://bcho.tistory.com/1205
 
 https://todayisbetterthanyesterday.tistory.com/62
-
-https://blog.naver.com/PostView.nhn?blogId=bsw2428&logNo=221400954483&parentCategoryNo=&categoryNo=35&viewDate=&isShowPopularPosts=true&from=search
 
 https://m.blog.naver.com/PostView.nhn?blogId=samsjang&logNo=221023672149&proxyReferer=https:%2F%2Fwww.google.com%2F
 
