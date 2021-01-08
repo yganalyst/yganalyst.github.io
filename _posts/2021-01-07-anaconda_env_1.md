@@ -41,7 +41,7 @@ last_modified_at: 2021-01-07T20:00-20:30
 
 # 개요  
 
-![png](/assets/images/anaconda.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/anaconda.PNG){: .align-center}{: width="80%" height="80%"}  
 
 이번 포스팅에서는 가상환경(virtual environment)에 대해 알아보려고 한다. 파이썬을 처음 설치하고 배우기 시작할때 접하게 되는 개념이지만, 처음이라 그런지 무슨 말인지도 모르겠고 그냥 넘어갔던 기억이 난다. 컴퓨터와 파이썬이라는 언어와 꽤 친해지고 여러 오류들을 만난 뒤에서야 가상환경의 필요성을 느꼈고, 이번 기회에 제대로 개념을 알고 활용방법을 익히는 시간을 가지면 좋을 것 같다.  
 
@@ -53,7 +53,7 @@ last_modified_at: 2021-01-07T20:00-20:30
 
 또한 프로젝트마다 활용하는 다양한 라이브러리(특히 tensorflow 같은 경우)끼리 호환문제도 적지 않다. 다른 환경(컴퓨터, 서버 등)에서 동일한 작업을 하려면 이 환경을 똑같이 언제 다 만들까?  
 
-![png](/assets/images/anaconda/env_structure.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/anaconda/env_structure.PNG){: .align-center}{: width="80%" height="80%"}  
 *출처 : https://django-easy-tutorial.blogspot.com/2015/08/python-virtual-environment-setup-in-ubuntu.html  
 
 이런 작업 환경들을 프로젝트별로 관리하고(like 폴더 개념) 공유도 할 수 있도록 도와주는 것이 바로 가상환경이다.  
@@ -66,7 +66,7 @@ last_modified_at: 2021-01-07T20:00-20:30
 
 Anaconda 설치 완료된 이후부터의 설명이므로, Anaconda 설치를 먼저 하고 참고해야 한다.  
 
-![png](/assets/images/anaconda/first_view.png)  
+![png](/assets/images/anaconda/first_view.PNG)  
 
 설치 후 Anaconda Prompt 실행화면.  
 
@@ -81,11 +81,11 @@ $ conda create -n 가상환경이름 python=버전
 
 나는 현재 아나콘다는 3.8로 받았기 때문에, Python 3.7 버전으로 `py37_test`라는 이름의 가상환경을 생성했다.  
 
-![png](/assets/images/anaconda/1.png)  
+![png](/assets/images/anaconda/1.PNG)  
 
 가상환경 설정이 완료되고 나면, `Anaconda3/env/`경로에 들어가면 생성한 `py37_test`폴더를 볼 수 있다(나의 경우 Anaconda를 D드라이브에 설치했다).  
 
-![png](/assets/images/anaconda/2.png)  
+![png](/assets/images/anaconda/2.PNG)  
 
 ## 2. 가상환경 확인하기  
 
@@ -95,7 +95,7 @@ $ conda create -n 가상환경이름 python=버전
 $ conda info --envs
 ```
 
-![png](/assets/images/anaconda/3.png)  
+![png](/assets/images/anaconda/3.PNG)  
 
 
 ## 3. 가상환경 활성화하기  
@@ -106,7 +106,7 @@ $ conda info --envs
 $ conda activate 가상환경이름
 ```
 
-![png](/assets/images/anaconda/4.png)  
+![png](/assets/images/anaconda/4.PNG)  
 
 앞의 환경을 보여주는 괄호`()`가 base에서 `py37_test`로 변경된 것을 알 수 있다.  
 
@@ -119,7 +119,7 @@ $ conda activate 가상환경이름
 $ conda deactivate
 ```
 
-![png](/assets/images/anaconda/5.png)  
+![png](/assets/images/anaconda/5.PNG)  
 
 
 ## 5. 가상환경에 라이브러리 설치하기  
@@ -158,7 +158,7 @@ $ conda activate 가상환경이름
 $ conda list
 ```
 
-![png](/assets/images/anaconda/6.png)  
+![png](/assets/images/anaconda/6.PNG)  
 
 Geopandas가 잘 설치된 것을 확인할 수 있다.  
 
@@ -177,7 +177,7 @@ $ conda create -n 복사된_가상환경이름 --clone 복사할_가상환경이
 
 복사가 완료 된 후 아까 배운 `conda info --envs`를 통해 가상환경을 확인해보면,  
 
-![png](/assets/images/anaconda/7.png)  
+![png](/assets/images/anaconda/7.PNG)  
 
 `py37_copy`가 새로 생긴 것을 알 수 있다.  
 
@@ -203,11 +203,11 @@ $ pip freeze > requirements.txt
 
 아까 만든 `py37_test` 가상환경의 패키지 목록을 내보내보자.  
 
-![png](/assets/images/anaconda/8.png)  
+![png](/assets/images/anaconda/8.PNG)  
 
 `requirments.txt`파일은 프롬프트의 경로에 저장된다(여기서는 `C:\Users\user`).  
 
-![png](/assets/images/anaconda/9.png)  
+![png](/assets/images/anaconda/9.PNG)  
 
 아까 설치했던 Geopandas 라이브러리도 보인다!  
 
