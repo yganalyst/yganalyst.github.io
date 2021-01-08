@@ -59,7 +59,7 @@ last_modified_at: 2021-01-08T20:00-20:30
 
 2019년 기준 IDE의 순위는 아래와 같다(Python이 호환되지 않는 IDE도 포함).  
 
-![png](/assets/images/anaconda/ide_rank.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/anaconda/ide_rank.png){: .align-center}{: width="90%" height="90%"}  
 *출처 : https://businessoverbroadway.com/2020/07/14/most-popular-integrated-development-environments-ides-used-by-data-scientists/  
 
 나는 주로 Jupyter notebook과 Spyder를 사용한다. 개인적으로 Pycharm에 유용한 기능들이 많지만 무겁게 느껴져서 Spyder를 쓰는 편이다. Spyder가 R과 유사한 UI를 가져서 그런지 익숙하고 기능도 요즘엔 많이 개선되어 딱히 불편한 점 없이 사용하고 있다.  
