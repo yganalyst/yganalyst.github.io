@@ -1,13 +1,13 @@
 ---
 title:  "[Anaconda] 아나콘다 가상환경 IDE와 연동하기"
-excerpt: "가상환경을 사용하는 IDE와 연동하여 작업 환경을 만들어보자!"
+excerpt: "jupyter notebook, spyder에 가상환경을 연결시켜보자!"
 toc: true
 toc_sticky: true
 header:
   teaser: /assets/images/anaconda.png
 
 categories:
-  - ML
+  - pythonic
 
 tags:
   - python
@@ -50,16 +50,16 @@ last_modified_at: 2021-01-08T20:00-20:30
 
 ![png](/assets/images/anaconda.png){: .align-center}{: width="80%" height="80%"}  
 
-이번 포스팅에서는 [저번 포스팅](https://yganalyst.github.io/ml/anaconda_env_1/)에서 생성했던 가상환경을 IDE에 연동하여 작업환경을 만드는 것에 대해 알아보고자 한다.  
+이번에는 [저번 포스팅](https://yganalyst.github.io/ml/anaconda_env_1/)에서 생성했던 가상환경을 IDE에 연동하여 작업환경을 만드는 것에 대해 알아보고자 한다.  
 
 ## IDE 란?  
 
 간단하게 IDE가 무엇인지 알아보고 넘어가자.  
-> 통합개발환경(Integerated Development Environment, IDE)이란 소위 말하는 개발 환경(또는 툴)을 말하며, GUI환경에서 코딩(텍스트 편집기), 디버깅, 컴파일, 배포 등 개발에 필요한 작업들을 하나의 프로그램에서 처리하도록 환경을 제공해주는 소프트웨어 라고 할 수 있다.  
+> 통합개발환경(Integerated Development Environment, IDE)이란 소위 말하는 개발 환경(또는 툴)을 말하며, GUI환경에서 코딩(텍스트 편집기), 디버깅, 컴파일, 배포 등 개발에 필요한 작업들을 하나의 프로그램에서 처리할 수 있도록 환경을 제공해주는 소프트웨어 라고 할 수 있다.  
 
 2019년 기준 IDE의 순위는 아래와 같다(Python이 호환되지 않는 IDE도 포함).  
 
-![png](/assets/images/ide_rank.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/anaconda/ide_rank.png){: .align-center}{: width="80%" height="80%"}  
 *출처 : https://businessoverbroadway.com/2020/07/14/most-popular-integrated-development-environments-ides-used-by-data-scientists/  
 
 나는 주로 Jupyter notebook과 Spyder를 사용한다. 개인적으로 Pycharm에 유용한 기능들이 많지만 무겁게 느껴져서 Spyder를 쓰는 편이다. Spyder가 R과 유사한 UI를 가져서 그런지 익숙하고 기능도 요즘엔 많이 개선되어 딱히 불편한 점 없이 사용하고 있다.  
@@ -103,21 +103,23 @@ $ conda install ipykernel
 $ python -m ipykernel install --user --name 가상환경이름 --display-name "표시할이름"
 ```
 
+나는 가상환경 `py37_test`를 `test_test`라는 이름으로 kerenel을 연결하였다.  
+
 ![png](/assets/images/anaconda/10.PNG)  
 
-연결이 완료된 것을 알 수 있고, 그냥 Base 프롬프트에서 Jupyter notebook을 열어 잘 적용됐는지 확인해보자.  
+이제 Base 프롬프트에서 Jupyter notebook을 열어 잘 적용됐는지 확인해보자.  
 
 
 ![png](/assets/images/anaconda/11.PNG)  
 
 ![png](/assets/images/anaconda/kernel.PNG)  
 
-잘 적용된 것을 알 수 있다!!  
+
 
   
-## 3. Kernel 연동 해제하기  
+## 3. Kernel 연결 해제하기  
 
-연동을 다시 해제하고 싶으면 다음과 같이 하면 된다.  
+연결한 kernel을 다시 해제하고 싶으면 다음과 같이 하면 된다.  
 
 ```
 $ jupyter kernelspec unisnstall 가상환경이름
@@ -125,25 +127,13 @@ $ jupyter kernelspec unisnstall 가상환경이름
 
 ![png](/assets/images/anaconda/12.PNG)  
 
-## 4. Kernel 연동 오류 해결  
+## 4. Kernel 연결 오류 해결  
 
-연동하는 것 까지는 성공했는데, Jupyter notebook에서 실제로 이 Kerenel을 적용해서 작업을 하려고 했을때 다음과 같은 오류가 있었다.  
+연결하는 것 까지는 성공했는데, Jupyter notebook에서 실제로 이 Kerenel을 적용해서 작업을 하려고 했을때 다음과 같은 오류가 있었다.  
 
 ```
 Traceback (most recent call last):
-  File "D:\Anaconda3\envs\py37_test\lib\runpy.py", line 193, in _run_module_as_main
-    "__main__", mod_spec)
-  File "D:\Anaconda3\envs\py37_test\lib\runpy.py", line 85, in _run_code
-    exec(code, run_globals)
-  File "D:\Anaconda3\envs\py37_test\lib\site-packages\ipykernel_launcher.py", line 15, in <module>
-    from ipykernel import kernelapp as app
-  File "D:\Anaconda3\envs\py37_test\lib\site-packages\ipykernel\__init__.py", line 2, in <module>
-    from .connect import *
-  File "D:\Anaconda3\envs\py37_test\lib\site-packages\ipykernel\connect.py", line 18, in <module>
-    import jupyter_client
-  File "D:\Anaconda3\envs\py37_test\lib\site-packages\jupyter_client\__init__.py", line 4, in <module>
-    from .connect import *
-  File "D:\Anaconda3\envs\py37_test\lib\site-packages\jupyter_client\connect.py", line 21, in <module>
+...중략
     import zmq
   File "D:\Anaconda3\envs\py37_test\lib\site-packages\zmq\__init__.py", line 55, in <module>
     from zmq import backend
@@ -160,7 +150,7 @@ Traceback (most recent call last):
 ImportError: DLL load failed: 지정된 모듈을 찾을 수 없습니다.
 ```
 
-위 오류를 보면 `from zmq import bakend`에서 오류가 생긴것을 알 수 있다. 구글링을 하다보니 다음과 같이 `pyzmq`를 재설치해서 해결할 수 있었다.  
+위 오류를 보면 `zmq`라이브러리를 import하는데서 오류가 생긴 것을 알 수 있다. 구글링을 하다보니 다음과 같이 `pyzmq`를 재설치해서 해결할 수 있었다.  
 *출처 : [stack over flow Q&A](https://stackoverflow.com/questions/54224969/import-error-while-trying-to-run-jupyter-notebook)
 
 먼저 가상환경 활성화하고  
@@ -190,6 +180,9 @@ Pycharm의 경우에는 가상한경을 연동하는 기능이 잘 되어있어�
 - Spyder 환경설정 활용  
 - 프롬프트(cmd) 활용  
 
+Navigator는 로딩시간이 너무 느린데, 이걸 매번하기는 번거로워서 패스하고 아래 2가지만 알아보자.  
+
+  
 ## 1. Spyder 환결설정을 활용한 방법  
 
 
