@@ -255,14 +255,6 @@ plt.show()
 
 ![png](/assets/images/ML/clustering/dbscan1.png){: .align-center}{: width="80%" height="80%"}  
 
-- minPts : 반경 내 최소 개체(point) 수  
-- eps(epsilon) : 군집화할 반경  
-- Core : 중심점(minPts를 만족할 경우)  
-- Border : 경계점(minPts를 만족하진 않지만, 어느 Core 반경에 속한 경우)  
-- Noise : 어느 군집에도 속하지 않는 점  
-
-하나하나 살펴보자.  
-
 1. 먼저 하나의 점(파란색)을 중심으로 반경(eps) 내에 최소 점이 4개(minPts=4)이상 있으면, 하나의 군집으로 판단하며 해당 점(파란색)은 Core가 된다.  
 2. 반경 내에 점이 3개 뿐이므로 Core가 되진 않지만 Core1의 군집에 포함된 점으로, 이는 Border가 된다.  
 3. 1번과 마찬가지로 Core가 된다.  
@@ -271,6 +263,15 @@ plt.show()
 이와 같은 방식으로 군집의 확산을 반복하면서, 자동으로 최적의 군집수가 도출된다.  
 
 ![png](/assets/images/ML/clustering/dbscan2.png){: .align-center}{: width="50%" height="50%"}    
+
+용어를 정리해보면 다음과 같다.  
+
+- minPts : 반경 내 최소 개체(point) 수  
+- eps(epsilon) : 군집화할 반경  
+- Core : 중심점(minPts를 만족할 경우)  
+- Border : 경계점(minPts를 만족하진 않지만, 어느 Core 반경에 속한 경우)  
+- Noise : 어느 군집에도 속하지 않는 점  
+
 
 Python으로 이제 구현해보자.  
 
