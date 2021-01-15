@@ -19,14 +19,14 @@ locale                   : "ko"
 title                    : "yg's blog"
 title_separator          : "-"
 subtitle                 : # 즐거운 소프트웨어 놀이터 site tagline that appears below site title in masthead
-name                     : "yganalyst"
-description              : "Identifing urban phenomenon with data science."
+name                     : "Yonggeun Shin"
+description              : "I am yganalyst"
 url                      : "https://yganalyst.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "yganalyst/yganalyst.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # "/assets/images/my.jpg"
 logo                     : "/assets/images/logo1.png" # path of logo image to display in the masthead, e.g. 
-masthead_title           : "Urban Data Science" # overrides the website title displayed in the masthead, use " " for no title
+masthead_title           : "yg's blog" # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -107,9 +107,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "yganalyst"
+  name             : "Yonggeun Shin"
   avatar           : "/assets/images/my.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Identifing urban phenomenon with data science."
+  bio              : "I am yganalyst"
   location         : "Seoul, Korea"
   email            :
   links:

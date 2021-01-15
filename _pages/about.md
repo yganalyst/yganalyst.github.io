@@ -1,12 +1,12 @@
 ---
-title: "YounGeun Shin"
+title: "Youngeun Shin"
 permalink: /about/
 layout: single
 ---
 
   
   
-![jpg](/assets/images/my.jpg "내사진"){: width="45%" height="45%"}  
+![jpg](/assets/images/my.jpg "내사진"){: width="60%" height="60%"}  
 
 ---
 
