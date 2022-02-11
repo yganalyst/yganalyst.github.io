@@ -24,7 +24,7 @@ description              : "I am yganalyst"
 url                      : "https://yganalyst.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "yganalyst/yganalyst.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : # "/assets/images/my.jpg"
+teaser                   : "/assets/images/my.jpg"
 logo                     : "/assets/images/logo1.png" # path of logo image to display in the masthead, e.g. 
 masthead_title           : "yg's blog" # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
