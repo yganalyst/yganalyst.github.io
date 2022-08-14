@@ -15,41 +15,41 @@ main:
   #   url: /sitemap/
 
 sidebar-contents:
-  - title: "Python"
+  - title: "Data Science"
     children:
-      - title: "Data handling"
-        url: /categories/#data-handling
-      - title: "Web-related"
-        url: /categories/#web
-      - title: "Pythonic"
-        url: /categories/#pythonic
-      - title: "etc."
-        url: /categories/#etc
-  - title: "알고리즘"
-    children:
-      - title: "Statistics"
-        url: /categories/#statistics
       - title: "Machine Learning"
         url: /categories/#ml
-      - title: "Neural Network"
-        url: /categories/#nn
-  - title: "시스템 & 데이터베이스"
+      - title: "Deep Learning"
+        url: /categories/#dl
+      - title: "Paper Review"
+        url: /categories/#paper
+      - title: "Competition"
+        url: /categories/#competition
+  - title: "Python"
     children:
-      - title: "SQL"
-        url: /categories/#sql
-      - title: "AWS"
-        url: /categories/#aws
-      - title: "system"
-        url: /categories/#system
+      - title: "Basic"
+        url: /categories/#basic
+      - title: "Data handling"
+        url: /categories/#data-handling
+      - title: "Visualization"
+        url: /categories/#visualization
+      - title: "Web-related"
+        url: /categories/#web
+      - title: "etc."
+        url: /categories/#etc
+  - title: "Algorithm"
+    children:
+      - title: "Concept"
+        url: /categories/#concept
+      - title: "training"
+        url: /categories/#training
   - title: "GIS"
     children:
       - title: "Spatial Analysis"
         url: /categories/#spatial-analysis
       - title: "QGIS"
         url: /categories/#qgis
-  - title: "프로젝트"
+  - title: "Database"
     children:
-      - title: "Competition"
-        url: /categories/#competition
-      - title: "Toy Project"
-        url: /categories/#toy_project
+      - title: "SQL"
+        url: /categories/#sql
