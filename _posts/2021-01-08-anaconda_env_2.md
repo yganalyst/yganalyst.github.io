@@ -7,7 +7,7 @@ header:
   teaser: /assets/images/anaconda.png
 
 categories:
-  - pythonic
+  - basic
 
 tags:
   - python
