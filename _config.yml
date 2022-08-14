@@ -24,7 +24,7 @@ description              : "시행착오가 밑거름이 되는 공간"
 url                      : "https://yganalyst.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "yganalyst/yganalyst.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : # "/assets/images/my.jpg"
+teaser                   : "/assets/images/my.jpg"
 logo                     : "/assets/images/logo1.png" # path of logo image to display in the masthead, e.g. 
 masthead_title           : "yg's blog" # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
@@ -109,7 +109,7 @@ analytics:
 author:
   name             : "Yonggeun Shin"
   avatar           : "/assets/images/my.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am yganalyst"
+  bio              : "시행착오가 밑거름이 되는 공간"
   location         : "Seoul, Korea"
   email            :
   links:
