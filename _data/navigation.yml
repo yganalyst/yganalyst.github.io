@@ -19,7 +19,7 @@ sidebar-contents:
     children:
       - title: "Machine Learning"
         url: /categories/#ml
-        category: "ml"
+        category: "ML"
       - title: "Deep Learning"
         url: /categories/#dl
         category: "dl"
