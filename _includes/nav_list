@@ -1,9 +1,11 @@
 {% assign navigation = site.data.navigation[include.nav] %}
+{% assign sum = site.posts | size %}
 
 <nav class="nav__list">
   {% if page.sidebar.title %}<h3 class="nav__title" style="padding-left: 0;">{{ page.sidebar.title }}</h3>{% endif %}
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
   <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle Menu" }}</label>
+  <li> Total Posts ({{sum}}) </li>
   <ul class="nav__items">
     {% for nav in navigation %}
       <li>
@@ -37,7 +39,15 @@
               {% assign active = "" %}
             {% endif %}
 
-            <li><a href="{{ child_url }}" class="{{ active }}">{{ child.title }}</a></li>
+          {% comment %}  20220815 side bar number of posts   {% endcomment %}
+          {% assign post_cnt = 0 %}
+          {% for category in site.categories %}
+            {% if category[0] == child.category  %}
+                {% assign post_cnt = category[1].size %}
+            {% endif %}
+          {% endfor %}
+
+            <li><a href="{{ child_url }}" class="{{ active }}">{{ child.title }} ({{ post_cnt }})</a></li>
           {% endfor %}
         </ul>
         {% endif %}

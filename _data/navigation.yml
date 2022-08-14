@@ -19,37 +19,51 @@ sidebar-contents:
     children:
       - title: "Machine Learning"
         url: /categories/#ml
+        category: "ml"
       - title: "Deep Learning"
         url: /categories/#dl
+        category: "dl"
       - title: "Paper Review"
         url: /categories/#paper
+        category: "paper"
       - title: "Competition"
         url: /categories/#competition
+        category: "competition"
   - title: "Python"
     children:
       - title: "Basic"
         url: /categories/#basic
+        category: "basic"
       - title: "Data handling"
         url: /categories/#data-handling
+        category: "data_handling"
       - title: "Visualization"
         url: /categories/#visualization
+        category: "visualization"
       - title: "Web-related"
         url: /categories/#web
+        category: "web"
       - title: "etc."
         url: /categories/#etc
+        category: "etc"
   - title: "Algorithm"
     children:
       - title: "Concept"
         url: /categories/#concept
+        category: "concept"
       - title: "training"
         url: /categories/#training
+        category: "training"
   - title: "GIS"
     children:
       - title: "Spatial Analysis"
         url: /categories/#spatial-analysis
+        category: "spatial_analysis"
       - title: "QGIS"
         url: /categories/#qgis
+        category: "qgis"
   - title: "Database"
     children:
       - title: "SQL"
         url: /categories/#sql
+        category: "sql"
