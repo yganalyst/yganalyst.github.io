@@ -20,7 +20,7 @@ title                    : "yg's blog"
 title_separator          : "-"
 subtitle                 : # 즐거운 소프트웨어 놀이터 site tagline that appears below site title in masthead
 name                     : "Yonggeun Shin"
-description              : "I am yganalyst"
+description              : "시행착오가 밑거름이 되는 공간"
 url                      : "https://yganalyst.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "yganalyst/yganalyst.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
