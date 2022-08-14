@@ -296,9 +296,9 @@ defaults:
       related: true
       toc_ads: true
       toc_sticky: true
-      sidebar:
-        title: 카테고리
-        nav: "sidebar-contents"
+#      sidebar:
+#        title: 카테고리
+#        nav: "sidebar-contents"
   - scope:
       path: "_pages"
       type: pages
