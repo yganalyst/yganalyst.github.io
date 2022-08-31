@@ -7,7 +7,7 @@ header:
   teaser: /assets/images/post_logo/algorithm_logo.jpg
 
 categories:
-  - training
+  - concept
 
 tags:
   - python
