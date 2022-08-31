@@ -21,7 +21,7 @@ tags:
   - 탐욕
   - 거스름돈
 
-last_modified_at: 2022-04-19T16:00-16:30
+last_modified_at: 2022-05-01T16:00-16:30
 ---
 
 
@@ -50,13 +50,12 @@ last_modified_at: 2022-04-19T16:00-16:30
 
 그리디 알고리즘으로 최적해를 도출하기 위해서는 아래 두가지 조건을 만족해야 한다.  
 
-1. 탐욕적 선택 속성 (greedy choice property)  
-
+**1.탐욕적 선택 속성 (greedy choice property)**  
 탐욕적인 선택이 항상 안전하다는 것이 보장된다는 의미이다. 즉, 그리디한 선택이 언제나 최적해를 보장해야한다.  
 
-2. 최적 부분 구조 (optimal substructure)  
-
+**2. 최적 부분 구조 (optimal substructure)**  
 부분 최적해(Local optimum)들이 모여 전체 최적해(Global optimum)를 구할 수 있는 경우이다. 즉, 전체 문제가 여러 부분 문제로 분할되며, 이 단계 하나하나에 대한 최적해가 도출되어야 한다는 의미이다.  
+  
 예를 들면, 아래와 같은 경로 찾기가 있을 수 있다. 
 
 ![png](/assets/images/algorithm/concept_greedy_2.png){: .align-center}{: width="50%" height="50%"}  
