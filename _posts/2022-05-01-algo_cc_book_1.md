@@ -17,25 +17,30 @@ tags:
   - 알고리즘
   - algorithm
   - 그리디
-  - greddy
+  - greedy
   - 탐욕
   - 거스름돈
 
 last_modified_at: 2022-04-19T16:00-16:30
 ---
 
+
+# 개요  
+
+![jpg](/assets/images/post_logo/algorithm_logo.jpg){: .align-center}{: width="70%" height="70%"}  
+
+이번 포스팅은 그리디(Greedy) 또는 탐욕 알고리즘에 대한 글이다. 가장 기초가 되는 알고리즘이기도 하며 복잡한 문제를 단순하고 강력하게 해결할 수 있는 장점이 있다.  
+
+</br>
+  
 # 그리디 알고리즘이란?  
 
-![jpg](/assets/images/post_logo/algorithm_logo.jpg){: .align-center}{: width="60%" height="60%"}  
-
-
 탐욕법이라고도 하는 **그리디(Greedy) 알고리즘**은 "**현재 상황에서 최적이라고 생각하는 해를 선택**"하는 방법이다.  
-이 방법은 복잡한 문제를 단순하고 강력하게 해결할 수 있는 장점이 있다. 
 그러나 말그대로 앞으로 남은 선택들을 고려하지 않고 현재 상황만 고려하기 때문에 항상 최적해(Global optimum)를 보장하지는 않는다.  
 
 예를 들어, 아래 그림과 같은 트리구조의 경로가 있고 우리는 경로마다 놓여있는 돈을 얻을 수 있다고 해보자.  
 
-![png](/assets/images/algorithm/concept_greedy_1.png){: .align-center}{: width="60%" height="60%"}  
+![png](/assets/images/algorithm/concept_greedy_1.png){: .align-center}{: width="50%" height="50%"}  
   
 제일 많은 돈을 얻기 위해서는 빨간색 경로로 이동해야 하지만, 눈 앞에 놓인 갈림길에서 높은 금액만을 선택하는 그리디 방법은 파란색 경로로 이동한다. 따라서 $50 밖에 얻지 못한다.  
 
@@ -54,7 +59,7 @@ last_modified_at: 2022-04-19T16:00-16:30
 부분 최적해(Local optimum)들이 모여 전체 최적해(Global optimum)를 구할 수 있는 경우이다. 즉, 전체 문제가 여러 부분 문제로 분할되며, 이 단계 하나하나에 대한 최적해가 도출되어야 한다는 의미이다.  
 예를 들면, 아래와 같은 경로 찾기가 있을 수 있다. 
 
-![png](/assets/images/algorithm/concept_greedy_2.png){: .align-center}{: width="60%" height="60%"}  
+![png](/assets/images/algorithm/concept_greedy_2.png){: .align-center}{: width="50%" height="50%"}  
 
 위 그림 처럼 도시간 이동을 위와 같이 밖에 할 수 없다고 했을 때, 서울에서 대전의 최단경로(Local optimum)와 대전에서 부산의 최단 경로(Local optimum)가 모여 서울에서 부산까지 가는 최단 경로(Global optimum)가 될 것 이다.  
 
@@ -106,6 +111,5 @@ print(cnt)
 
 # Reference  
 
-[이것이 취업을 위한 코딩 테스트다 with 파이썬 - 나동빈](http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9791162243077&gclid=Cj0KCQjwjbyYBhCdARIsAArC6LI29J8rzsG6M1BbbNrPKMtmtoAkJop3-UpMZw3SiWyhjpn7g0NWyJYaArMQEALw_wcB)
-
-https://loosie.tistory.com/515
+[이것이 취업을 위한 코딩 테스트다 with 파이썬 - 나동빈](http://www.kyobobook.co.kr/product/detailViewKor.laf?barcode=9791162243077&gclid=Cj0KCQjwjbyYBhCdARIsAArC6LI29J8rzsG6M1BbbNrPKMtmtoAkJop3-UpMZw3SiWyhjpn7g0NWyJYaArMQEALw_wcB)  
+https://loosie.tistory.com/515  
