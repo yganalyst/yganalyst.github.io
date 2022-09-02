@@ -55,7 +55,7 @@ DFS와 BFS를 배우기 전에 먼저 그래프의 개념부터 가볍게 짚고
 
 아래 그림과 같이 그래프는 노드(node)와 링크(link or edge)로 구성되어 있다.  
 
-![png](/assets/images/algorithm/concept_DFSBFS_1.png){: .align-center}{: width="30%" height="30%"}  
+![png](/assets/images/algorithm/concept_DFSBFS_1.png){: .align-center}{: width="40%" height="40%"}  
 
 여기서 두 노드가 연결되어 있으면 링크로 연결되며 이를 "인접하다(Adjacent)"라고 표현한다. 이와 같이 그래프는 도시의 도로망이나 인간관계(like 일촌) 등 다양한 관계를 표현하는데 활용된다.  
   
@@ -98,7 +98,7 @@ print(graph)
   
 이제 아래 그래프를 예시로 DFS와 BFS 방식을 알아보자.  
 
-![png](/assets/images/algorithm/concept_DFSBFS_2.png){: .align-center}{: width="60%" height="60%"}  
+![png](/assets/images/algorithm/concept_DFSBFS_2.png){: .align-center}{: width="50%" height="50%"}  
 
 
 <br/>
