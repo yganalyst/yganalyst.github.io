@@ -16,8 +16,21 @@ tags:
   - 코테
   - 알고리즘
   - algorithm
-  - 선
+  - 선택 정렬
+  - selection sort
+  - 삽입 정렬
+  - insertion sort
+  - 퀵 정렬
+  - quick sort
+  - 계수 정렬
+  - count sort
+  - sorted
+  - lambda
+  - key
+  - sort
+  - 시간 복잡도
 
+use_math: true
 
 last_modified_at: 2022-06-30T16:00-16:30
 ---
@@ -28,7 +41,7 @@ last_modified_at: 2022-06-30T16:00-16:30
 ![jpg](/assets/images/post_logo/algorithm_logo.jpg){: .align-center}{: width="70%" height="70%"}  
 
 이번 포스팅은 데이터를 특정한 기준에 따라 나열하는 정렬(Sorting) 알고리즘에 대해 알아보자. 예를 들어, `0,5,1,2,8,4,7`이라는 배열을 오름차순 정렬을 하려고 할 때 사람은 그냥 작은 수부터 직관적으로 나열할 수 있다. 그러나 컴퓨터는 어떤게 작은 숫자인지, 또 어떤 방식으로 정렬할지 등을 알려줘야하며 시간 복잡도도 계속 달라지므로 다양한 방식이 생겨나게 된다.  
-이번에 공부할 알고리즘 유형은 선택 정렬(Selection sort), 삽입 정렬(Insertion Sort), 퀵 정렬(Quick sort), 계수 정렬(Count Sort)이다.
+이번에 공부할 알고리즘 유형은 선택 정렬(Selection sort), 삽입 정렬(Insertion sort), 퀵 정렬(Quick sort), 계수 정렬(Count sort)이다.
 
 
 <br/>
