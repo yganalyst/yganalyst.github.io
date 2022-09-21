@@ -231,6 +231,81 @@ for i in range(1,n+1):
 - 힙 : 큐에서 나온 노드의 거리가 최단거리 테이블보다 크다면 갱신된 것이라고 보고 패스함  
 
 
+<br/>
+  
+# 최단경로 추적하기  
+
+앞의 구현방식은 단순히 출발 노드로 부터 각 노드까지의 최단경로 길이만을 출력하는 방식이였다.  
+
+그러나 앞서 설명한 것처럼 갱신할때 최단 거리와 이전의 부모 노드를 같이 기록해주기만 하면 된다.  
+즉, 현재 노드를 거쳐 다른 노드로 갈 최단거리에 대해 그 현재노드가 무엇인지도 같이 기록해주자.  
+
+```python
+import heapq
+INF = int(1e9)
+
+n,m = 8,14 # 노드 수
+start = 1 # 출발 노드
+graph=[[] for i in range(n+1)]
+# 최단거리 + 부모노드 저장 테이블 생성
+distance=[[INF,i] for i in range(n+1)]
+
+# 양방향 입력
+# 노드 a와 노드 b의 비용 c
+for _ in range(m):
+    a,b,c = map(int, input().split())
+    graph[a].append((b,c))
+    graph[b].append((a,c))
+
+def dijkstra(start):
+    q=[]
+    heapq.heappush(q,(0,start))
+    distance[start][0]=0
+
+    while q:
+        # 가장 최단거리가 짧은 노드에 대한 정보 꺼내기
+        dist, now = heapq.heappop(q)
+        # 현재 처리된적이 있는 노드라면 pass
+        if distance[now][0]<dist:
+            continue
+        # 현재 노드와 연결된 다른 인접한 노드들을 확인
+        for i in graph[now]:
+            cost = dist + i[1]
+            # 현재 노드를 거쳐서, 다른 노드로 이동하는 거리가 더 짧은 경우
+            if cost < distance[i[0]][0]:
+                distance[i[0]][0]=cost # 최단거리 갱신
+                distance[i[0]][1]=now  # 부모노드 저장
+                heapq.heappush(q,(cost,i[0]))
+                
+dijkstra(start)
+
+# 결과 출력
+for i in range(1,n+1):
+    length,_= distance[i] # 최단 길이
+    parent_node=i
+    path=[]
+    while parent_node!=1:        
+        path.append(parent_node)    
+        _,parent_node = distance[parent_node]
+        distance[parent_node]
+    path.append(1)
+    print("%s번 노드 : %s (%s)" % (i,">".join(map(str,path[::-1])),length))
+
+```
+```
+1번 노드 : 1 (0)
+2번 노드 : 1>2 (3)
+3번 노드 : 1>3 (4)
+4번 노드 : 1>3>4 (12)
+5번 노드 : 1>3>5 (9)
+6번 노드 : 1>2>6 (12)
+7번 노드 : 1>3>5>7 (13)
+8번 노드 : 1>2>6>8 (14)
+```
+
+결과 출력 시, 현재 노드로 부터 부모 노드를 계속 타고가다가 루트 노드(1번)을 만나면 종료하는 방식으로 추적한다.  
+
+
 
 <br/>
 
