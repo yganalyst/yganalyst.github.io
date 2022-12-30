@@ -16,13 +16,6 @@ https://yganalyst.github.io/
 
 5. Do it! 오라클로 배우는 데이터베이스 입문  
 
-## Project  
-
-1. 타이타닉 생존자 예측모델(Kaggle 튜토리얼)  
-
-2. 제주도 퇴근시간 승차 인원 예측(Dacon)  
-
-
 ## Memo  
 
 
