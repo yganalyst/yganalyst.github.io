@@ -2,11 +2,11 @@
 main:
    - title: "소개"
      url: /about/
-   - title: "프로젝트"
-     url: /categories/toy_project/
    - title: "카테고리"
      url: /categories/
 
+#   - title: "프로젝트"
+#     url: /categories/toy_project/
   # - title: "Study"
   #   url: /categories/study/
   # - title: "Search"
