@@ -187,7 +187,7 @@ plt.show()
 ```
 
 
-![png](/assets/images/ML/kNN/knn_plot.png){: .align-center}{: width="70%" height="70%"}  
+![png](/assets/images/ML/kNN/knn_plot.png){: .align-center}{: width="55%" height="55%"}  
 
 
 <br/>
