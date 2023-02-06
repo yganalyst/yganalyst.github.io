@@ -7,7 +7,7 @@ header:
   teaser: /assets/images/cs231n/1/pc_4.PNG
 
 categories:
-  - ml
+  - ML
 
 tags:
   - numpy
