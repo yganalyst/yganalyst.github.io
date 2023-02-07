@@ -76,7 +76,7 @@ last_modified_at: 2022-11-02T20:00-21:00
 도로구간 데이터는 **도로 위계**(`ROA_CLS_SE`)별로 분류한 예시이다.  
 고속도로 등으로 분류가 되어 있긴 하지만, 기능적 특성에 따라 **주/보조간선도로, 집산도로, 국지도로**로 나눠지는 것을 알 수 있다.  
 
-![png](/assets/images/gis/road_area/road_network.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/gis/road_area/road_network.png){: .align-center}{: width="90%" height="90%"}  
 
 참고로 도로명주소 전자지도 데이터들의 **좌표계는 [EPSG5179](https://yganalyst.github.io/spatial_analysis/spatial_analysis_3/#%EC%9E%90%EC%A3%BC%EC%93%B0%EB%8A%94-%EC%A2%8C%ED%91%9C%EC%A0%95%EB%B3%B4)**이며, 정의되어 있지 않기 때문에 **사용 시에 정의하고 사용**해야한다.  
 
@@ -514,7 +514,7 @@ result[result.boundary.geom_type=='MultiLineString']
 (데이터 하나하나도 소중히 해야한다..)  
 아이디어는 아래그림 처럼 식별된 Linestring들 중에 **area가 큰 것만 남기고 나머지는 버리는 간단한 방법**이다.  
 
-![png](/assets/images/gis/road_area/fill_holes.png){: .align-center}  
+![png](/assets/images/gis/road_area/fill_holes.png){: .align-center}{: width="85%" height="85%"}  
 
 다시 도로 네트워크로 돌아와서 아래와 같이 구현했다.  
 
@@ -570,7 +570,7 @@ result_final.to_file("result_final.shp")
 드디어.. 최종 결과물은 아래와 같이 나왔다. color는 의미는 없고 color가 잘 보이도록 id에 따라 random하게 찍은 것이다.  
 작업 전반에 대한 source code는 [github](https://github.com/yganalyst/spatial_analysis/blob/master/road_network_spatial_area.ipynb)에서 볼 수 있으며, [최종 결과물](https://github.com/yganalyst/spatial_analysis/tree/master/result)도 올려놓았다.  
 
-![png](/assets/images/gis/road_area/final_result.png){: .align-center}  
+![png](/assets/images/gis/road_area/final_result.png){: .align-center}{: width="90%" height="90%"}  
 
 
 나름은 완성도 있다고 생각은 하지만, 들여다보면 여기는 분할되거나 묶여야할 것 같은 공간들이 아직 많이 보인다.  
