@@ -49,7 +49,7 @@ last_modified_at: 2022-11-02T20:00-21:00
 
 # 개요  
 
-![png](/assets/images/gis/road_area/road_area_logo.png){: .align-center}{: width="60%" height="60%"}  
+![png](/assets/images/gis/road_area/road_area_logo.png){: .align-center}{: width="80%" height="80%"}  
 
 이번 포스팅은 **도로 네트워크를 기반으로 도시의 공간영역을 분할**하는 과정을 다룬다.  
 위 그림과 같이 도로에 의해 분할된 공간 영역들을 도출하는 방법 뿐 아니라, 진행 중 겪었던 시행착오들도 포함되어 있다.  
@@ -70,13 +70,13 @@ last_modified_at: 2022-11-02T20:00-21:00
 도로 네트워크는 다양한 기관에서 제공하고 있다. 여기서는 [도로명주소 전자지도 DB](https://business.juso.go.kr/addrlink/elctrnMapProvd/geoDBDwldList.do#this)를 사용하였다. 해당 링크로 들어가 아래와 좌측 탭의 도로명주소 전자지도를 클릭하여 신청하면, 1시간 내외로 승인받아 사용할 수 있다.  
 도로명주소 전자지도는 행정경계, 도로, 건물 등 총 11개의 공간 정보를 포함하고 있으며, 월 단위로 최신정보를 제공해준다(일변동 자료도 추가제공).  
 
-![png](/assets/images/gis/road_area/mapDB.png){: .align-center}{: width="60%" height="60%"}  
+![png](/assets/images/gis/road_area/mapDB.png){: .align-center}{: width="70%" height="70%"}  
 
 사용할 데이터는 서울특별시의 **시도 경계**(`TL_SCCO_CTPRVN`)와 **도로구간**(`TL_SPRD_MANAGE`)이며, 간단하게 QGIS로 시각화한 결과는 아래와 같다.  
 도로구간 데이터는 **도로 위계**(`ROA_CLS_SE`)별로 분류한 예시이다.  
 고속도로 등으로 분류가 되어 있긴 하지만, 기능적 특성에 따라 **주/보조간선도로, 집산도로, 국지도로**로 나눠지는 것을 알 수 있다.  
 
-![png](/assets/images/gis/road_area/road_network.png){: .align-center}{: width="60%" height="60%"}  
+![png](/assets/images/gis/road_area/road_network.png){: .align-center}{: width="80%" height="80%"}  
 
 참고로 도로명주소 전자지도 데이터들의 **좌표계는 [EPSG5179](https://yganalyst.github.io/spatial_analysis/spatial_analysis_3/#%EC%9E%90%EC%A3%BC%EC%93%B0%EB%8A%94-%EC%A2%8C%ED%91%9C%EC%A0%95%EB%B3%B4)**이며, 정의되어 있지 않기 때문에 **사용 시에 정의하고 사용**해야한다.  
 
@@ -134,8 +134,8 @@ road.crs = epsg5179
 road['ROA_CLS_SE'] = road['ROA_CLS_SE'].astype(int)
 ```
 
-사용할 도로구간의 특성(도로 위계, 도로 폭)에 따라 사용할 데이터를 필터링한다. 즉, 공간 단위의 크기를 결정하기 위함이다.  
-여기서는 도로 폭 12m(대략 왕복 4차선), 도로 위계가 집산도로(로) 이상인 도로들을 활용했다.  
+사용할 **도로구간의 특성(도로 위계, 도로 폭)**에 따라 사용할 데이터를 필터링한다. 즉, **공간 단위의 크기를 결정**하기 위함이다.  
+여기서는 **도로 폭 12m(대략 왕복 4차선)**, **도로 위계가 집산도로(로) 이상**인 도로들을 활용했다.  
 
 ```python
 road_bt = 12  #도로폭 
@@ -284,9 +284,9 @@ road[["RN","ROAD_BT","ROAD_LT","ROA_CLS_SE","geometry"]]
 ## Topological Error  
 
 육안상으로는 깔끔하고 잘 정제된 도로 네트워크이지만, 자세히 들여다보면 전처리를 해야할 사항들이 꽤 있다.  
-아무래도 가장 처음에는 수동적으로 도면을 그려 제작되었을 것이기 때문에 오류가 있기 마련이다.  
+아무래도 가장 처음에는 수동으로 도면을 그려 제작되었기 때문에 오류가 있기 마련이다.  
 
-아래 그림은 `LINESTRING` 객체에서 발생할 수 있는 Topological Error 유형을 보여준다.  
+아래 그림은 `LINESTRING` 객체에서 발생할 수 있는 **Topological Error 유형**을 보여준다.  
 **topology**란 통신 네트워크 분야에서도 많이 사용되는 개념으로, 도로 네트워크에서는 **교차로(intersection)와 끝점(end point)은 노드**로, **노드 간의 연결은 링크(edge)**로 표현된 구조를 말한다.  
 따라서 **topological error**라는 것은 **이를 만족하지 않는 오류들**을 말한다.  
 
@@ -294,15 +294,15 @@ road[["RN","ROAD_BT","ROAD_LT","ROA_CLS_SE","geometry"]]
 
 *Source: [gis.humboldt.edu](http://gis.humboldt.edu/olm_2018/Lessons/GIS/04%20CreatingSpatialData/DigitizingUncertainty.html)  
 
-이러한 오류들은 공간 분할 작업을 하고 다시 QGIS로 점검하는 작업(**정성적 평가**)을 반복하면서 발견하게 되었다.  
+이러한 오류들은 경험적으로 굉장히 많은 삽질(ㅠㅠ)을 통해 발견하게 되었으며, 공간 분할 작업을 하고 다시 QGIS로 점검하는 작업(**정성적 평가**)을 반복하였다.  
 (예를 들어, 분명히 분할되어야하는 공간이 분할되지 않았다던지)  
-대부분 아래 그림과 같이 **Line crossing(도로 구간별로 관리되기 때문에)**과 **Undershoot(진짜 오류)**들이 있었다.  
+대부분 아래 그림과 같이 **Line crossing(도로 구간별로 관리되기 때문)**과 **Undershoot(진짜 오류)**들이 있었다.  
 
-![png](/assets/images/gis/road_area/error_1.png){: .align-center}{: width="60%" height="60%"}    
+![png](/assets/images/gis/road_area/error_1.png){: .align-center}{: width="70%" height="70%"}    
 
 또한 조금더 특이한 Case로 3개의 `LINESTRING`이 엇갈려 있는 오류(**Understring & Crossed**로 명명했다)와 행정구역 경계와 딱 맞지 않는 **Line과 Polygon 간의 Undershoot**가 있었다.  
 
-![png](/assets/images/gis/road_area/error_2.png){: .align-center}{: width="60%" height="60%"}    
+![png](/assets/images/gis/road_area/error_2.png){: .align-center}{: width="70%" height="70%"}    
 
 이러한 오류들을 처리하기 위해 잘 알려지진 않았지만 다양한 연구들이 진행되고 있다(실제로 논문도 나온다).  
 QGIS보다 더 다양한 Toolbox를 제공하는 **ArcGIS**에서는 tolerance를 기준으로 묶어주거나 하는 [다양한 방법들](https://desktop.arcgis.com/en/arcmap/10.3/manage-data/topologies/topology-in-arcgis.htm)도 제시하고 있다.  
@@ -310,7 +310,8 @@ QGIS보다 더 다양한 Toolbox를 제공하는 **ArcGIS**에서는 tolerance�
 
 ## Linemerge와 buffer를 이용한 전처리  
 
-본 포스팅의 목적은 **도로 네트워크 자체를 완벽히 전처리하기 보다는 공간단위를 생성하는 것**이므로, 아래 두가지 방법을 제안해본다.  
+본 포스팅의 목적은 **도로 네트워크 자체를 완벽히 전처리하기 보다는 공간단위를 생성하는 것**이다.  
+따라서 python으로 간단히 작업 가능한 두가지 방법을 시도했다.  
 
 1. **Line crossing**의 해결  
     - `unary_union`을 통해 모든 `LINESTRING`을 잘게 분리하고 합집합을 도출  
@@ -348,11 +349,11 @@ MultiLineString
 
 buffer함수에서 두 인자는 1값(round)으로 둥글게 확장되도록 되어있는데,  
 `buffer(distance, cap_style=1, join_style=1)`   
-cap_style은 End point를, join_style은 꺽이는 부분에 대한 설정값이다.  
+**cap_style은 End point**를, **join_style은 꺽이는 부분**에 대한 설정값이다.  
 
-![png](/assets/images/gis/road_area/buffer_opt.png)  
+![png](/assets/images/gis/road_area/buffer_opt.png){: .align-center}  
 
-따라서 여기서는 아래 예시처럼 사각형으로 잡기위해 각각 3과 2로 설정되도록 했다.  
+따라서 여기서는 아래 예시처럼 사각형으로 잡기위해 **각각 3과 2로 설정**되도록 했다.  
 
 ```python
 test_line = LineString([(1,1),(3,3),(5,1)])
@@ -367,14 +368,14 @@ plt.show()
 
 ![png](/assets/images/gis/road_area/buffer_opt_ex.png)  
 
-이렇게 buffer를 통해 topological error를 해결하고, 바로 overlay를 할 경우 buffer된 구간만큼 gap이 생긴다.  
+이렇게 buffer를 통해 topological error를 해결하고, **바로 overlay를 할 경우 buffer된 구간만큼 gap** 이 생긴다.  
 이 gap을 공간 분할 후에 다시 매워주어야 한다.  
-즉, 아래 예시처럼 overlay를 할때 생기는 gap(3)은 line을 보정했던것과 동일하게 polygon에 buffer를 해줌으로써 매워줄 수 있다.  
+즉, 아래 예시처럼 **overlay를 할때 생기는 gap(3)은 line을 보정했던것과 동일하게 polygon에 buffer를 해줌(4)으로써 매워줄 수 있다.**  
 
 ![png](/assets/images/gis/road_area/buffer_opt_ex2.png)  
 
 
-다시 도로네트워크로 돌아와 위와 같은 방법을 적용해보자.  
+다시 도로네트워크로 돌아와 위 방법을 적용해보자.  
 앞 섹션에서 교차점에서만 분리된 링크들을 가지고 `buffer`를 적용한 뒤에, 다시 `unary_union`으로 합집합을 만든다.  
 
 ```python 
@@ -390,8 +391,8 @@ disv = gpd.GeoDataFrame({'geometry':disv}, geometry='geometry')
 disv.crs = epsg5179
 ```
 
-이제 드디어 시도 경계와 overlay를 통해 차집합(difference)을 추출한다.  
-다시 gap을 매워줄때 0.1m만큼만 보정하지 않고, 0.15m 이후 다시 0.05m를 뺴주는 식으로 진행했다.  
+이제 시도 경계와 overlay를 통해 차집합(difference)을 추출한다.  
+다시 gap을 매워줄때 0.1m만큼만 보정하지 않고, 0.15m 이후 다시 0.05m를 빼주는 식으로 진행했다.  
 `explode()`는 `GeoDataFrame`을 유지한 상태에서 multipolygon을 풀어 별도의 row로 만들어주는 함수이다.  
 마지막으로 면적을 계산하고, 의미 없는 공간 단위는 제외했다.  
 
@@ -413,7 +414,7 @@ print("Total Areas:",len(result))
 Total Areas: 1238
 ```
 
-1차적으로 시도해본 결과 서울특별시는 약 1,238개의 공간단위로 분할되었으며, 아래와 같이 비교적 격자형 도로를 가진 강남구를 보면 잘 나누어진 것을 확인할 수 있다.  
+1차적으로 시도해본 결과, 서울특별시는 **약 1,238개의 공간단위**로 분할되었으며, 아래와 같이 비교적 격자형 도로를 가진 강남구를 보면 잘 나누어진 것을 확인할 수 있다.  
 
 ```python
 ax = result.plot(figsize=(10,10), color='grey')
@@ -441,10 +442,10 @@ plt.show()
 - 1,2번: 하나는 hole이 있는 polygon이고, hole 역할을 하는 다른 polygon이 존재한다.  
 - 3번: hole이 있는 polygon만 존재한다.  
 
-![png](/assets/images/gis/road_area/error_3.png){: .align-center}  
+![png](/assets/images/gis/road_area/error_3.png){: .align-center}{: width="70%" height="70%"}  
 
-이런 객체들은 하나의 polygon은 맞기 때문에, Multypolygon으로 식별되지 않는다. 즉, Linestring으로 식별해야한다.  
-아래와 같이 boundary를 통해 Linestring으로 만들면, 내부 Line과 외부 Line으로 이루어진 MultiLinestring이된다.  
+이런 객체들은 하나의 polygon은 맞기 때문에, Multypolygon으로 식별되지 않는다. 즉, **Linestring으로 식별**해야한다.  
+아래와 같이 **boundary**를 통해 Linestring으로 만들면, **내부 Line과 외부 Line으로 이루어진 MultiLinestring**이된다.  
 
 ```python
 result[result.boundary.geom_type=='MultiLineString']
@@ -511,7 +512,7 @@ result[result.boundary.geom_type=='MultiLineString']
 
 이러한 객체들은 5개밖에 존재하지 않으나, 언제 어디서 문제가 될지 모르기 때문에 작업해보자.  
 (데이터 하나하나도 소중히 해야한다..)  
-아이디어는 아래그림 처럼 식별된 Linestring들 중에 area가 큰 것만 남기고 나머지는 버리는 간단한 방법이다.  
+아이디어는 아래그림 처럼 식별된 Linestring들 중에 **area가 큰 것만 남기고 나머지는 버리는 간단한 방법**이다.  
 
 ![png](/assets/images/gis/road_area/fill_holes.png){: .align-center}  
 
@@ -567,17 +568,17 @@ result_final.to_file("result_final.shp")
 # Summary  
 
 드디어.. 최종 결과물은 아래와 같이 나왔다. color는 의미는 없고 color가 잘 보이도록 id에 따라 random하게 찍은 것이다.  
-작업 전반에 대한 source code는 [github](https://github.com/yganalyst/spatial_analysis/blob/master/road_network_spatial_area.ipynb)에서 볼 수 있으며, 최종 결과물도 올려놓았다.  
+작업 전반에 대한 source code는 [github](https://github.com/yganalyst/spatial_analysis/blob/master/road_network_spatial_area.ipynb)에서 볼 수 있으며, [최종 결과물](https://github.com/yganalyst/spatial_analysis/tree/master/result)도 올려놓았다.  
 
-![png](final_result.png){: .align-center}  
+![png](/assets/images/gis/road_area/final_result.png){: .align-center}  
 
 
 나름은 완성도 있다고 생각은 하지만, 들여다보면 여기는 분할되거나 묶여야할 것 같은 공간들이 아직 많이 보인다.  
 그러나 실제로 어떻게 묶이고 분할되면 좋을지는 판단하는 사람(Local people)에 따라서도 다를 것이며, 본 포스팅에서는 Error로 판단되는 공간 데이터의 처리에 집중하였다.  
 기존의 목표와 부합하고 2가지 측면에서 의미가 있다고 생각한다.  
 
-1. 정부에서 제공하는 행정구역보다 작은 공간 단위를 가진다.  
-2. 정량적인 기준(도로 폭, 도로 위계)을 사용하여 논리적인 근거가 뒷받침 될 수 있다.  
+**1. 정부에서 제공하는 행정구역보다 작은 공간 단위를 가진다.**  
+**2. 정량적인 기준(도로 폭, 도로 위계)을 사용하여 논리적인 근거가 뒷받침 될 수 있다.**  
 
 
 <br/>
