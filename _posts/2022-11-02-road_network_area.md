@@ -53,8 +53,9 @@ last_modified_at: 2022-11-02T20:00-21:00
 
 이번 포스팅은 **도로 네트워크를 기반으로 도시의 공간 단위를 분할**하는 과정을 다룬다.  
 위 그림과 같이 도로에 의해 분할된 공간 단위들을 도출하는 방법 뿐 아니라, 진행 중 겪었던 **시행착오**들도 포함되어 있다.  
-도로 네트워크를 전처리하는 것처럼 공간 데이터를 처리하는 작업은 빈번하게 발생하는 것에 비해, 정리되어 있는 자료가 많지 않아서 어려움을 겪었다.  
-누군가 나와 비슷한 task를 하게 된다면, 조금이라도 방황하는 시간을 줄이고 도움이 되길 바라는 마음으로 글을 적는다.  
+도로 네트워크를 전처리하는 것처럼 공간 데이터를 처리하는 작업은 빈번하게 발생하는 것에 비해, 정리되어 있는 자료가 많지 않아서 어려움을 겪었다. 누군가 나와 비슷한 task를 하게 된다면, 조금이라도 방황하는 시간을 줄이고 도움이 되길 바라는 마음으로 글을 적는다.  
+  
+작업 전반에 대한 source code는 [github](https://github.com/yganalyst/spatial_analysis/blob/master/road_network_spatial_area.ipynb)에서 볼 수 있으며, [최종 결과물](https://github.com/yganalyst/spatial_analysis/tree/master/result)도 올려놓았다.  
 
 ## Why??  
 
@@ -570,7 +571,6 @@ result_final.to_file("result_final.shp")
 # Summary  
 
 드디어.. 최종 결과물은 아래와 같이 나왔다. color는 의미는 없고 color가 잘 보이도록 id에 따라 random하게 찍은 것이다.  
-작업 전반에 대한 source code는 [github](https://github.com/yganalyst/spatial_analysis/blob/master/road_network_spatial_area.ipynb)에서 볼 수 있으며, [최종 결과물](https://github.com/yganalyst/spatial_analysis/tree/master/result)도 올려놓았다.  
 
 ![png](/assets/images/gis/road_area/final_result.png){: .align-center}{: width="90%" height="90%"}  
 
