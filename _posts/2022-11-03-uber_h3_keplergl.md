@@ -1,6 +1,6 @@
 ---
-title:  "[GIS] Uber h3(hexagonal grid system)와 kepler.gl을 활용한 공간분석"
-excerpt: "Uber에서 개발한 h3 라이브러리와 공간 정보 시각화 도구인 kepler.gl에 대해 알아보자."
+title:  "[GIS] Uber h3와 kepler.gl을 활용한 공간분석"
+excerpt: "Uber에서 개발한 h3(hexagonal grid system) 라이브러리와 공간 정보 시각화 도구인 kepler.gl에 대해 알아보자."
 toc: true
 toc_sticky: true
 header:
@@ -22,7 +22,7 @@ tags:
   - h3
   - hexagon
   - hexagonal grid
-  - 
+  - keplergl
 
 
 last_modified_at: 2022-11-03T20:00-21:00
@@ -39,9 +39,7 @@ last_modified_at: 2022-11-03T20:00-21:00
 ## 예제 데이터: NYC Taxi trip data  
 
 예제로 사용할 데이터는 [NYC Taxi trip data](https://www.kaggle.com/competitions/nyc-taxi-trip-duration/data)로 kaggle에서도 제공하고 있다.  
-
-데이터는 다음과 같이 승객들이 택시를 이용한 기록을 담고 있으며, 개별 trip에 대한 승하차 시간 및 위치 정보가 포함된다.  
-시간적 범위는 **2016년 1월 ~ 7월**까지의 승차기록을 포함하고 있다.  
+데이터는 다음과 같이 승객들이 택시를 이용한 기록을 담고 있으며, 개별 trip에 대한 승하차 시간 및 위치 정보가 포함된다. 시간적 범위는 **2016년 1월 ~ 7월**까지의 승차기록을 포함하고 있다.  
 
 ```python
 import pandas as pd
@@ -168,9 +166,9 @@ df.head()
 
 *Source: [Uber Tech blog](https://www.uber.com/ko-KR/blog/h3/)  
 
-육각형 그리드(Hexagonal grid)가 갖는 장점은 뭘까?  
+**육각형 그리드(Hexagonal grid)가 갖는 장점**은 뭘까?  
 공간 단위를 사용할 때 **인접한 공간은 어디인지?**, **공간 간의 거리는 얼마인지?** 등을 알 필요가 있다.  
-아래 그림처럼 육각형 그리드는 정확히 각 6개의 변마다 인접 grid가 존재하며, 각 grid간의 거리는 동일하다.  
+아래 그림처럼 육각형 그리드는 정확히 각 6개의 **변마다 인접 grid가 존재**하며, 각 **grid간의 거리는 동일**하다.  
 반면, 삼각형(Triangle)이나 사각형(Square) 같은 경우 인접 grid 간의 거리가 다르게 나타난다.  
 
 ![png](/assets/images/gis/uber_tool/h3_comp.png){: .align-center}  
@@ -180,10 +178,10 @@ df.head()
 
 ## h3 Resolution  
 
-육각형 그리드는 총 16개의 해상도로 구성된 위계로 이루어져있다.  
+육각형 그리드는 **총 16개의 해상도**로 구성된 위계로 이루어져있다.  
 지구의 모든 면을 육각형 평면으로 표현하기는 어렵기 때문에, 약간의 오각형(Pentagon)이 포함된다.  
 
-아래 표는 각 해상도별 육각형 그리드 한 면의 길이를 나타낸다.  
+아래 표는 **각 해상도별 육각형 그리드 한 면의 길이**를 나타낸다.  
 개인적으로 `resolution=8`이 약 461m로 적절하다고 판단하여 사용했던 기억이 난다.  
 
 |Res|Average edge length (Km)|
@@ -293,7 +291,7 @@ gpd.GeoSeries(Point(point[1], point[0])).plot(ax=ax, color='black')
 plt.show()
 ```
 
-![png](/assets/images/gis/uber_tool/h3_plot1.png){: .align-center}  
+![png](/assets/images/gis/uber_tool/h3_plot1.png)  
 
 
 - `to_polygon` 함수 생성  
@@ -335,7 +333,7 @@ gpd.GeoSeries(Point(point[1], point[0])).plot(ax=ax, color='black')
 plt.show()
 ```
 
-![png](/assets/images/gis/uber_tool/h3_plot2.png){: .align-center}  
+![png](/assets/images/gis/uber_tool/h3_plot2.png)  
 
 - `h3.h3_indexes_are_neighbors`: neighbor h3인지 판단하기  
 
@@ -409,7 +407,7 @@ gpd.GeoSeries(point2_h3_bnd).plot(ax=ax, color='red')
 plt.show()
 ```
 
-![png](/assets/images/gis/uber_tool/h3_plot3.png){: .align-center}  
+![png](/assets/images/gis/uber_tool/h3_plot3.png)  
 
 
 ## h3.polyfill function  
@@ -431,7 +429,7 @@ for idx, row in nyc_bnd.iterrows():
 plt.show()
 ```
 
-![png](/assets/images/gis/uber_tool/h3_plot4.png){: .align-center}  
+![png](/assets/images/gis/uber_tool/h3_plot4.png)  
 
 이중 브루클린 지역에 hexagonal grid를 깔아보자.  
 `h3.polyfill`은 geojson 형태를 input으로 받기 때문에, `mapping`을 이용해서 geometry를 geojson 형태로 만들어준다.  
@@ -467,7 +465,7 @@ brooklyn.boundary.plot(ax=ax, color='black')
 plt.show()
 ```
 
-![png](/assets/images/gis/uber_tool/h3_plot5.png){: .align-center}  
+![png](/assets/images/gis/uber_tool/h3_plot5.png)  
 
 모든 자치구에 적용해보면 아래와 같은 결과를 뽑을 수 있다.  
 
@@ -503,7 +501,7 @@ nyc_hex.plot(column="name")
 plt.show()
 ```
 
-![png](/assets/images/gis/uber_tool/h3_plot6.png){: .align-center}  
+![png](/assets/images/gis/uber_tool/h3_plot6.png)  
 
 
 
@@ -539,8 +537,7 @@ print("*Number of hex :",len(manhattan_hex))
 manhattan_hex.plot()
 ```
 
-![png](/assets/images/gis/uber_tool/h3_plot7.png){: .align-center}  
-
+![png](/assets/images/gis/uber_tool/h3_plot7.png)  
 
 - raw 데이터 h3 index 매핑하기  
 
@@ -645,7 +642,7 @@ VS Code에서 Extension으로 **Geo Data Viewer**를 검색하고 설치한다.
 - nodejs  
 - jupyter labextension  
 
-각각 아래와 같이 설치하면 된다.  
+아래와 같이 각각 설치하면 된다.  
 
 ```shell
 $ conda activate myenv
@@ -684,7 +681,7 @@ User Guide: https://docs.kepler.gl/docs/keplergl-jupyter
 ![png](/assets/images/gis/uber_tool/kepler_2.png){: .align-center}  
 
 
-## 시각화하기  
+## 다양한 시각화 방법  
 
 예제 데이터를 다양하게 시각화 해보자. 데이터가 너무 크면 무거워서 조금만 샘플링을 하였다.  
 실행 후 **Add Data**를 클릭해서, 데이터를 불러와서 이것저것 만져보면 금방 따라할 수 있다.  
@@ -704,7 +701,7 @@ User Guide: https://docs.kepler.gl/docs/keplergl-jupyter
 
 ![png](/assets/images/gis/uber_tool/kepler_3.png){: .align-center}  
 
-- Hexagon 기반 3D 시각화    
+- **Hexagon 기반 3D** 시각화    
 
 옵션들을 아래 그림과 같이 조정해서 앞서 h3 라이브러리로 진행했던 내용을 시각화해보았다(물론 시간대 등에 따라 필터링은 안되어 있다).  
 3D로 보기 위해서는 우측 탭의 2번째 아이콘을 잡아줘야한다.  
@@ -712,7 +709,7 @@ User Guide: https://docs.kepler.gl/docs/keplergl-jupyter
 ![png](/assets/images/gis/uber_tool/kepler_4.png){: .align-center}  
 
 
-- 시간적(Temporal) 특성 시각화  
+- **시간적(Temporal) 특성** 시각화  
 
 좌측 상단의 두번째 탭(`Filters`)을 클릭하면 속성별로 filter를 할 수 있는 기능이 있다.  
 
@@ -723,19 +720,20 @@ User Guide: https://docs.kepler.gl/docs/keplergl-jupyter
 ![Animation](https://user-images.githubusercontent.com/52195260/220281163-908c9798-001e-46cb-8168-c37efd6f1a49.gif)  
 
 
-- Heatmap을 이용한 시각화  
+- **Heatmap**을 이용한 시각화  
 
 ![png](/assets/images/gis/uber_tool/kepler_6.png){: .align-center}  
 
 
-- Arc를 이용한 OD(Origin-Destination) 시각화  
+- **Arc를 이용한 OD(Origin-Destination)** 시각화  
 
-**Arc**라는 시각화 타입이 있는데 승하차 위치와 같이 OD가 존재하는 데이터의 경우 유용하게 시각화가 가능하다.  
-아래 그림과 같이 Source(출발지)와 Target(도착지) 좌표를 입력해주면, 데이터 하나하나 마다 Arc를 이용해 시각화해준다.  
-Source는 연두색, Target은 빨간색으로 나타난다.  
+**Arc**라는 시각화 타입이 있는데 **승하차 위치와 같이 OD가 존재하는 데이터**의 경우 유용하게 시각화가 가능하다.  
+아래 그림과 같이 **Source(출발지)**와 **Target(도착지)** 좌표를 입력해주면, 데이터 하나하나 마다 Arc를 이용해 시각화해준다. Source는 연두색, Target은 빨간색으로 나타난다.  
 데이터가 많아서 가시적이진 않지만, 잘쓰면 유용할거 같다.  
 
 ![png](/assets/images/gis/uber_tool/kepler_7.png){: .align-center}  
+
+이 밖에도 다양한 시각화 방법이 존재하는데, 하나씩 시각화해보면 크게 어렵지 않게 활용이 가능하다.  
 
 <br/>
 
