@@ -51,7 +51,7 @@ Git은 오픈소스 버전관리시스템(VCS, Version Control System)으로 내
 버전관리란?  
   
 
-![png](/assets/images/git/git_1.png){: .align-center}{: width="80%" height="80%"}   
+![png](/assets/images/git/git_1.png){: .align-center}{: width="70%" height="70%"}   
 
 
 위와 같이 일상적으로 우리는 이미 파일을 복사 및 backup해서 버전관리를 하고 있다.  
@@ -78,7 +78,7 @@ GitLab도 GitHub과 같은 웹기반 호스팅 서비스이고 버전관리와 �
 
 ## 1) 먼저 Git을 이해해보자  
 
-![png](/assets/images/git/git_diag_1.png)
+![png](/assets/images/git/git_diag_1.png){: width="60%" height="60%"} 
 
 git은 로컬 컴퓨터에서 버전관리를 도와주는 시스템이라고 했었다.  
 정확히는 특정 폴더(이하 작업 폴더) 내에 존재하는 내용물들의 버전을 관리한다.  
@@ -96,7 +96,7 @@ git은 로컬 컴퓨터에서 버전관리를 도와주는 시스템이라고 �
   - 저장해놨던 변경사항들을 기반으로 이전의 특정 버전으로 backup한다.  
 
 
-![png](/assets/images/git/git_diag_2.png)  
+![png](/assets/images/git/git_diag_2.png){: width="70%" height="70%"}   
 
 지금까지 특정한 작업 폴더 내에서 버전관리를 진행했는데, 현재 시점의 작업 폴더를 기점으로 새로운 작업 폴더(ver2)를 만들어 버전관리를 다시 시작할 수 있다.  
 이는 새로운 나뭇가지로 나눠짐을 의미하는 `branch`의 개념이다.  
