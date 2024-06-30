@@ -23,6 +23,9 @@ sidebar-contents:
       - title: "Deep Learning"
         url: /categories/#dl
         category: "dl"
+      - title: "Spatial Analysis"
+        url: /categories/#spatial-analysis
+        category: "spatial_analysis"
       - title: "Paper Review"
         url: /categories/#paper
         category: "paper"
@@ -46,6 +49,14 @@ sidebar-contents:
       - title: "etc."
         url: /categories/#etc
         category: "etc"
+  - title: "Engineering"
+    children:
+      - title: "Hadoop"
+        url: /categories/#hdp
+        category: "hadoop"
+      - title: "SQL"
+        url: /categories/#sql
+        category: "sql"
   - title: "Algorithm"
     children:
       - title: "Concept"
@@ -54,16 +65,3 @@ sidebar-contents:
       - title: "training"
         url: /categories/#training
         category: "training"
-  - title: "GIS"
-    children:
-      - title: "Spatial Analysis"
-        url: /categories/#spatial-analysis
-        category: "spatial_analysis"
-      - title: "QGIS"
-        url: /categories/#qgis
-        category: "qgis"
-  - title: "Database"
-    children:
-      - title: "SQL"
-        url: /categories/#sql
-        category: "sql"
