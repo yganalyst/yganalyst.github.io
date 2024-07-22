@@ -42,7 +42,7 @@ last_modified_at: 2024-07-22T20:00-20:30
 
 이번 포스팅은 AI application 기술로 급격히 발전하고 있는 **RAG(Retrieval-Augmented Generation)**에 대한 논문으로, RAG Workflow의 모듈별 상세한 정리와 각 모듈에 대한 다양한 실험을 통해 선응 비교가 수행되었다. Data Science 분야에서는 초기에 여러 연구자들에 의해 산발적으로 인사이트들이 누적된 이후, **그래서 뭘 써야하는데?** 라는 물음에 대한 답을 해주는 논문이 나오기 마련이다. 이 논문이 바로 그런 역할을 해줄 것으로 기대한다.
 
-RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만드려고 할때 생기는 한계들에서 시작되었다.
+RAG 기술은 기존 LLM 활용한 AI Application을 만드려고 할때 생기는 한계들에서 시작되었다.  
 
 1. **Hallucination 문제**  
     - 정확한 정보를 제공하기 보다는 자연스러운 문장 생성에 초점이 맞춰져있다.
