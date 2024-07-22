@@ -37,20 +37,20 @@ last_modified_at: 2024-07-22T20:00-20:30
 
 # 개요
 
-![jpg](/assets/images/paper/rag/rag_logo.jpg){: .align-center}{: width="80%" height="80%"}  
+![jpg](/assets/images/paper/rag/rag_logo.jpg){: .align-center}{: width="100%" height="100%"}  
 출처: https://www.glean.com/  
 
 이번 포스팅은 AI application 기술로 급격히 발전하고 있는 **RAG(Retrieval-Augmented Generation)**에 대한 논문으로, RAG Workflow의 모듈별 상세한 정리와 각 모듈에 대한 다양한 실험을 통해 선응 비교가 수행되었다. Data Science 분야에서는 초기에 여러 연구자들에 의해 산발적으로 인사이트들이 누적된 이후, **그래서 뭘 써야하는데?** 라는 물음에 대한 답을 해주는 논문이 나오기 마련이다. 이 논문이 바로 그런 역할을 해줄 것으로 기대한다.
 
 RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만드려고 할때 생기는 한계들에서 시작되었다.
 
-1. Hallucination 문제  
+1. **Hallucination 문제**  
     - 정확한 정보를 제공하기 보다는 자연스러운 문장 생성에 초점이 맞춰져있다.
     - 부정확한 정보는 기업 도입에 리스크가 크다.  
-2. 지식의 편향 문제
+2. **지식의 편향 문제**  
     - LLM이 학습된 데이터는 최신 정보나 특정 도메인의 정보를 제공하기 어렵다.
     - 기업 도입 측면에서는 신규 데이터에 대한 지속 투입이 필요하다.  
-3. 비용 문제
+3. **비용 문제**  
     - LLM의 Fine-tuning이 가능한 기업이 얼마나 있을까
 
 위와 같은 문제들로 기업은 LLM이라는 거대한 매개변수를 건드리지 않고 효율적으로 기업 내부에 도입하기 위한 고민을 하기 시작한다. 이러한 Background를 인지한 상태에서 논문을 리뷰해보기로 하자.
@@ -66,7 +66,7 @@ RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만�
 
 ## RAG workflow
 
-![png](/assets/images/paper/rag/1_workflow.png){: .align-center}{: width="80%" height="80%"}
+![png](/assets/images/paper/rag/1_workflow.png){: .align-center}{: width="90%" height="90%"}
 
 1. **query classification**
    - Retrieval이 필요한 질문인지 여부를 분류
@@ -90,10 +90,10 @@ RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만�
 위 workflow에서 각 단계 별로 세부적인 technique들을 추가해서 여러가지 방법들이 제안되고 있다.  
 그러나 여러 방법에 대한 성능 비교 및 optimal에 대한 평가를 진행한 논문은 현재까지 없었다.
 
-- Contribution: **산발적으로 생겨나고 있는 RAG 테크닉들을 체계적으로 성능 비교를 해보겠다**
-- +Alpha :
-  - 이걸 하기 위해 당연히 **평가 지표**와 **여러 데이터셋**이 필요할 것임
-  - 그래서 **최적의 조합**을 찾아내고 **다른 방법도 제안**해볼 수 있을 것임  
+> 💡 **Contribution**  
+> 다양하게 개발되고 있는 **RAG 테크닉들을 체계적으로 성능 비교**를 해보겠다.  
+> 이를 위해 각 모듈별로 다양한 **Baseline**,**성능 지표**, **데이터셋**들이 필요할 거고  
+> 결과를 기반으로 **최적의 조합**을 찾고 **다른 방법도 제안**해볼 수 있을 것임
 
 <br/>
 
@@ -147,7 +147,7 @@ RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만�
 
 ### 3.2.1 Chunk size
 
-![png](/assets/images/paper/rag/2_table3.png){: .align-center}{: width="40%" height="40%"}
+![png](/assets/images/paper/rag/2_table3.png){: .align-center}{: width="45%" height="45%"}
 
 - **Trade-off**
   - size가 클수록(크게 나눌수록) → 문맥 이해가 쉽지만 검색시간 등 증가
@@ -165,7 +165,7 @@ RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만�
 
 ### 3.2.2~3 Chinking Techniques & Embedding Model Selection
 
-![png](/assets/images/paper/rag/3_table4.png){: .align-center}{: width="40%" height="40%"}
+![png](/assets/images/paper/rag/3_table4.png){: .align-center}{: width="45%" height="45%"}
 
 - **small-to-big, sliding window**
 
@@ -180,7 +180,7 @@ RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만�
   - Chunk Overlap: 20 tokens
   - Datasets: Lyft_2021
 
-![png](/assets/images/paper/rag/4_table2.png){: .align-center}{: width="70%" height="70%"}
+![png](/assets/images/paper/rag/4_table2.png){: .align-center}{: width="85%" height="85%"}
 
 - **Embedding Model**
   - 질문(Query)와 Chunk block들 간의 의미를 매칭(유사도, 관련성 등)하는데 중요한 역할
@@ -200,7 +200,7 @@ RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만�
 
 ## 3.3 Vector Databases
 
-![png](/assets/images/paper/rag/5_table5.png){: .align-center}{: width="40%" height="40%"}
+![png](/assets/images/paper/rag/5_table5.png){: .align-center}{: width="45%" height="45%"}  
 
 - 위와 같이 임베딩된 vector들을 효율적으로 저장하고 검색할 수 있도록 고완된 DB
 - 4가지 Vector DB 유형
@@ -211,7 +211,7 @@ RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만�
 
 ## 3.4 Retrieval Methods
 
-![png](/assets/images/paper/rag/6_table6.png){: .align-center}{: width="80%" height="80%"}
+![png](/assets/images/paper/rag/6_table6.png){: .align-center}{: width="100%" height="100%"}
 
 - 검색 성능 향상을 위해 주어진 Query를 그대로 사용하지 않고 변환하는 방법
   - **Query Rewriting**: LLM에게 Query를 입력해 개선된 Query로 반환
@@ -280,7 +280,7 @@ $$ S_{h}= \alpha \cdot S_{s} + S_{d}$$
 
 ## 3.8 Generator Fine-tuning
 
-![png](/assets/images/paper/rag/9_figure3.png){: .align-center}{: width="60%" height="60%"}
+![png](/assets/images/paper/rag/9_figure3.png){: .align-center}{: width="50%" height="50%"}
 
 ![png](/assets/images/paper/rag/8_notation.png){: .align-center}{: width="90%" height="90%"}
 
