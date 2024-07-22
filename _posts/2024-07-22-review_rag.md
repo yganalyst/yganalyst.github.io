@@ -7,7 +7,7 @@ header:
   teaser: /assets/images/paper/rag/rag_logo.jpg
 
 categories:
-  - etc
+  - paper
 
 tags:
   - llm
