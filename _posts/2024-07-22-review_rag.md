@@ -358,14 +358,3 @@ $$ S_{h}= \alpha \cdot S_{s} + S_{d}$$
 
 - Retriever와 generator를 동시에 학습시키는 것을 보여준 연구들이 있으나, 본 연구에서의 Fine-tuning은 Generator인 LLM에만 집중되었음
 - 각 모듈별로 대표적인 Method들을 비교하는 것이 초점을 맞추었으나, 더 다양한 chunking 기술도 있고 고려할 것은 더 많음
-
-
-<br/>
-
-# Reference
-
-https://cocoon1787.tistory.com/723  
-https://coding-lks.tistory.com/162  
-https://deku.posstree.com/ko/git/branch-merge/  
-https://wecandev.tistory.com/152  
-https://han-joon-hyeok.github.io/posts/git-reset-revert/
