@@ -21,50 +21,52 @@ tags:
   - generation
   - paper
   - review
+  - fine tuning
+  - chunking
+  - vectordb
+  - embedding
+  - query classification
+  - llama
+  - repacking
+  - summarization
+
+use_math: true
 
 last_modified_at: 2024-07-22T20:00-20:30
 ---
 
 # 개요
 
-![jpg](/assets/images/paper/rag/rag_logo.jpg){: .align-center}{: width="60%" height="80%"}  
+![jpg](/assets/images/paper/rag/rag_logo.jpg){: .align-center}{: width="80%" height="80%"}  
 출처: https://www.glean.com/  
 
-이번 포스팅은 AI application 기술로 급격히 발전하고 있는 **RAG(Retrieval-Augmented Generation)**에 대한 논문으로, RAG Workflow의 모듈별 상세한 정리와 각 모듈에 대한 다양한 실험을 통해 선응 비교가 수행되었다. Data Science 분야에서는 초기에 여러 연구자들에 의해 산발적으로 인사이트들이 누적된 이후, **그래서 뭘 써야하는데?** 라는 물음에 대한 답을 해주는 논문이 나오기 마련이다.  
-이 논문이 바로 그런 역할을 해줄 것으로 기대한다.
+이번 포스팅은 AI application 기술로 급격히 발전하고 있는 **RAG(Retrieval-Augmented Generation)**에 대한 논문으로, RAG Workflow의 모듈별 상세한 정리와 각 모듈에 대한 다양한 실험을 통해 선응 비교가 수행되었다. Data Science 분야에서는 초기에 여러 연구자들에 의해 산발적으로 인사이트들이 누적된 이후, **그래서 뭘 써야하는데?** 라는 물음에 대한 답을 해주는 논문이 나오기 마련이다. 이 논문이 바로 그런 역할을 해줄 것으로 기대한다.
 
 RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만드려고 할때 생기는 한계들에서 시작되었다.
 
-1. Hallucination 문제
-
-- 정확한 정보를 제공하기 보다는 자연스러운 문장 생성에 초점이 맞춰져있다.
-- 부정확한 정보는 기업 도입에 리스크가 크다.
-
+1. Hallucination 문제  
+    - 정확한 정보를 제공하기 보다는 자연스러운 문장 생성에 초점이 맞춰져있다.
+    - 부정확한 정보는 기업 도입에 리스크가 크다.  
 2. 지식의 편향 문제
-
-- LLM이 학습된 데이터는 최신 정보나 특정 도메인의 정보를 제공하기 어렵다.
-- 기업 도입 측면에서는 신규 데이터에 대한 지속 투입이 필요하다.
-
+    - LLM이 학습된 데이터는 최신 정보나 특정 도메인의 정보를 제공하기 어렵다.
+    - 기업 도입 측면에서는 신규 데이터에 대한 지속 투입이 필요하다.  
 3. 비용 문제
+    - LLM의 Fine-tuning이 가능한 기업이 얼마나 있을까
 
-- LLM의 Fine-tuning이 가능한 기업이 얼마나 있을까
-
-위와 같은 문제들로 기업은 LLM이라는 거대한 매개변수를 건드리지 않고 효율적으로 기업 내부에 도입하기 위한 고민을 하기 시작한다.  
-이러한 Background를 인지한 상태에서 논문을 리뷰해보기로 하자.
+위와 같은 문제들로 기업은 LLM이라는 거대한 매개변수를 건드리지 않고 효율적으로 기업 내부에 도입하기 위한 고민을 하기 시작한다. 이러한 Background를 인지한 상태에서 논문을 리뷰해보기로 하자.
 
 <br/>
 
 # 1. Introduction
 
-💡 **Key point**
-
+> 💡 **Key point**  
 > 1. RAG Proecss를 상세하게 정리하고 기존 접근방법들을 정리
 > 2. 다양한 실험 환경에서 performance와 efficiency 비교
 > 3. Multimodal retrieval 전략에 대한 잠재력 논의
 
 ## RAG workflow
 
-![png](/assets/images/paper/rag/1_workflow.png){: .align-center}{: width="60%" height="60%"}
+![png](/assets/images/paper/rag/1_workflow.png){: .align-center}{: width="80%" height="80%"}
 
 1. **query classification**
    - Retrieval이 필요한 질문인지 여부를 분류
@@ -88,10 +90,10 @@ RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만�
 위 workflow에서 각 단계 별로 세부적인 technique들을 추가해서 여러가지 방법들이 제안되고 있다.  
 그러나 여러 방법에 대한 성능 비교 및 optimal에 대한 평가를 진행한 논문은 현재까지 없었다.
 
-- **Contribution: 산발적으로 생겨나고 있는 RAG 테크닉들을 체계적으로 성능 비교를 해보겠다**
-- **+Alpha :**
-  - **이걸 하기 위해 당연히 표준적인 평가 지표와 데이터세트가 필요할 것임**
-  - **그래서 최적의 조합을 찾아냈으면 새로운 방법론을 제안해볼 수 있을 것임**
+- Contribution: **산발적으로 생겨나고 있는 RAG 테크닉들을 체계적으로 성능 비교를 해보겠다**
+- +Alpha :
+  - 이걸 하기 위해 당연히 **평가 지표**와 **여러 데이터셋**이 필요할 것임
+  - 그래서 **최적의 조합**을 찾아내고 **다른 방법도 제안**해볼 수 있을 것임  
 
 <br/>
 
@@ -145,7 +147,7 @@ RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만�
 
 ### 3.2.1 Chunk size
 
-![png](/assets/images/paper/rag/2_table3.png){: width="50%" height="50%"}
+![png](/assets/images/paper/rag/2_table3.png){: .align-center}{: width="40%" height="40%"}
 
 - **Trade-off**
   - size가 클수록(크게 나눌수록) → 문맥 이해가 쉽지만 검색시간 등 증가
@@ -163,7 +165,7 @@ RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만�
 
 ### 3.2.2~3 Chinking Techniques & Embedding Model Selection
 
-![png](/assets/images/paper/rag/3_table4.png){: width="50%" height="50%"}
+![png](/assets/images/paper/rag/3_table4.png){: .align-center}{: width="40%" height="40%"}
 
 - **small-to-big, sliding window**
 
@@ -178,7 +180,7 @@ RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만�
   - Chunk Overlap: 20 tokens
   - Datasets: Lyft_2021
 
-![png](/assets/images/paper/rag/4_table2.png){: width="50%" height="50%"}
+![png](/assets/images/paper/rag/4_table2.png){: .align-center}{: width="70%" height="70%"}
 
 - **Embedding Model**
   - 질문(Query)와 Chunk block들 간의 의미를 매칭(유사도, 관련성 등)하는데 중요한 역할
@@ -186,12 +188,11 @@ RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만�
 
   - Embedding Model: LLM-Embedder
   - Evaluation Model: FlagEmbedding
-  - Datasets
-
+  - Datasets  
     - Query: namespace-Pt/msmarco
     - Corpus: namespace-Pt/msmarco-corpus
 
-두 모델의 성능은 비슷하지만, LLM-Embedder의 size가 3배 가볍기 때문에, 이걸로 선택!
+**두 모델의 성능은 비슷하지만, LLM-Embedder의 size가 3배 가볍기 때문에, 이걸로 선택!**  
 
 ### 3.2.4 Metadata Addition
 
@@ -199,7 +200,7 @@ RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만�
 
 ## 3.3 Vector Databases
 
-![png](/assets/images/paper/rag/5_table5.png){: width="50%" height="50%"}
+![png](/assets/images/paper/rag/5_table5.png){: .align-center}{: width="40%" height="40%"}
 
 - 위와 같이 임베딩된 vector들을 효율적으로 저장하고 검색할 수 있도록 고완된 DB
 - 4가지 Vector DB 유형
@@ -210,7 +211,7 @@ RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만�
 
 ## 3.4 Retrieval Methods
 
-![png](/assets/images/paper/rag/6_table6.png){: width="50%" height="50%"}
+![png](/assets/images/paper/rag/6_table6.png){: .align-center}{: width="80%" height="80%"}
 
 - 검색 성능 향상을 위해 주어진 Query를 그대로 사용하지 않고 변환하는 방법
   - **Query Rewriting**: LLM에게 Query를 입력해 개선된 Query로 반환
@@ -222,7 +223,7 @@ RAG 기술이 생겨난 배경에는 기존 LLM 활용한 AI Application을 만�
 
 ### 3.4.2 HyDE - 가상 document 별 성능비교
 
-![png](/assets/images/paper/rag/7_table7.png){: width="50%" height="50%"}
+![png](/assets/images/paper/rag/7_table7.png){: .align-center}{: width="90%" height="90%"}
 
 - 가상 document를 늘리면 성능이 기본적으로 증가
 - But 지연 시간(Latency)도 증가하기 때문에 효율성이 감소함
@@ -279,14 +280,14 @@ $$ S_{h}= \alpha \cdot S_{s} + S_{d}$$
 
 ## 3.8 Generator Fine-tuning
 
-![png](/assets/images/paper/rag/9_figure3.png){: width="50%" height="50%"}
+![png](/assets/images/paper/rag/9_figure3.png){: .align-center}{: width="60%" height="60%"}
 
-![png](/assets/images/paper/rag/8_notation.png){: width="50%" height="50%"}
+![png](/assets/images/paper/rag/8_notation.png){: .align-center}{: width="90%" height="90%"}
 
 
 - 각각의 data로 모델들을 각각 fine-tuning하고, Validation set도 각각을 놓고 비교함
   - 초기 모델로 Llama-2 7B 사용
-- D_gr로 fine-tuning 했던 M_gr이 다른 Dataset에서도 대부분의 데이터셋에서 높은 성능을 보임
+- $D_{gr}$로 fine-tuning 했던 $M_{gr}$이 다른 Dataset에서도 대부분의 데이터셋에서 높은 성능을 보임
   - **Mixed 해서 학습시켰을 때 robust하면서도 relevant docs도 효과적으로 활용함**
 
 <br/>
@@ -306,7 +307,7 @@ $$ S_{h}= \alpha \cdot S_{s} + S_{d}$$
   - RAG 평가 → Average(Faithfulness, Context Relevancy, Answer Relevancy, Answer Correctness)
 - 실험 결과  
 
-![png](/assets/images/paper/rag/10_table11.png){: width="50%" height="50%"}  
+![png](/assets/images/paper/rag/10_table11.png){: .align-center}{: width="90%" height="90%"}  
 
 
 - Query Classification Module
@@ -328,7 +329,7 @@ $$ S_{h}= \alpha \cdot S_{s} + S_{d}$$
 
 ## 실험 결과 정리  
 
-- **성능 vs 효율성 간의 Trade-off 잡기**
+- 성능 vs 효율성 간의 Trade-off를 고려하는 것이 중요  
 
 |모듈|성능 극대화|효율성과 균형|
 |:---|:---:|:---:|
