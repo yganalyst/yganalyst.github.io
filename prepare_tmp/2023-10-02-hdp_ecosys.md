@@ -70,12 +70,14 @@ last_modified_at: 2023-10-02T20:00-20:30
 # Hadoop  
 
 먼저 **하둡(Hadoop)**은 위에서 살펴본 바와 같이 여러 대의 컴퓨터에게 작업을 분산시켜 처리 효율성을 높이고자 하는 목적에서 개발된 **분산 처리 오픈소스 프레임워크**이다.  
-초기 Hadoop은 아래 2가지 코어 프로젝트로 구성되어 있었다.  
+Hadoop은 아래 3가지 코어 프로젝트로 구성되어 있다.  
 
 1. **HDFS(Hadoop Distributed File System)**
     - 데이터를 분산 저장하는 역할(e.g. Data Storage)  
 2. **MapReduce**  
     - 분산 저장된 데이터를 처리하는 역할(e.g. Execution Engine)  
+3. **YARN**  
+    - 리소스 관리자 역할 (Hadoop ver2부터 MapReduce의 역할 일부가 YARN으로 떨어져나옴)  
 
 ## HDFS  
 
@@ -110,6 +112,21 @@ Hadoop은 위와 같이 HDFS에 분산 저장된 데이터를 처리하기 위�
     - (Shuffling) 같은 Key를 가지는 쌍별로 분류 및 정렬   
     - (Reducing) 최종적으로 분산되어 있는 연산 결과를 병합    
 
+## YARN    
+
+![png](/assets/images/hadoop/ecosys/hdp_6.png){: .align-center}{: width="80%" height="80%"}  
+출처: https://medium.com/@chenglong.w1/  
+
+YARN은 Yet Another Resource Negotiator의 약자로, Hadoop이 데이터를 저장하고 처리하는 모든 수행들에 대해 리소스(CPU, 메모리 등)를 관리하고 작업 스케쥴링을 도와주는 리소스 매니저이다.  
+Resurce Manager와 하나 이상의 Node Manager로 구성되어 있으며, Node Manager는 실제 Data Node의 개수 만큼 서버를 구성하는 것이 일반적이다.  
+
+1. `Resource Manager`: 서버 클러스터에서 돌아가는 모든 application들의 Resource를 관리하고 할당하는 역할
+    - `Scheduler`: 실행될 Application에 Resource를 할당시키는 역할 
+    - `Application Manager`: 실행에 앞서 첫번째 DataNode의 Application Master를 실행시킬 수 있는지 검토
+2. `Node Manager`: 내부 Container의 Resource(CPU, 메모리, 디스크 등)을 모니터링하고 Resource Manager에 알려주는 역할  
+    - `Container`: Applications Master에 의해 결정된 만큼의 리소스를 받아 Task를 수행  
+
+
 <br/>
 
 # Hadoop Ecosystem?
@@ -129,22 +146,64 @@ Hadoop은 위와 같이 HDFS에 분산 저장된 데이터를 처리하기 위�
     - `YARN`, `Mesos`
 5. Scheduling
     - `Oozie`, `Airflow`
-6. Visualization & UI  
-    - `HUE`, `Zeppelin`
-
-## YARN    
-
-YARN은 Yet Another Resource Negotiator의 약자로, CPU나 메모리 등의 계산 리소스를 관리하는 리소스 매니저이다. 초기 버전에는 포함되지 않았으나 Hadoop ver2가 나오면서 YARN이 추가되었다.  
-
-
-
-- 컨테이너(CPU코어, 메모리) 단위로 관리하며, 비어있는 호스트(컴퓨터)부터 컨테이너를 할당함  
+6. Visualization & Web UI  
+    - `Hue`, `Zeppelin`
 
 
 ## Hive  
 
+Hive는 **Hadoop에서 SQL로 편하게 질의하고 데이터를 가져올 수 있는 툴**
+- Hive Architecture
+    - **Meta Store**: MySQL, Oracle 등의 DB로 구성, Hive가 구동될 때 필요로 하는 테이블 및 스키마가 저장됨
+    - **Hive Server**: Hive에 Query하는 가장 앞단의 서버(HiveQL)
+        
+        ***HiveQL**: SQL과 거의 유사한 쿼리 언어
+        
+    - **Driver**: Hive의 엔진, 여러 엔진(MapReduce, Spark, Tez)과 연동하는 역할
+- 즉, Hive는 HDFS의 데이터에 대해서 Meta Store에 저장된 스키마(테이블)를 기준으로, 데이터를 MR(MapReduce), Spark, Tez 엔진 중 하나를 사용하여 처리하고, 이를 정형화된 테이블로 사용자에게 제공하는 SQL Tool임
+- 특징
+    - Meta Store에는 Table, Column 정보를 관리하고 실 데이터는 HDFS에 저장함
+    - **HiveQL은 Map Reduce로 변환되어 실행되므로, 응답시간이 매우 길고 대량 데이터의 Full-Scan에 최적화되어 있음**
+    - **대화형 Online Query 사용에 부적합**함, 배치처리 기반의 Map Reduce를 통해 처리하기 때문에 애드혹(Ad-Hoc) Query 등의 대화형 방식의 분석에는 맞지 않음
+    - **데이터의 부분적인 수정/삭제(Record별 Update, Delete)가 불가**함 - HDFS의 특징을 그대로 계승함
+    - Transaction 관리 기능이 없어서 롤백 처리가 불가능함
+    - HDFS, HBase(Column 기반 데이터베이스), Accumulo(정렬된 분산 Column 기반 저장소), Druid, **Kudu(빠른 Column기반 저장소) 등 다양한 저장소 사용 가능**
+
 ## Impala
 
+- Hive의 단점을 해결
+    - 실시간성 Query 성능
+    - Multi 사용자 지원
+- 특징
+    - Hive가 Map Reduce를 사용하는 반면, Impala는 자체 분석 Query 엔진을 사용하기 때문에 응답속도가 빠름
+    - 빠른 응답을 위한 분석용(Ad-Hoc) Query에 최적화되어 있음
+    - HiveQL과 호환성 제공
+    - 전용 Meta Store를 사용할 필요 없이, 기존 Hive Meta Store를 사용함
+    - Impala도 데이터를 HDFS에 저장하므로, 데이터의 부분적인 **수정/삭제(Record별 Update, Delete)가 불가**
+
+## Spark
+
+
+## Kafka
+
+
+## Sqoop
+
+
+## Hbase
+
+
+## Kudu
+
+
+## Oozie
+
+
+
+## Airflow
+
+
+## Hue
 
 
 
@@ -154,7 +213,5 @@ YARN은 Yet Another Resource Negotiator의 약자로, CPU나 메모리 등의 �
 
 - https://inkkim.github.io/hadoop/Hadoop-Ecosystem%EC%9D%B4%EB%9E%80/   
 - https://mangkyu.tistory.com/129  
-- https://velog.io/@spdlqjfire/%ED%95%98%EB%91%A1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-MapReduce
-- 
-
+- https://pyromaniac.me/entry/Hadoop%EC%9D%98-3%EC%9A%94%EC%86%8C-HDFS-MapReduce-Yarn
 
