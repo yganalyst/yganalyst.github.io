@@ -112,6 +112,10 @@ Hadoop은 위와 같이 HDFS에 분산 저장된 데이터를 처리하기 위�
     - (Shuffling) 같은 Key를 가지는 쌍별로 분류 및 정렬   
     - (Reducing) 최종적으로 분산되어 있는 연산 결과를 병합    
 
+이와 같이 Map과 Reduce Task를 수행할 때 각각의 단계마다, **중간 산출물들(ex. Key-value 값 등)을 Disk 공간에 파일을 읽고 쓰는 과정이 반복**된다.  
+따라서 제한된 메모리로도 컴퓨터(e.g. 하드 디스크)가 추가됨에 따라 대규모 데이터를 확장가능하게 처리할 수 있다.  
+(이 특징이 현재는 단점으로 작용하여 개선된 오픈소스들이 나오고 있다)  
+
 ## YARN    
 
 ![png](/assets/images/hadoop/ecosys/hdp_6.png){: .align-center}{: width="80%" height="80%"}  
@@ -152,56 +156,85 @@ Resurce Manager와 하나 이상의 Node Manager로 구성되어 있으며, Node
 
 ## Hive  
 
-Hive는 **Hadoop에서 SQL로 편하게 질의하고 데이터를 가져올 수 있는 툴**
-- Hive Architecture
-    - **Meta Store**: MySQL, Oracle 등의 DB로 구성, Hive가 구동될 때 필요로 하는 테이블 및 스키마가 저장됨
-    - **Hive Server**: Hive에 Query하는 가장 앞단의 서버(HiveQL)
-        
-        ***HiveQL**: SQL과 거의 유사한 쿼리 언어
-        
-    - **Driver**: Hive의 엔진, 여러 엔진(MapReduce, Spark, Tez)과 연동하는 역할
-- 즉, Hive는 HDFS의 데이터에 대해서 Meta Store에 저장된 스키마(테이블)를 기준으로, 데이터를 MR(MapReduce), Spark, Tez 엔진 중 하나를 사용하여 처리하고, 이를 정형화된 테이블로 사용자에게 제공하는 SQL Tool임
-- 특징
-    - Meta Store에는 Table, Column 정보를 관리하고 실 데이터는 HDFS에 저장함
-    - **HiveQL은 Map Reduce로 변환되어 실행되므로, 응답시간이 매우 길고 대량 데이터의 Full-Scan에 최적화되어 있음**
-    - **대화형 Online Query 사용에 부적합**함, 배치처리 기반의 Map Reduce를 통해 처리하기 때문에 애드혹(Ad-Hoc) Query 등의 대화형 방식의 분석에는 맞지 않음
-    - **데이터의 부분적인 수정/삭제(Record별 Update, Delete)가 불가**함 - HDFS의 특징을 그대로 계승함
-    - Transaction 관리 기능이 없어서 롤백 처리가 불가능함
-    - HDFS, HBase(Column 기반 데이터베이스), Accumulo(정렬된 분산 Column 기반 저장소), Druid, **Kudu(빠른 Column기반 저장소) 등 다양한 저장소 사용 가능**
+![png](/assets/images/hadoop/ecosys/hdp_7.png){: .align-center}{: width="80%" height="80%"}  
+출처: https://datacookbook.kr/88     
+
+Hive는 **Hadoop을 기반으로 하는 데이터웨어하우징용 오픈소스 솔루션**이다.  
+위에서 설명한 HDFS와 MapReduce 사용을 위해서는 Java나 Python등의 프로그래밍이 필요한데, 기존에 RDB와 SQL만 사용하던 사용자들에게는 진입장벽이 존재했다.  
+이를 위해 **Hadoop에서 SQL로 편하게 질의하고 데이터를 가져올 수 있도록** 오픈소스를 개발한 것이다.  
+
+이에 따라 Hive에는 FileSystem으로만 구성되어 있는 **Hadoop과 RDB의 격차를 줄이기 위한 요소**들로 구성되어 있다.  
+
+1. **Meta Store**: RDB의 Table schema 정보 역할!  
+    - Hive 실행 시 필요한 테이블 및 Column과 같은 스키마 정보들을 관리 (실데이터는 HDFS에 저장되어 있음)
+    - 물리적으로는 HDFS와는 별도로 MySQL 등의 DB로 구성됨 
+2. **Hive Server**: SQL을 입력받는 역할  
+    - Hive에 Query하는 가장 앞단의 서버(HiveQL)
+      - HiveQL은 SQL과 거의 유사한 Hive의 SQL 언어
+    - 위 그림과 같이 JDBC, ODBC로 부터 Query를 받아 Driver에 전달
+    - Hive Server가 아닌 CLI로 바로 질의할 경우 제어 및 권한 없이 접근이 가능
+      - 보안상의 이유로 운영에서는 사용하지 않음
+3. **Driver**: SQL을 MapReduce 등의 엔진으로 변환하는 역할
+    - 입력받은 SQL의 연산방식 계산 및 Optimizing하고 여러 엔진(MapReduce, Spark, Tez)과 연동
+
+> 즉, Hive는 HDFS의 데이터에 대해서 Meta Store에 저장된 스키마(테이블)를 기준으로, 데이터를 MR(MapReduce), Spark, Tez 엔진 중 하나를 사용하여 처리하고, 이를 정형화된 테이블로 사용자에게 제공하는 SQL Tool이다.    
+
+단점도 몇 가지 존재하는데,  
+
+1. HiveQL이 **Map Reduce로 변환되어 실행될 때 응답시간이 매우 길고 대량 데이터의 Full-Scan에 최적화**되어 있어서, **대화형 Ad-hoc Query 사용에 부적합**함
+2. 실 데이터는 HDFS에 저장되어 있기 때문에, HDFS의 단점이 그대로 존재  
+    - 데이터의 **부분적인 수정/삭제(Record별 Update, Delete)가 불가능**
+    - **Transaction 관리 기능이 없어서 롤백 처리가 불가능**
 
 ## Impala
 
-- Hive의 단점을 해결
-    - 실시간성 Query 성능
-    - Multi 사용자 지원
+![png](/assets/images/hadoop/ecosys/hdp_8.png){: .align-center}{: width="80%" height="80%"}  
+
+Impala는 Hive와 비슷한 특징을 가지고 있지만, 위에서 얘기한 대화형 Ad-Hoc 분석을 위한 Query 사용에 부적합한 단점을 보완하며 Cloudera에서 개발한 쿼리 엔진이다.  
+
+Impala의 몇가지 특징들은 다음과 같다.  
+
+1. MapReduce 엔진으로 연동하는 것이 아닌 Impala 자체 엔진을 가지고 있기 때문에 응답속도가 빠름  
+2. 빠른 응답을 위한 분석용(Ad-Hoc) Query에 최적화되어 있음  
+3. 전용 Meta Store를 사용할 필요 없이, 기존 Hive Meta Store를 공유함  
+3. Impala도 데이터를 HDFS에 저장하므로, 데이터의 부분적인 **수정/삭제(Record별 Update, Delete)가 불가**
+
+
+## Spark  
+
+![png](/assets/images/hadoop/ecosys/hdp_9.png){: .align-center}{: width="80%" height="80%"}  
+
+Spark는 **인메모리(In-memory)기반의 고속 데이터 처리 엔진**으로, 위에서 설명한 MapReduce의 한계를 혁신적으로 개선했다.  
+MapReduce가 데이터를 처리할 때마다 Disk I/O가 대량 발생했었는데 인메모리로 처리함으로써 연산속도가 대폭 개선되었다.  
+(시대 변화에 따라 메모리 비용이 절감되고 비용구조 자체가 바뀐 영향이 크다)  
+
+> 즉, “디스크에서 읽고 쓰는게 아니라 가능한 많은 데이터를 메모리에 올려두고, 디스크에는 아무것도 기록하지 말자”라는 아이디어
+
+Spark의 특징들은 아래와 같다.  
+
+1. Spark는 처리엔진을 의미하므로, 비교 대상은 하둡이 아닌 MapReduce임  
+2. MapReduce는 HDFS의 데이터에만 적용되지만, Spark는 더 다양한 데이터 포멧에 적용 가능  
+3. 핵심 아이디어는 RDD(Resilient Distributed Dataset)  
+4. `Spark SQL`: SQL로 쿼리를 실행하기 위함
+5. `Spark Streaming`: 실시간 데이터의 스트림 처리를 수행하기 위함
+6. `MLlib`: 머신러닝 알고리즘 제공 
+
+## Kudu
+
+- 하둡 환경에서 사용하는 Column 기반 스토리지(저장소)
 - 특징
-    - Hive가 Map Reduce를 사용하는 반면, Impala는 자체 분석 Query 엔진을 사용하기 때문에 응답속도가 빠름
-    - 빠른 응답을 위한 분석용(Ad-Hoc) Query에 최적화되어 있음
-    - HiveQL과 호환성 제공
-    - 전용 Meta Store를 사용할 필요 없이, 기존 Hive Meta Store를 사용함
-    - Impala도 데이터를 HDFS에 저장하므로, 데이터의 부분적인 **수정/삭제(Record별 Update, Delete)가 불가**
-
-## Spark
-
-
-## Kafka
+    - 빠른 데이터에서 빠른 분석을 수행하기 위해 사용
+    - **단순히 데이터 조회 기능만 제공하기 때문에, Query 엔진을 같이 사용해야함, 이때 일반적으로 Impala를 사용함**
+- **Hive vs Kudu**
+    - Hive는 수정이 발생되지 않는 대용량 데이터 저장소에 적합하고, Kudu는 빈번한 변경이 발생되는 데이터 저장소에 적합
+    - kudu는 key를 제공하기 때문에 key기반 작업이 필요할 땐 Kudu를 사용하여야 하고, partition 기반 작업이 필요할 땐 Hive를 사용
 
 
 ## Sqoop
 
-
-## Hbase
-
-
-## Kudu
-
-
 ## Oozie
 
-
-
 ## Airflow
-
 
 ## Hue
 
@@ -214,4 +247,5 @@ Hive는 **Hadoop에서 SQL로 편하게 질의하고 데이터를 가져올 수 
 - https://inkkim.github.io/hadoop/Hadoop-Ecosystem%EC%9D%B4%EB%9E%80/   
 - https://mangkyu.tistory.com/129  
 - https://pyromaniac.me/entry/Hadoop%EC%9D%98-3%EC%9A%94%EC%86%8C-HDFS-MapReduce-Yarn
-
+- https://langho.tistory.com/9  
+- 
