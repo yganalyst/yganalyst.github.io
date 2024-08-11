@@ -12,10 +12,26 @@ categories:
 tags:
   - hadoop
   - ecosystem
+  - HDFS
+  - YARN
+  - mapreduce
+  - hive
+  - impala
+  - spark
+  - kudu
+  - sqoop
+  - oozie
+  - airflow
+  - hue
+  - rdd
+  - dataframe
+  - dataset
+  - metastore
+  - bigdata
 
 use_math: true
 
-last_modified_at: 2023-10-02T20:00-20:30
+last_modified_at: 2023-11-02T20:00-20:30
 ---
 
 # 개요
@@ -214,30 +230,94 @@ Spark의 특징들은 아래와 같다.
 
 1. Spark는 처리엔진을 의미하므로, 비교 대상은 하둡이 아닌 MapReduce임  
 2. MapReduce는 HDFS의 데이터에만 적용되지만, Spark는 더 다양한 데이터 포멧에 적용 가능  
-3. 핵심 아이디어는 RDD(Resilient Distributed Dataset)  
+3. Spark 데이터 구조
+    - `RDD(Resilient Distributed Dataset)`  
+    - `DataFrame`
+    - `Dataset`
 4. `Spark SQL`: SQL로 쿼리를 실행하기 위함
 5. `Spark Streaming`: 실시간 데이터의 스트림 처리를 수행하기 위함
 6. `MLlib`: 머신러닝 알고리즘 제공 
 
 ## Kudu
 
-- 하둡 환경에서 사용하는 Column 기반 스토리지(저장소)
-- 특징
-    - 빠른 데이터에서 빠른 분석을 수행하기 위해 사용
-    - **단순히 데이터 조회 기능만 제공하기 때문에, Query 엔진을 같이 사용해야함, 이때 일반적으로 Impala를 사용함**
-- **Hive vs Kudu**
-    - Hive는 수정이 발생되지 않는 대용량 데이터 저장소에 적합하고, Kudu는 빈번한 변경이 발생되는 데이터 저장소에 적합
-    - kudu는 key를 제공하기 때문에 key기반 작업이 필요할 땐 Kudu를 사용하여야 하고, partition 기반 작업이 필요할 땐 Hive를 사용
+![png](/assets/images/hadoop/ecosys/hdp_10.png){: .align-center}{: width="80%" height="80%"}  
+출처: https://kudu.apache.org/docs/     
+
+Kudu는 Hadoop 환경에서 사용되는 **Column 기반 스토리지(Columnar Storage)**이다. 즉, **Column별로 파일에 저장**한다.
+Cloudera에서 개발하였으며, 위에서 설명하기도 했지만 **데이터의 부분적인 수정/삭제 등이 불가능한 HDFS의 단점**과 NoSQL 기반인 Hbase의 단점을 동시에 보완한다.  
+
+Kudu의 특징은 아래와 같다.  
+
+1. Kudu 자체는 Storage이므로 Query 엔진을 같이 사용해야함 (일반적으로 Impala를 사용)
+2. Impala에서 CRUD가 가능하도록 설계
+3. hive나 impala에서 얘기하는 Metastore 기반의 Table과는 위계가 다름 (Storage임)
+4. Kudu Architecture  
+    - `Tablet`  
+      - 특정 column을 기준으로 데이터를 분할 저장할 때 분할된 데이터를 의미  
+      - Leader(Read, Write 요청)와 Follower(Read 요청)로 구성  
+    - `Tablet Server`    
+      - Tablet을 가지고 있는 서버로, 여러 Tablet을 가짐  
+      - Master, Tablet 서버로 나눠지며, HDFS의 Name, Data노드와 유사한 원리  
+5. **Hive vs Kudu**
+    - Hive는 수정이 발생되지 않는 대용량 데이터 저장소에 적합
+    - Kudu는 빈번한 변경이 발생되는 데이터 저장소에 적합
+    - Partition 기반 작업이 필요할 땐 Hive를 사용  
+    - Key기반 작업이 필요할 땐 Kudu를 사용 
 
 
 ## Sqoop
 
-## Oozie
+![jpg](/assets/images/hadoop/ecosys/hdp_11.jpg){: .align-center}{: width="80%" height="80%"}  
+출처: http://sqoop.apache.org/index.html  
 
-## Airflow
+Sqoop은 SQL-to-Hadoop의 약자로 HDFS와 RDBMS(Oracle, MySQL 등) 간의 대량 데이터 전송 목적으로 만들어진 툴이다.  
+`import`(RDBMS -> HDFS), `export`(HDFS -> RDBMS) 명령어로 수행되며, MapReduce의 Map task를 기반으로 수행된다.  
 
-## Hue
+Sqoop의 특징은 아래와 같다.  
 
+1. `Import`의 동작 방식 예시  
+    -  import 실행 시 RDBMS에서 MetaData(컬럼, 타입 등)를 가지고 온다. 
+    - Map Task로만 이루어진 Job(Map-Only Job)을 실행하여 Hadoop Cluster로 전송  
+      - 원하는 데이터만 전송하는 것이지 가공은 하지 않기 때문에 Reduce Task는 필요없음
+2. Default 옵션  
+    - `Where?` : HDFS Home directory
+    - `How?` : plain (txt File)
+      - File Delimeted `,`
+      - File Distributed 4 (4개 파일로 분산 저장이 기본값)  
+3. 기타 옵션  
+    - `-Dorg.apache.sqoop.splitter.allow_text_splitter=true`: 가져올 Table의 Primary Key가 문자열일 경우
+    - `--split-by order_id`: 가져올 table의 Primary Key가 없는 경우
+4. CLI 예시 (Sqoop으로 MySQL의 employees 테이블 가져오기)  
+
+```bash
+sqoop import \
+--connect jdbc:mysql://mysql_server/my_db \
+--username jdoe --password bigsecret \
+--table customers
+```
+
+## 기타 
+
+### Oozie
+
+Oozie는 Hadoop에서 다양한 작업들을 스케쥴링하기 위한 툴로, Batch나 순차적인 실행이 필요한 Job들의 일정을 잡거나 자동화하기 위해 사용한다.  
+
+1. XML 파일로 정의된 작업을 제출  
+2. Action으로 실행 단위를 구성하고, Action을 모아 워크플로우를 구성  
+    - 다양한 형태의 Action을 제공(Shell, Hive, Sqoop, Spark 등)  
+3. DAG(Directed Acyclic Graph)를 작성하여 작업을 진행
+
+
+### Airflow
+
+Airflow는 Airbnb에서 만든 작업 스케쥴링 툴로, Python 코드를 기반으로 WorkFlow를 작성하고 파이프라인을 구축할 수 있는 것이 가장 큰 장점이다.  
+실제 데이터 처리 작업을 수행하지는 않고, 이를 위한 구성 요소를 DAG 기반으로 작성하고 관리하기 위한 파이썬 프레임워크로 이해할 수 있다.  
+
+### HUE
+
+HUE는 Hadoop User Experience의 약자로, 사용자가 Hadoop에 쉽게 접근할 수 있도록 만든 Web UI 기반 프로그램이다.  
+지금까지 살펴본 바와 같이 Hadoop Ecosystem의 구성요소들은 굉장히 많기 때문에, 개별적으로 사용하고 연동하기 어려운 부분이 있다.  
+따라서 Web 환경에서 HDFS와 같은 Storage를 직접 조회하거나 Hive, Impala, Spark의 Query 실행, Oozie를 활용한 스케쥴링 등을 한 화면에서 동작하도록 구성하고 편의성을 높여준다.  
 
 
 <br/>
@@ -248,4 +328,5 @@ Spark의 특징들은 아래와 같다.
 - https://mangkyu.tistory.com/129  
 - https://pyromaniac.me/entry/Hadoop%EC%9D%98-3%EC%9A%94%EC%86%8C-HDFS-MapReduce-Yarn
 - https://langho.tistory.com/9  
-- 
+- https://artist-developer.tistory.com/21#google_vignette  
+- https://geonyeongkim-development.tistory.com/75  
