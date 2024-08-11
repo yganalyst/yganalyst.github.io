@@ -1,6 +1,6 @@
 ---
-title: "[Bigdata] 하둡 에코시스템(Hadoop Ecosystem)에 대한 이해"
-excerpt: "빅데이터 활용을 위한 시스템 및 플랫폼인 Hadoop에 대해 전반적으로 알아보자"
+title: "[Hadoop] Hadoop Ecosystem과 구성요소들에 대한 이해(HDFS, MapReduce, Hive, Imapla, Spark, Kudu, Sqoop 등)"
+excerpt: "빅데이터 활용을 위한 시스템이자 플랫폼인 Hadoop에 대해 전반적으로 알아보자"
 toc: true
 toc_sticky: true
 header:
@@ -36,7 +36,7 @@ last_modified_at: 2023-11-02T20:00-20:30
 
 # 개요
 
-![png](/assets/images/hadoop/ecosys/hdp_logo.png){: .align-center}{: width="100%" height="100%"}  
+![png](/assets/images/hadoop/ecosys/hdp_logo.png){: .align-center}{: width="80%" height="80%"}  
 출처: https://1004jonghee.tistory.com/
 
 이번 포스팅에서는 [Hadoop](https://hadoop.apache.org/)이란 무엇인지, 이를 둘러싼 Ecosystem에 포함되는 서브프로젝트들이 어떤 배경에서 만들어졌고 어디에 쓰이게 되는지 전반적으로 정리해보려고 한다. 이후 포스팅들에서는 각 서브 프로젝트에 대해 세부 내용을 정리하는 시간이 있을 것 같다.
@@ -45,7 +45,7 @@ last_modified_at: 2023-11-02T20:00-20:30
 
 # BigData
 
-![png](/assets/images/hadoop/ecosys/hdp_2.png){: .align-center}{: width="50%" height="50%"}  
+![png](/assets/images/hadoop/ecosys/hdp_2.png){: .align-center}{: width="70%" height="70%"}  
 출처: 도서-빅데이터를 지탱하는 기술
 
 먼저 Hadoop이 왜 필요해졌을까? 벌써 20년도 전이긴 하지만 모바일 및 인터넷의 보급으로 전세계적으로 접근 가능한 시스템이 증가함에 따라, 기존 RDB로는 취급할 수 없는 수준으로 대량의 데이터가 쌓이게 된다.
@@ -69,7 +69,7 @@ last_modified_at: 2023-11-02T20:00-20:30
 
 ## 스몰데이터와 빅데이터
 
-![png](/assets/images/hadoop/ecosys/hdp_3.png){: .align-center}{: width="50%" height="50%"}  
+![png](/assets/images/hadoop/ecosys/hdp_3.png){: .align-center}{: width="90%" height="90%"}  
 출처: 도서-빅데이터를 지탱하는 기술
 
 그럼 빅데이터 시스템인 Hadoop이 언제나 좋은 것일까?  
@@ -116,7 +116,7 @@ HDFS는 파일을 Block이라는 단위로 나누어 관리하는데, 1개 파�
 
 ## MapReduce  
 
-![png](/assets/images/hadoop/ecosys/hdp_5.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/hadoop/ecosys/hdp_5.png){: .align-center}{: width="100%" height="100%"}  
 
 Hadoop은 위와 같이 HDFS에 분산 저장된 데이터를 처리하기 위해 기본적으로 구글에서 발표한 MapReduce 엔진을 사용한다. **MapReduce는 병렬 컴퓨팅 환경에서의 데이터 처리 엔진**으로, **각 Block에 대해 Map Task와 Reduce Task를 통해 원하는 데이터를 추출**하는 작업을 수행한다.  
 
@@ -218,7 +218,7 @@ Impala의 몇가지 특징들은 다음과 같다.
 
 ## Spark  
 
-![png](/assets/images/hadoop/ecosys/hdp_9.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/hadoop/ecosys/hdp_9.png){: .align-center}{: width="70%" height="70%"}  
 
 Spark는 **인메모리(In-memory)기반의 고속 데이터 처리 엔진**으로, 위에서 설명한 MapReduce의 한계를 혁신적으로 개선했다.  
 MapReduce가 데이터를 처리할 때마다 Disk I/O가 대량 발생했었는데 인메모리로 처리함으로써 연산속도가 대폭 개선되었다.  
@@ -267,7 +267,7 @@ Kudu의 특징은 아래와 같다.
 
 ## Sqoop
 
-![jpg](/assets/images/hadoop/ecosys/hdp_11.jpg){: .align-center}{: width="80%" height="80%"}  
+![jpg](/assets/images/hadoop/ecosys/hdp_11.jpg){: .align-center}{: width="90%" height="90%"}  
 출처: http://sqoop.apache.org/index.html  
 
 Sqoop은 SQL-to-Hadoop의 약자로 HDFS와 RDBMS(Oracle, MySQL 등) 간의 대량 데이터 전송 목적으로 만들어진 툴이다.  
