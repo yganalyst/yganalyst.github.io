@@ -45,7 +45,7 @@ last_modified_at: 2023-11-02T20:00-20:30
 
 # BigData
 
-![png](/assets/images/hadoop/ecosys/hdp_2.png){: .align-center}{: width="70%" height="70%"}  
+![png](/assets/images/hadoop/ecosys/hdp_2.png){: .align-center}{: width="65%" height="65%"}  
 출처: 도서-빅데이터를 지탱하는 기술
 
 먼저 Hadoop이 왜 필요해졌을까? 벌써 20년도 전이긴 하지만 모바일 및 인터넷의 보급으로 전세계적으로 접근 가능한 시스템이 증가함에 따라, 기존 RDB로는 취급할 수 없는 수준으로 대량의 데이터가 쌓이게 된다.
@@ -69,7 +69,7 @@ last_modified_at: 2023-11-02T20:00-20:30
 
 ## 스몰데이터와 빅데이터
 
-![png](/assets/images/hadoop/ecosys/hdp_3.png){: .align-center}{: width="90%" height="90%"}  
+![png](/assets/images/hadoop/ecosys/hdp_3.png){: .align-center}{: width="80%" height="80%"}  
 출처: 도서-빅데이터를 지탱하는 기술
 
 그럼 빅데이터 시스템인 Hadoop이 언제나 좋은 것일까?  
