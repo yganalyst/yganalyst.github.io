@@ -52,7 +52,7 @@ sidebar-contents:
   - title: "Engineering"
     children:
       - title: "Hadoop"
-        url: /categories/#hdp
+        url: /categories/#hadoop
         category: "hadoop"
       - title: "SQL"
         url: /categories/#sql

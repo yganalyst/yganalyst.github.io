@@ -7,7 +7,7 @@ header:
   teaser: /assets/images/hadoop/ecosys/hdp_logo.png
 
 categories:
-  - hdp
+  - hadoop
 
 tags:
   - hadoop
