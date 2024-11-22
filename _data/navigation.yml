@@ -5,7 +5,7 @@ main:
    - title: "카테고리"
      url: /categories/
    - title: "생각의 틈"
-     url: /categories/#book_review
+     url: /categories/book_review
 #   - title: "프로젝트"
 #     url: /categories/toy_project/
   # - title: "Study"
