@@ -66,3 +66,7 @@ sidebar-contents:
       - title: "training"
         url: /categories/#training
         category: "training"
+  - title: "ETC"
+    children:
+      - title: "서평"
+        url: /categories/#book_review
