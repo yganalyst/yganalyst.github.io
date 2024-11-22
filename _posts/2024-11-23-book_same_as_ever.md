@@ -7,7 +7,7 @@ header:
   teaser: /assets/images/book/same_as_ever.jpg
 
 categories:
-  - book_review
+  - book
 
 tags:
   - 모건하우절

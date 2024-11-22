@@ -5,7 +5,7 @@ main:
    - title: "카테고리"
      url: /categories/
    - title: "생각의 틈"
-     url: /categories/book_review
+     url: /categories/book
 #   - title: "프로젝트"
 #     url: /categories/toy_project/
   # - title: "Study"
@@ -69,5 +69,5 @@ sidebar-contents:
   - title: "ETC"
     children:
       - title: "서평"
-        url: /categories/#book_review
-        category: "book_review"
+        url: /categories/#book
+        category: "book"
