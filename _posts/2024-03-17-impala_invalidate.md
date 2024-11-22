@@ -29,7 +29,7 @@ last_modified_at: 2024-03-17T20:00-20:30
 
 # Impala Cache Invalidation
 
-![jpg](/assets/images/hadoop/impala_logo.jpg){: .align-center}{: width="80%" height="80%"}  
+![jpg](/assets/images/hadoop/impala_logo.jpg){: .align-center}{: width="60%" height="60%"}  
 
 [이전 포스팅](https://yganalyst.github.io/hadoop/hdp_ecosys/#impala)에서도 정리했던 적이 있지만, Hive와 Impala는 동일한 MetaStore를 공유하고 있다.  
 
