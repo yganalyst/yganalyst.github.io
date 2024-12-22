@@ -22,6 +22,8 @@ last_modified_at: 2023-12-23T20:00-20:30
 
 ![jpg](/assets/images/book/influence_people.jpg){: .align-center}{: width="40%" height="40%"}  
 
+<br/>  
+
 # 서평  
 
 데일 카네기의 “인간관계론”은 인간이 살아가면서 필연적으로 마주하게 되는 인간관계의 문제를 풀어나가는 나름의 방법론을 제시한 책이다.  
