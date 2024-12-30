@@ -115,7 +115,7 @@ author:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: mailto:ygshin0208@gmail.com
+      # url: mailto:ygshin0208@gmail.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
@@ -130,7 +130,7 @@ author:
       url: "https://github.com/yganalyst"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/tlsdydrms"
+      # url: "https://instagram.com/tlsdydrms"
 
 # Site Footer
 footer:
