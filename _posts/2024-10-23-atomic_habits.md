@@ -20,7 +20,7 @@ last_modified_at: 2024-11-23T20:00-20:30
 ---
 
 
-![jpg](/assets/images/book/atomic_habits.jpg){: .align-center}{: width="40%" height="40%"}  
+![jpg](/assets/images/book/atomic_habits.jpg){: .align-center}{: width="50%" height="50%"}  
 
 <br/>  
 
@@ -42,7 +42,7 @@ last_modified_at: 2024-11-23T20:00-20:30
 4. 보상: 습관의 최종 목표이다.
     - **만족스럽게 만들어라**
 
-![png](/assets/images/book/atomic_habits_1.png){: .align-center}{: width="40%" height="40%"}  
+![png](/assets/images/book/atomic_habits_1.png){: .align-center}{: width="70%" height="70%"}  
 
 ## 습관의 기저에는 정체성이 존재한다.
 
@@ -66,7 +66,7 @@ last_modified_at: 2024-11-23T20:00-20:30
 당연한 얘기이기도 하지만, 이는 우리가 종종 거창한 목표를 세우면서 기초적인 습관조차 행동에 옮기기를 실패하는 오류를 되돌아보게 했다.  
 책에서 소개된 “2분짜리 행동”으로 목표를 단순화하는 방법은 매우 유용하게 느껴졌다.  
 
-![png](/assets/images/book/atomic_habits_2.png){: .align-center}{: width="40%" height="40%"}   
+![png](/assets/images/book/atomic_habits_2.png){: .align-center}{: width="70%" height="70%"}   
 
 ## 기억하고 싶은 문구들  
 
