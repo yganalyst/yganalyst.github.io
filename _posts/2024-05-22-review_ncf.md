@@ -312,7 +312,7 @@ to initialize NeuMF using the pre-trained models of GMF and MLP.
         
     - **Hit Ratio@K**
         
-        ![png](/assets/images/paper/ncf/ncf_17.png){: width="60%" height="60%"}  
+        ![png](/assets/images/paper/ncf/ncf_17.png){: width="40%" height="40%"}  
         
         1. 사용자가 선호한 아이템 중 1개를 제외
         2. 나머지 아이템들로 추천 시스템을 학습
@@ -322,21 +322,21 @@ to initialize NeuMF using the pre-trained models of GMF and MLP.
         - Relevance → user-item의 관련도
         - Cumulative Gain (CG) → relevance의 합
             
-            ![png](/assets/images/paper/ncf/ncf_18.png){: width="55%" height="55%"}  
+            ![png](/assets/images/paper/ncf/ncf_18.png){: width="30%" height="30%"}  
             
         - Discounted Cumulative Gain (DCG) → 순서에 따라 discount 적용
             
-            ![png](/assets/images/paper/ncf/ncf_19.png){: width="60%" height="60%"}  
+            ![png](/assets/images/paper/ncf/ncf_19.png){: width="40%" height="40%"}  
             
         - Ideal Discounted Cumulative Gain (IDCG) → 최대 DCG 값 (최적으로 추천했을 떄)
             
             (DCG에서 user별 추천 아이템 수가 다른 문제를 위한 scaling)
             
-            ![png](/assets/images/paper/ncf/ncf_20.png){: width="60%" height="60%"}  
+            ![png](/assets/images/paper/ncf/ncf_20.png){: width="40%" height="40%"}  
             
         - Normalized DCG (**NDCG**) → DCG를 IDCG로 scaling 한 것 (1에 가까울 수록 좋음)
             
-            ![png](/assets/images/paper/ncf/ncf_21.png){: width="55%" height="55%"}  
+            ![png](/assets/images/paper/ncf/ncf_21.png){: width="30%" height="30%"}  
             
 - **Baseline** ⇒ user-item의 관계를 모델링하는 방법론들을 위주로 비교
     - ItemPop.
