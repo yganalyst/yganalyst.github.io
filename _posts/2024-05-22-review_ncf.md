@@ -37,7 +37,7 @@ last_modified_at: 2024-07-22T20:00-20:30
 
 # Abstract
 
-![png](/assets/images/paper/ncf/rec_logo.png){: .align-center}{: width="100%" height="100%"}  
+![png](/assets/images/paper/ncf/rec_logo.png){: .align-center}{: width="80%" height="80%"}  
 [출처](https://medium.com/@lalynjay/recommendation-systems-you-might-also-like-ca5e0ca03465)  
 
 - Neural Network가 성공적으로 적용되고 있던 시기, 추천시스템에 적용한 경우는 적었음  
@@ -72,7 +72,7 @@ last_modified_at: 2024-07-22T20:00-20:30
 - N: Item의 수
 - $Y\in R^{M \times N}$: User-Item interaction matrix
     
-    ![png](/assets/images/paper/ncf/ncf_0.png)
+    ![png](/assets/images/paper/ncf/ncf_0.png){: width="60%" height="60%"}  
     
     - interaction(=1)이 선호도를 나타내지는 않음 (implicit feedback)
     - 반대로 0이라도 비선호를 나타내는 것은 아님  
@@ -93,11 +93,11 @@ last_modified_at: 2024-07-22T20:00-20:30
     - $p_u$: user
     - $q_i$: item
     
-    ![png](/assets/images/paper/ncf/ncf_1.png)
+    ![png](/assets/images/paper/ncf/ncf_1.png){: width="60%" height="60%"}  
     
 - Inner product와 같은 linear한 방식에서 복잡한 관계를 표현하는데 어려움을 지적
     
-    ![png](/assets/images/paper/ncf/ncf_2.png)
+    ![png](/assets/images/paper/ncf/ncf_2.png){: width="70%" height="70%"}  
     
     - user 1, 2,3 만 존재 시 → 검은 선으로 표현된 유사도
         
@@ -127,7 +127,7 @@ last_modified_at: 2024-07-22T20:00-20:30
 
 ## 3.1 General Framework
 
-![png](/assets/images/paper/ncf/ncf_3.png)
+![png](/assets/images/paper/ncf/ncf_3.png){: width="70%" height="70%"}  
 
 - **Input Layer**: user-item의 one-hot encoding한 sparse vector를 사용
     - $v_u^U$: User vector
@@ -144,7 +144,7 @@ last_modified_at: 2024-07-22T20:00-20:30
     - Pointwise loss를 기반으로 $\hat{y}_{u,i}$(prediction)과 $y_{u,i}$(target)의 loss 계산
 - **model formulation**
     
-    ![png](/assets/images/paper/ncf/ncf_4.png)
+    ![png](/assets/images/paper/ncf/ncf_4.png){: width="70%" height="70%"}  
     
     - mapping function들을 거쳐서 output을 도출
 
@@ -158,13 +158,13 @@ last_modified_at: 2024-07-22T20:00-20:30
     - output layer에서 sigmoid 같은 것을 쓰면 됨
 - 따라서 **Binary cross Entropy loss**를 적용
     
-    ![png](/assets/images/paper/ncf/ncf_5.png)
+    ![png](/assets/images/paper/ncf/ncf_5.png){: width="60%" height="60%"}  
     
-    ![png](/assets/images/paper/ncf/ncf_6.png)
+    ![png](/assets/images/paper/ncf/ncf_6.png){: width="60%" height="60%"}  
     
     - $L$(loss)는 -log를 씌운 값
         
-        ![png](/assets/images/paper/ncf/ncf_7.png)
+        ![png](/assets/images/paper/ncf/ncf_7.png){: width="60%" height="60%"}  
         
 
 ## 3.2 General Matrix Factorization (GMF)
@@ -172,14 +172,14 @@ last_modified_at: 2024-07-22T20:00-20:30
 - **MF가 NCF의 special case**인 이유를 설명 → **Embedding Layer**
 - Embedding Layer에서 Neural CF로 들어가는 부분을 다음과 같이 표현
     
-    ![png](/assets/images/paper/ncf/ncf_8.png)
+    ![png](/assets/images/paper/ncf/ncf_8.png){: width="80%" height="80%"}  
     
     - $p_u$: $P^Tv_u^U$ → user latent vector
     - $q_i$: $Q^Tv_i^I$ → item latent vector
     - $\odot$: element-wise(inner) product
 - 풀어 쓰면 다음과 같음
     
-    ![png](/assets/images/paper/ncf/ncf_9.png)
+    ![png](/assets/images/paper/ncf/ncf_9.png){: width="80%" height="80%"}  
     
     - $a_{out}$와 $h$는 activation function
 - 여기서 **$a_{out}$를 identity function(항등함수), h를 vector of 1로 치환하면 결국 MF**
@@ -195,7 +195,7 @@ last_modified_at: 2024-07-22T20:00-20:30
 - GMF는 fixed element-wise product($\odot$)로 수행되고 linear하게 구성되어 있음
 - MLP를 기반으로 non-linearity를 반영할 수 있도록 하였음
     
-    ![png](/assets/images/paper/ncf/ncf_10.png)
+    ![png](/assets/images/paper/ncf/ncf_10.png){: width="80%" height="80%"}  
     
     - $\phi$: mapping function
     - $W_x$: x-th layer의 weight matrix
@@ -206,7 +206,7 @@ last_modified_at: 2024-07-22T20:00-20:30
     - Tanh → zero centered 문제만 해결
     - **ReLU (적용)** → Dead ReLU Problem 존재
     
-    ![png](/assets/images/paper/ncf/ncf_11.png)
+    ![png](/assets/images/paper/ncf/ncf_11.png){: width="80%" height="80%"}  
     
 
 ## 3.4 Fusion of GMF and MLP
@@ -214,15 +214,15 @@ last_modified_at: 2024-07-22T20:00-20:30
 - GMF와 MLP를 결합하는 모델을 제시
 - 심플한 방법: GMF와 MLP가 **동일한 embedding layer를 share**하고, 결과값을 결합
     
-    ![png](/assets/images/paper/ncf/ncf_12.png)
+    ![png](/assets/images/paper/ncf/ncf_12.png){: width="80%" height="80%"}  
     
     - 이렇게 구성할 경우 GMF와 MLP의 dimension이 같아야 하는 제약이 생김
     - 두 모델의 최적의 Embedding size는 다를 수 있음
 - 더 flexible하게 두 모델을 결합하기 위한 방법은?
     
-    ![png](/assets/images/paper/ncf/ncf_13.png)
+    ![png](/assets/images/paper/ncf/ncf_13.png){: width="80%" height="80%"}  
     
-    ![png](/assets/images/paper/ncf/ncf_14.png)
+    ![png](/assets/images/paper/ncf/ncf_14.png){: width="70%" height="70%"}  
     
     - GMF와 MLP를 별도의 embedding으로 학습하고,
     - **마지막 hidden layer에서 concatenate**해서, prediction하는 방법을 채택
@@ -277,7 +277,7 @@ class NCF(nn.Module):
 
 - 모델의 수렴과 성능을 위해, **GMF와 MLP의 pre-trained 모델로 initialize하는 방법을 제시**
     
-    ![png](/assets/images/paper/ncf/ncf_15.png)
+    ![png](/assets/images/paper/ncf/ncf_15.png){: width="80%" height="80%"}  
     
     1. Random initialization으로 convergence 할 때까지 학습
     2. 학습된 parameter를 초기값으로 사용
@@ -300,7 +300,7 @@ to initialize NeuMF using the pre-trained models of GMF and MLP.
 
 - **Datasets**
     
-    ![png](/assets/images/paper/ncf/ncf_16.png)
+    ![png](/assets/images/paper/ncf/ncf_16.png){: width="80%" height="80%"}  
     
 
 - **Evaluation Metric**
@@ -312,7 +312,7 @@ to initialize NeuMF using the pre-trained models of GMF and MLP.
         
     - **Hit Ratio@K**
         
-        ![png](/assets/images/paper/ncf/ncf_17.png)
+        ![png](/assets/images/paper/ncf/ncf_17.png){: width="80%" height="80%"}  
         
         1. 사용자가 선호한 아이템 중 1개를 제외
         2. 나머지 아이템들로 추천 시스템을 학습
@@ -322,21 +322,21 @@ to initialize NeuMF using the pre-trained models of GMF and MLP.
         - Relevance → user-item의 관련도
         - Cumulative Gain (CG) → relevance의 합
             
-            ![png](/assets/images/paper/ncf/ncf_18.png)
+            ![png](/assets/images/paper/ncf/ncf_18.png){: width="80%" height="80%"}  
             
         - Discounted Cumulative Gain (DCG) → 순서에 따라 discount 적용
             
-            ![png](/assets/images/paper/ncf/ncf_19.png)
+            ![png](/assets/images/paper/ncf/ncf_19.png){: width="80%" height="80%"}  
             
         - Ideal Discounted Cumulative Gain (IDCG) → 최대 DCG 값 (최적으로 추천했을 떄)
             
             (DCG에서 user별 추천 아이템 수가 다른 문제를 위한 scaling)
             
-            ![png](/assets/images/paper/ncf/ncf_20.png)
+            ![png](/assets/images/paper/ncf/ncf_20.png){: width="80%" height="80%"}  
             
         - Normalized DCG (**NDCG**) → DCG를 IDCG로 scaling 한 것 (1에 가까울 수록 좋음)
             
-            ![png](/assets/images/paper/ncf/ncf_21.png)
+            ![png](/assets/images/paper/ncf/ncf_21.png){: width="80%" height="80%"}  
             
 - **Baseline** ⇒ user-item의 관계를 모델링하는 방법론들을 위주로 비교
     - ItemPop.
@@ -359,7 +359,7 @@ to initialize NeuMF using the pre-trained models of GMF and MLP.
 
 ## 4.2 Performance Comparison (RQ1)
 
-![png](/assets/images/paper/ncf/ncf_22.png)
+![png](/assets/images/paper/ncf/ncf_22.png){: width="100%" height="100%"}  
 
 - **Figure 4**
     - 기본적으로 eALS와 BPR을 능가하며 SOTA를 달성
@@ -369,7 +369,7 @@ to initialize NeuMF using the pre-trained models of GMF and MLP.
 
 ## 4.3 Log Loss with Negative Sampling (RQ2)
 
-![png](/assets/images/paper/ncf/ncf_23.png)
+![png](/assets/images/paper/ncf/ncf_23.png){: width="100%" height="100%"}  
 
 - **Figure 6.** (MovieLens에서 iteration에 따른 성능)
     - Iteration이 증가함에 따라 성능(Training Loss)도 증가하며, NeuMF가 제일 좋음 → **Log Loss를 최적화하는게 합리적이라는 얘기**
@@ -381,9 +381,9 @@ to initialize NeuMF using the pre-trained models of GMF and MLP.
 
 - Deep learning의 효과를 보기 위해, hidden layer 수에 따른 성능 비교
     
-    ![png](/assets/images/paper/ncf/ncf_24.png)
+    ![png](/assets/images/paper/ncf/ncf_24.png){: width="80%" height="80%"}  
     
-    ![png](/assets/images/paper/ncf/ncf_25.png)
+    ![png](/assets/images/paper/ncf/ncf_25.png){: width="80%" height="80%"}  
     
     - Layer를 쌓을수록 성능이 올라감(MLP-4)
     - hidden layer가 없는 경우(MLP-0)는 확실히 성능이 저하되는 것을 볼 수 있음
