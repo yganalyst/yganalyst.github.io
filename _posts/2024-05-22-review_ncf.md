@@ -35,10 +35,14 @@ use_math: true
 last_modified_at: 2024-07-22T20:00-20:30
 ---
 
-# Abstract
+
 
 ![png](/assets/images/paper/ncf/rec_logo.png){: .align-center}{: width="80%" height="80%"}  
 [출처](https://medium.com/@lalynjay/recommendation-systems-you-might-also-like-ca5e0ca03465)  
+
+# Abstract
+
+[**Neural Collaborative Filtering 논문 링크**](https://arxiv.org/abs/1708.05031)  
 
 - Neural Network가 성공적으로 적용되고 있던 시기, 추천시스템에 적용한 경우는 적었음  
 - Implicit Feedback 문제에서 Collaborative Filtering (CF)에 Neural Network를 적용
