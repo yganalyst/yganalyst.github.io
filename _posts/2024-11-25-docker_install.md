@@ -114,7 +114,8 @@ last_modified_at: 2024-11-25T20:00-20:30
     
     ```bash
     docker ps
-    
+    ```
+    ```
     CONTAINER ID   IMAGE          COMMAND                   CREATED              STATUS              PORTS                    NAMES      
     0c636ff8150c   2f04e8cfc9b0   "docker-entrypoint.s…"   About a minute ago   Up About a minute   0.0.0.0:3000->3000/tcp   brave_newton
     ```
