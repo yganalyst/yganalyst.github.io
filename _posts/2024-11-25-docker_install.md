@@ -1,5 +1,5 @@
 ---
-title: "[Docker] Docker 시작하기, Docker란? Docker 설치와 사용"
+title: "[Docker] Docker란? Docker 설치와 사용"
 excerpt: "Docker를 시작하기 위하여 설치하고 간단한 사용 방법에 대해 알아보자."
 toc: true
 toc_sticky: true
