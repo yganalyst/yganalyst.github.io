@@ -30,9 +30,9 @@ sidebar-contents:
       - title: "Paper Review"
         url: /categories/#paper
         category: "paper"
-      - title: "Competition"
-        url: /categories/#competition
-        category: "competition"
+#      - title: "Competition"
+#        url: /categories/#competition
+#        category: "competition"
   - title: "Python"
     children:
       - title: "Basic"
@@ -55,6 +55,9 @@ sidebar-contents:
       - title: "Hadoop"
         url: /categories/#hadoop
         category: "hadoop"
+      - title: "Docker"
+        url: /categories/#docker
+        category: "docker"
       - title: "SQL"
         url: /categories/#sql
         category: "sql"

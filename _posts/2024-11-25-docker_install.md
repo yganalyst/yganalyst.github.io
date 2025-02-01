@@ -22,7 +22,7 @@ use_math: true
 last_modified_at: 2024-11-25T20:00-20:30
 ---
 
-![jpg](/assets/images/docker/docker_logo.jpg){: .align-center}{: width="100%" height="100%"}  
+![jpg](/assets/images/docker/docker_logo.jpg){: .align-center}{: width="80%" height="80%"}  
 
 <br/>  
 
@@ -30,11 +30,11 @@ last_modified_at: 2024-11-25T20:00-20:30
 
 > **Container를 생성하고 관리하기 위한 도구**
 
-- Container는 뭔데?
+- **Container는 뭔데?**
     - 표준화된 소프트웨어 Unit
     - Code package
     - 코드의 실행 환경 등
-- Container가 왜 필요한데?
+- **Container가 왜 필요한데?**
     - 개발 당시의 환경과 동일한 실행 환경을 갖게 할 수 있음
         - ex) 실행을 위한 Node.JS 버전
     - 팀원 간 협업 시 동일한 개발 환경 공유
@@ -43,7 +43,7 @@ last_modified_at: 2024-11-25T20:00-20:30
     
     ⇒ Host 컴퓨터가 아닌 컨테이너가 갖고 있기 때문에 가능한 얘기
     
-- 가상 머신(Virtual Machines) 을 쓰면 안되나?
+- **가상 머신(Virtual Machines) 을 쓰면 안되나?**
     - 장점
         - 독립 환경 구성 가능
         - 모든 것을 안정적으로 공유하고 재생산 할 수 있음
@@ -52,7 +52,7 @@ last_modified_at: 2024-11-25T20:00-20:30
         - 호스트 컴퓨터에 VM을 계속 설치해야 되므로 성능 저하가 필연적임
         - 정확히 동일한 방식으로 VM들을 설정해야 되는데 까다로움
             - config 파일 같은게 없으니까~
-- Docker는 “Container”들을 생성(Build)하고 관리(Manage)하기 위한 도구
+- **Docker는 “Container”들을 생성(Build)하고 관리(Manage)하기 위한 도구**
     
     ![1.png](/assets/images/docker/docker_install/1.png)
     
@@ -125,7 +125,7 @@ last_modified_at: 2024-11-25T20:00-20:30
     docker stop brave_newton
     ```
     
-*Name은 임의로 부여된 컨테이너 이름  
+    *Name은 임의로 부여된 컨테이너 이름  
 
 
 <br/>  
