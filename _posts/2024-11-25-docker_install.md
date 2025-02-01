@@ -7,7 +7,7 @@ header:
   teaser: /assets/images/docker/docker_logo.jpg
 
 categories:
-  - paper
+  - docker
 
 tags:
   - docker
