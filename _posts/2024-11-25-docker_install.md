@@ -76,7 +76,7 @@ last_modified_at: 2024-11-25T20:00-20:30
  
 1. **`Dockerfile` 생성**
     
-    ```bash
+    ```docker
     FROM node:14
     
     WORKDIR /app
