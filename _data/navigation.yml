@@ -58,6 +58,9 @@ sidebar-contents:
       - title: "Docker"
         url: /categories/#docker
         category: "docker"
+      - title: "Linux"
+        url: /categories/#linux
+        category: "linux"
       - title: "SQL"
         url: /categories/#sql
         category: "sql"
