@@ -11,17 +11,20 @@ categories:
 
 tags:
   - docker
-  - kubernetes
-  - container
-  - build
-  - run
-  - Dockerfile
-  - ENV
-  - env
-  - e
-  - env-files
-  - ARG
-  - build-arg
+  - pwd
+  - ls
+  - du
+  - cp
+  - rm
+  - chmod
+  - for
+  - in
+  - do
+  - done
+  - array
+  - echo
+  - shell
+  - bash
 
 use_math: true
 
