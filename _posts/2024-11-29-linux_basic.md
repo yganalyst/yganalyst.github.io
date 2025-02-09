@@ -148,11 +148,72 @@ DATE=$1
       - `1`: 표준 출력 (stdout)
       - `2`: 표준 에러 (stderr)
 
+## 3. 날짜/시간 다루기  
+
+1. 현재 날짜/시간 가져오기  
+    ```shell
+    today=`date`
+    echo $today
+
+    today=$(date)
+    echo $today
+    ```
+    ```
+    2021. 10. 08. (금) 18:59:04 KST
+    2021. 10. 08. (금) 18:59:04 KST
+    ```
+2. 정해진 Format으로 출력하기  
+    ```shell
+    current_date=$(date +%Y%m%d)
+    echo $current_date
+    ```
+    ```
+    20241102
+    ```
+
+3. 이전/이후 날짜 계산하기
+    ```shell
+    current_date=$(date +%Y%m%d)
+    target_date_dt=$(date -d "$target_date_dt -1 days" "+%Y%m%d")
+    two_months_ago=$(date -d "$current_date -2 months" +"%Y%m")
+
+    echo "Today: $current_date"
+    echo "1 day Ago: $target_date_dt"
+    echo "2 Months Ago: $two_months_ago"
+    ```
+    ```
+    20241102
+    20241101
+    202409
+    ```
+
+4. 이전/이후 날짜 loop로 계산하기  
+
+    ```shell
+    start_date="20240901"
+    end_date="20241031"
+
+    current_date=$start_date
+
+    while [ "$current_date" -le "$end_date" ]; do
+    echo "$current_date"  # 날짜 출력
+    current_date=$(date -d "$current_date +1 day" +"%Y%m%d")
+    done
+    ```
+    ```
+    20240901
+    20240902
+    ...
+    20241030
+    20241031
+    ```
+
+
 <br/>  
 
 # Reference
 
-- [https://wotres.tistory.com/entry/Chmod-777-755-의미-권한-설정](https://wotres.tistory.com/entry/Chmod-777-755-%EC%9D%98%EB%AF%B8-%EA%B6%8C%ED%95%9C-%EC%84%A4%EC%A0%95)
-
+- [https://wotres.tistory.com/entry/Chmod-777-755-의미-권한-설정](https://wotres.tistory.com/entry/Chmod-777-755-%EC%9D%98%EB%AF%B8-%EA%B6%8C%ED%95%9C-%EC%84%A4%EC%A0%95)  
 - [https://devpouch.tistory.com/128](https://devpouch.tistory.com/128)
-- [https://losskatsu.github.io/os-kernel/bash/#리눅스-bash의-모든-것-binbash의-의미](https://losskatsu.github.io/os-kernel/bash/#%EB%A6%AC%EB%88%85%EC%8A%A4-bash%EC%9D%98-%EB%AA%A8%EB%93%A0-%EA%B2%83-binbash%EC%9D%98-%EC%9D%98%EB%AF%B8)
+- [https://losskatsu.github.io/os-kernel/bash/#리눅스-bash의-모든-것-binbash의-의미](https://losskatsu.github.io/os-kernel/bash/#%EB%A6%AC%EB%88%85%EC%8A%A4-bash%EC%9D%98-%EB%AA%A8%EB%93%A0-%EA%B2%83-binbash%EC%9D%98-%EC%9D%98%EB%AF%B8)  
+- [https://codechacha.com/ko/shell-script-date-and-time/](https://codechacha.com/ko/shell-script-date-and-time/)  
