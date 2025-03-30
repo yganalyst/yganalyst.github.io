@@ -1,6 +1,6 @@
 ---
 title: "[서평] 한가지에 집중하라!, The One Thing - 게리 켈러, 제이 파파산"
-excerpt: "절대 변하지 않는 것들에 대한 23가지 이야기"
+excerpt: "복잡한 세상을 이기는 단순함의 힘"
 toc: true
 toc_sticky: true
 header:
