@@ -1,6 +1,6 @@
 <header class="site-header">
   <a class="brand" href="{{ '/' | relative_url }}" aria-label="홈">
-    <span class="brand-mark">yg</span><span class="brand-name">'s lab</span>
+    <span class="brand-mark">yg</span><span class="brand-name">{{ site.title }}</span>
   </a>
   <nav class="nav">
     {%- assign nav = "Posts:/posts/,Lab:/lab/,About:/about/,Contact:/contact/" | split: "," -%}

@@ -71,7 +71,8 @@ main { flex: 1; }
   padding: 28px 0 56px;
 }
 .brand { font-family: var(--mono); font-weight: 700; font-size: 17px; white-space: nowrap; }
-.brand-mark { background: var(--fg); color: var(--bg); padding: 1px 6px; border-radius: 5px; margin-right: 1px; }
+.brand-mark { background: var(--fg); color: var(--bg); padding: 1px 6px; border-radius: 5px; }
+.brand-name { font-family: var(--font); font-weight: 600; font-size: 16px; margin-left: 10px; letter-spacing: -0.02em; }
 .brand:hover .brand-mark { background: var(--accent); color: var(--bg); }
 .brand:hover { color: var(--fg); }
 .nav { display: flex; align-items: center; gap: 18px; font-size: 15px; color: var(--fg-muted); }

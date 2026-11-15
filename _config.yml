@@ -1,6 +1,6 @@
-title: "yg's lab"
+title: 아직은 직장인
 description: >-
-  데이터 엔지니어 신용근의 기술 노트와 사이드 프로젝트 기록.
+  머릿속에만 두기엔 아까운 것들을 실행해 봅니다. 그리고 수습합니다. Maps Data Engineer 신용근의 기록.
 url: "https://yganalyst.github.io"
 baseurl: ""
 lang: ko
@@ -9,7 +9,7 @@ timezone: Asia/Seoul
 author:
   name: Yonggeun Shin
   name_ko: 신용근
-  role: Data Engineer
+  role: Maps Data Engineer
   location: Seoul
   github: yganalyst
   instagram: tlsdydrms

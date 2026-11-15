@@ -1,4 +1,4 @@
-# yg's lab
+# 아직은 직장인
 
 https://yganalyst.github.io
 
