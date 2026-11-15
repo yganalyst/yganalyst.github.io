@@ -3,7 +3,7 @@
     <span class="brand-mark">yg</span><span class="brand-name">'s lab</span>
   </a>
   <nav class="nav">
-    {%- assign nav = "글:/posts/,프로젝트:/projects/,방명록:/guestbook/,소개:/about/" | split: "," -%}
+    {%- assign nav = "Posts:/posts/,Lab:/lab/,About:/about/,Contact:/contact/" | split: "," -%}
     {%- for item in nav -%}
       {%- assign kv = item | split: ":" -%}
       <a href="{{ kv[1] | relative_url }}"{% if page.url contains kv[1] %} aria-current="page"{% endif %}>{{ kv[0] }}</a>

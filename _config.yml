@@ -1,7 +1,7 @@
 title: "yg's lab"
 tagline: 만들고, 부딪히고, 기록합니다
 description: >-
-  데이터·AI 엔지니어 신용근의 사이드 프로젝트 실험 기록과 기술 노트.
+  낮엔 지도 데이터, 밤엔 사이드 프로젝트. 데이터 엔지니어 신용근의 실험 기록과 기술 노트.
 url: "https://yganalyst.github.io"
 baseurl: ""
 lang: ko
@@ -10,10 +10,11 @@ timezone: Asia/Seoul
 author:
   name: Yonggeun Shin
   name_ko: 신용근
-  role: Data & AI Engineer
+  role: Maps Data Engineer
   location: Seoul
   github: yganalyst
   instagram: tlsdydrms
+  linkedin: "" # 예: https://www.linkedin.com/in/your-id/
 
 # Google Analytics 4 (production 빌드에서만 로드)
 analytics:

@@ -3,32 +3,23 @@ layout: default
 ---
 <section class="hero">
   <p class="eyebrow">{{ site.author.role }} · {{ site.author.location }}</p>
-  <h1>안녕하세요, {{ site.author.name_ko }}입니다.</h1>
+  <h1>낮엔 지도 데이터,<br>밤엔 사이드 프로젝트.</h1>
   <p class="hero-text">
-    데이터와 AI로 이것저것 만들어 보고, 잘 된 것도 망한 것도 숫자와 함께 기록합니다.
-    지금은 방치했던 기술 블로그를 <em>실험실</em>로 다시 짓는 중입니다.
+    {{ site.author.name_ko }}입니다. 본캐는 데이터 엔지니어, 부캐는 퇴근 후 이것저것 만들어 보는 사람.
+    잘 되면 자랑하고, 망하면 회고합니다. 어느 쪽이든 <em>여기에 커밋합니다.</em>
   </p>
   <p class="hero-links">
     <a href="https://github.com/{{ site.author.github }}">GitHub ↗</a>
-    <a href="{{ '/guestbook/' | relative_url }}">방명록 · 커피챗</a>
-    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    {% if site.author.linkedin != "" %}<a href="{{ site.author.linkedin }}">LinkedIn ↗</a>{% endif %}
+    <a href="{{ '/lab/' | relative_url }}">Lab</a>
+    <a href="{{ '/contact/' | relative_url }}">커피챗 ☕</a>
   </p>
-</section>
-
-<section class="section">
-  <div class="section-head">
-    <h2>지금 만드는 것</h2>
-    <a href="{{ '/projects/' | relative_url }}">전체 보기 →</a>
-  </div>
-  <ul class="projects">
-    {% for p in site.data.projects limit: 3 %}{% include project-card.html project=p %}{% endfor %}
-  </ul>
 </section>
 
 <section class="section">
   <div class="section-head">
     <h2>최근 글</h2>
-    <a href="{{ '/posts/' | relative_url }}">글 {{ site.posts.size }}개 모두 보기 →</a>
+    <a href="{{ '/posts/' | relative_url }}">{{ site.posts.size }}개 모두 보기 →</a>
   </div>
   <ul class="post-list">
     {% for post in site.posts limit: site.home_posts %}{% include post-row.html post=post %}{% endfor %}

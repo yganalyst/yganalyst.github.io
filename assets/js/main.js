@@ -2,9 +2,7 @@
   var root = document.documentElement;
 
   function currentTheme() {
-    var t = root.getAttribute('data-theme');
-    if (t) return t;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
   }
 
   // ---------- theme toggle ----------

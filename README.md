@@ -22,7 +22,7 @@ docker run --rm -it -p 4000:4000 -v "$PWD":/srv -w /srv ruby:3.4 \
 
 - 기술 노트: `_posts/YYYY-MM-DD-slug.md`, `categories: [대분류, 소분류]`
 - 실험 기록: `_drafts/lab-template.md` 를 복사해 `categories: [Lab, 프로젝트명]` 으로 작성
-- 프로젝트 목록: `_data/projects.yml` 에 추가하면 홈과 /projects/ 에 표시됩니다
+- 프로젝트 목록: `_data/projects.yml` 에 추가하면 /lab/ 에 표시됩니다
 - 글을 수정하면 front matter 의 `last_modified_at` 을 직접 갱신합니다
 
 2025년 이전 글은 front matter 의 `permalink` 로 예전 주소(`/:category/:title/`)를 유지합니다.
