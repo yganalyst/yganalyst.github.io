@@ -61,7 +61,7 @@
         .then(function (r) {
           if (!r.ok) throw new Error(r.status);
           form.reset();
-          status.textContent = '잘 받았습니다. 고맙습니다.';
+          status.textContent = '잘 받았습니다. 퇴근하고 읽을게요.';
         })
         .catch(function () {
           status.textContent = '전송에 실패했습니다. 잠시 후 다시 시도하거나 LinkedIn으로 연락 주세요.';
