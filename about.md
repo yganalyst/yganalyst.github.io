@@ -1,5 +1,5 @@
 ---
-title: 소개
+title: About
 permalink: /about/
 ---
 

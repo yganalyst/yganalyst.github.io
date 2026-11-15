@@ -74,8 +74,7 @@ main { flex: 1; }
 .brand-name { font-weight: 700; font-size: 17px; letter-spacing: -0.02em; }
 .brand:hover { color: var(--fg); }
 .workbar { position: relative; display: inline-block; width: 46px; height: 12px; padding: 1.5px; border: 1.5px solid var(--fg-faint); border-radius: 3px; }
-.workbar-fill { display: block; height: 100%; width: 0; background: var(--accent); border-radius: 1px; transition: width .6s ease; }
-.workbar[data-state="weekend"] .workbar-fill, .workbar[data-state="before"] .workbar-fill { background: var(--fg-faint); }
+.workbar-fill { display: block; height: 100%; width: 100%; background: var(--accent); border-radius: 1px; transition: width .6s ease; }
 .brand:hover .workbar { border-color: var(--fg-muted); }
 .workbar::after {
   content: attr(data-label); position: absolute; left: 50%; top: calc(100% + 8px); transform: translateX(-50%);

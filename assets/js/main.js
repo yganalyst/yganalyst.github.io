@@ -15,11 +15,11 @@
       var day = kst.getUTCDay();
       var h = kst.getUTCHours() + kst.getUTCMinutes() / 60;
       var pct, label, state;
-      if (day === 0 || day === 6) { pct = 0; label = '주말'; state = 'weekend'; }
-      else if (h < start) { pct = 0; label = '출근 전'; state = 'before'; }
-      else if (h >= end) { pct = 100; label = '퇴근'; state = 'done'; }
-      else { pct = Math.floor((h - start) / (end - start) * 100); label = '오늘 근무 ' + pct + '%'; state = 'working'; }
-      fill.style.width = (state === 'weekend' ? 100 : pct) + '%';
+      if (day === 0 || day === 6) { pct = 100; label = '주말'; state = 'off'; }
+      else if (h < start) { pct = 100; label = '출근 전'; state = 'off'; }
+      else if (h >= end) { pct = 100; label = '퇴근 완료'; state = 'off'; }
+      else { pct = Math.floor((h - start) / (end - start) * 100); label = '퇴근 로딩 중 · ' + pct + '%'; state = 'working'; }
+      fill.style.width = pct + '%';
       bar.dataset.state = state;
       bar.dataset.label = label;
       bar.setAttribute('aria-valuenow', pct);
