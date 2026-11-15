@@ -1,0 +1,25 @@
+{%- assign p = include.project -%}
+{%- case p.status -%}
+  {%- when "idea" -%}{%- assign label = "아이디어" -%}
+  {%- when "building" -%}{%- assign label = "만드는 중" -%}
+  {%- when "launched" -%}{%- assign label = "출시" -%}
+  {%- when "paused" -%}{%- assign label = "보류" -%}
+  {%- when "dropped" -%}{%- assign label = "중단" -%}
+  {%- else -%}{%- assign label = p.status -%}
+{%- endcase -%}
+{%- assign logs = site.categories[p.category] -%}
+<li class="project">
+  <div class="project-head">
+    <span class="status status-{{ p.status }}">{{ label }}</span>
+    <h3>{{ p.name }}</h3>
+    <span class="project-since">{{ p.started }}~</span>
+  </div>
+  <p>{{ p.summary }}</p>
+  {% if p.metrics %}<p class="project-metrics">{{ p.metrics }}</p>{% endif %}
+  {%- if p.link or logs -%}
+  <p class="project-links">
+    {% if p.link %}<a href="{{ p.link }}">서비스 보기 ↗</a>{% endif %}
+    {% if logs %}<a href="{{ logs.first.url | relative_url }}">최근 기록: {{ logs.first.title }} →</a>{% endif %}
+  </p>
+  {%- endif -%}
+</li>

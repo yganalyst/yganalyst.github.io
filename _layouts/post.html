@@ -1,0 +1,50 @@
+---
+layout: default
+---
+{%- assign chars = content | strip_html | size -%}
+{%- assign minutes = chars | divided_by: 600 | plus: 1 -%}
+<article class="post">
+  <header class="post-header">
+    <p class="post-meta">
+      {%- for c in page.categories %}<span>{{ c }}</span>{% unless forloop.last %}<span class="sep">/</span>{% endunless %}{% endfor -%}
+    </p>
+    <h1 class="post-title-main">{{ page.title }}</h1>
+    {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time>
+      {%- assign d_pub = page.date | date: "%Y%m%d" -%}{%- assign d_mod = page.last_modified_at | date: "%Y%m%d" -%}
+      {%- if page.last_modified_at and d_mod > d_pub %}<span class="sep">·</span><span>업데이트 {{ page.last_modified_at | date: "%Y.%m.%d" }}</span>{% endif %}
+      <span class="sep">·</span><span>{{ minutes }}분</span>
+    </p>
+  </header>
+
+  <div class="post-body">
+    <aside class="toc" aria-label="목차" hidden>
+      <p class="toc-title">목차</p>
+      <ol></ol>
+    </aside>
+    <div class="prose" id="post-content">
+      {{ content }}
+    </div>
+  </div>
+
+  {% if page.tags.size > 0 %}
+  <ul class="tags">
+    {% for t in page.tags limit: 12 %}<li>#{{ t }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+
+  <nav class="post-nav">
+    {% if page.previous %}<a class="prev" href="{{ page.previous.url | relative_url }}"><span>이전 글</span>{{ page.previous.title }}</a>{% else %}<span></span>{% endif %}
+    {% if page.next %}<a class="next" href="{{ page.next.url | relative_url }}"><span>다음 글</span>{{ page.next.title }}</a>{% endif %}
+  </nav>
+
+  <aside class="cta">
+    <p><strong>글이 도움이 됐다면</strong> 방명록에 한 줄 남겨주세요. 커피챗 신청도 받습니다 ☕</p>
+    <a class="btn" href="{{ '/guestbook/' | relative_url }}">방명록 가기 →</a>
+  </aside>
+
+  {% if page.comments and site.utterances.repo %}
+  <section class="comments" id="comments" data-repo="{{ site.utterances.repo }}" data-term="{{ site.utterances.issue_term }}"></section>
+  {% endif %}
+</article>

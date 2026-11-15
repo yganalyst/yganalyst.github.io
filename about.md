@@ -1,13 +1,23 @@
 ---
-icon: fas fa-info-circle
-order: 5
+title: 소개
+permalink: /about/
 ---
 
-![프로필 사진](/assets/images/my.jpg){: width="240" .rounded-10 }
+<div class="about-head">
+  <img src="/assets/images/my.jpg" alt="신용근 프로필 사진" width="96" height="96">
+  <div>
+    <p class="about-name">신용근 <span>Yonggeun Shin</span></p>
+    <p class="about-role">Data & AI Engineer · Seoul</p>
+  </div>
+</div>
 
 데이터와 AI를 다루는 엔지니어입니다.
 여기는 사이드 프로젝트와 사업 아이템을 직접 만들어 보면서 겪은 **시행착오를 그대로 기록하는 실험실**입니다.
 결과가 좋든 나쁘든 숫자와 과정을 남깁니다.
+
+- GitHub: [@yganalyst](https://github.com/yganalyst)
+- Instagram: [@tlsdydrms](https://instagram.com/tlsdydrms)
+- 연락: [방명록](/guestbook/)에 ☕ 를 붙여 남겨주세요
 
 ## 내가 되고 싶은 사람
 

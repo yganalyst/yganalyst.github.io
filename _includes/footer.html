@@ -1,0 +1,8 @@
+<footer class="site-footer">
+  <span>© {{ site.time | date: "%Y" }} {{ site.author.name }}</span>
+  <span class="footer-links">
+    <a href="https://github.com/{{ site.author.github }}">GitHub</a>
+    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    <a href="{{ '/llms.txt' | relative_url }}">llms.txt</a>
+  </span>
+</footer>

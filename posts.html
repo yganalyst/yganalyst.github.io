@@ -1,0 +1,31 @@
+---
+title: 글
+prose: false
+permalink: /posts/
+lead: 기술 노트, 실험 기록, 서평. 제목·태그로 검색할 수 있어요.
+---
+{%- assign groups = "" | split: "" -%}
+{%- for p in site.posts -%}{%- assign g = p.categories | first -%}{%- unless groups contains g -%}{%- assign groups = groups | push: g -%}{%- endunless -%}{%- endfor -%}
+<div class="filter">
+  <input type="search" id="post-search" placeholder="검색 (예: pandas, docker, 서평)" aria-label="글 검색" autocomplete="off">
+  <div class="chips" role="group" aria-label="분류">
+    <button type="button" class="chip" aria-pressed="true" data-group="">전체 <span>{{ site.posts.size }}</span></button>
+    {%- for g in groups -%}
+      {%- assign n = site.posts | where_exp: "p", "p.categories[0] == g" | size -%}
+      <button type="button" class="chip" aria-pressed="false" data-group="{{ g }}">{{ g }} <span>{{ n }}</span></button>
+    {%- endfor -%}
+  </div>
+</div>
+
+{%- assign by_year = site.posts | group_by_exp: "p", "p.date | date: '%Y'" -%}
+<div id="archive">
+{%- for y in by_year %}
+  <section class="year">
+    <h2 class="year-title">{{ y.name }}</h2>
+    <ul class="post-list">
+      {% for post in y.items %}{% include post-row.html post=post datefmt="%m.%d" %}{% endfor %}
+    </ul>
+  </section>
+{%- endfor %}
+</div>
+<p class="empty" id="post-empty" hidden>검색 결과가 없어요.</p>

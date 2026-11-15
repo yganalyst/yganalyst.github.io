@@ -6,7 +6,7 @@ permalink: /llms.txt
 
 > {{ site.description | strip }}
 
-작성자: {{ site.social.name }} ({{ site.github.username }}). 데이터·AI 엔지니어가 사이드 프로젝트를 직접 만들며 겪은 시행착오와 기술 노트를 기록하는 사이트입니다.
+작성자: {{ site.author.name }} ({{ site.author.github }}). 데이터·AI 엔지니어가 사이드 프로젝트를 직접 만들며 겪은 시행착오와 기술 노트를 기록하는 사이트입니다.
 
 ## Projects
 {% for p in site.data.projects %}
@@ -21,4 +21,6 @@ permalink: /llms.txt
 ## Pages
 - [About]({{ '/about/' | absolute_url }})
 - [Projects]({{ '/projects/' | absolute_url }})
+- [Posts]({{ '/posts/' | absolute_url }})
+- [Guestbook]({{ '/guestbook/' | absolute_url }})
 - [RSS]({{ '/feed.xml' | absolute_url }})
