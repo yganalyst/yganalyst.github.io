@@ -2,7 +2,7 @@
 title: Posts
 prose: false
 permalink: /posts/
-lead: 기술 노트와 서평. 제목·태그로 검색할 수 있어요.
+lead: 배우고 기록하고
 ---
 {%- assign groups = "" | split: "" -%}
 {%- for p in site.posts -%}{%- assign g = p.categories | first -%}{%- unless groups contains g -%}{%- assign groups = groups | push: g -%}{%- endunless -%}{%- endfor -%}

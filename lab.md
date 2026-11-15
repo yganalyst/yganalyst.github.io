@@ -2,7 +2,7 @@
 title: Lab
 prose: false
 permalink: /lab/
-lead: 사이드 프로젝트와 그 과정의 기록.
+lead: 실행하고 수습하고
 ---
 {%- assign lab_posts = site.categories["Lab"] -%}
 
