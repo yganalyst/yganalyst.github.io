@@ -1,9 +1,11 @@
-# Projects 탭에 표시되는 실험 목록입니다.
+# Lab 페이지에 표시되는 프로젝트 목록. 
 # status: idea | building | launched | paused | dropped
-# category: 이 프로젝트의 기록 글을 모아 둘 카테고리 이름 (Lab 아래 2단계 카테고리)
-- name: 블로그 리뉴얼
-  status: building
-  summary: 방치된 기술 블로그를 실험 기록용 아카이브로 바꾸는 작업
-  started: 2026-11
-  category: Blog Renewal
-  metrics: "글 144개 이전, Dependabot 경고 30개 정리"
+# category: 이 프로젝트의 기록 글 카테고리 (글 front matter: categories: [Lab, <category>])
+#
+# - name: 프로젝트 이름
+#   status: building
+#   summary: 한 줄 설명
+#   started: 2026-12
+#   category: Project Name
+#   link: https://...
+[]

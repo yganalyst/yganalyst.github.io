@@ -1,0 +1,9 @@
+{%- assign p = include.post -%}
+{%- assign fmt = include.datefmt | default: "%Y.%m.%d" -%}
+<li class="post-row" data-group="{{ p.categories | first }}" data-search="{{ p.title | downcase | escape }} {{ p.tags | join: ' ' | downcase | escape }} {{ p.categories | join: ' ' | downcase | escape }}">
+  <a href="{{ p.url | relative_url }}">
+    <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: fmt }}</time>
+    <span class="post-title">{{ p.title }}</span>
+    <span class="post-cat">{{ p.categories | last }}</span>
+  </a>
+</li>

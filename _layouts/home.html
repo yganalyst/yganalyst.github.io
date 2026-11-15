@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<section class="hero">
+  <a class="eyebrow hiring" href="{{ '/contact/' | relative_url }}">상시 모집 · 경력 무관 · 호기심 우대</a>
+  <h1>{{ site.author.name_ko }}입니다.</h1>
+  <p class="hero-text">생각만 하던 일들을 하나씩 해봅니다.<br>아직은 직장인이지만요.</p>
+  <p class="hero-links">
+    <a href="https://github.com/{{ site.author.github }}">GitHub</a>
+    <a href="{{ site.author.linkedin }}">LinkedIn</a>
+    <a href="https://instagram.com/{{ site.author.instagram }}">Instagram</a>
+  </p>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>최근 글</h2>
+    <a href="{{ '/posts/' | relative_url }}">전체 {{ site.posts.size }}개 →</a>
+  </div>
+  <ul class="post-list">
+    {% for post in site.posts limit: site.home_posts %}{% include post-row.html post=post %}{% endfor %}
+  </ul>
+</section>
