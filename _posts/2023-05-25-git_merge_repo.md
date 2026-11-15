@@ -1,29 +1,17 @@
 ---
-title:  "[Git] 여러 개의 Github Repository 하나로 합치기"
-excerpt: "여러 개의 Github Repository를 하나로의 Repository로 합치는 방법에 대해 알아보자"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/git/git_github_logo.jpg
-
-categories:
-  - etc
-
-tags:
-  - git
-  - github
-  - subtree
-  - add
-  - repository
-  - prefix
-
-
+title: "[Git] 여러 개의 Github Repository 하나로 합치기"
+description: "여러 개의 Github Repository를 하나로의 Repository로 합치는 방법에 대해 알아보자"
+permalink: /etc/git_merge_repo/
+categories: [Python, Etc]
+tags: ["git", "github", "subtree", "add", "repository", "prefix"]
 last_modified_at: 2023-05-25T20:00-20:30
+image:
+  path: /assets/images/git/git_github_logo.jpg
 ---
 
 # 개요  
 
-![jpg](/assets/images/git/git_github_logo.jpg){: .align-center}{: width="60%" height="80%"}  
+![jpg](/assets/images/git/git_github_logo.jpg){: width="60%" height="80%"}  
 
 우리가 폴더를 정리하듯이 일정 시간이 지나면 작업 했던 Repository들을 하나로 합치고 싶은 상황이 생긴다.  
 이번 포스팅은 Github 여러 개의 Repositiory를 하나로 합치는 방법에 대한 방법이다.  

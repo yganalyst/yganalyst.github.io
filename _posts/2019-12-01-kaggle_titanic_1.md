@@ -1,36 +1,17 @@
 ---
-title:  "[Kaggle] 타이타닉 생존자 예측모델 1 - EDA"
-excerpt: "캐글 compoetition의 가장 기본인 타이타닉 생존자 예측 예제를 공부해보자"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/kaggle_logo.jpg
-
-categories:
-  - competition
-
-tags:
-  - python
-  - 데이터
-  - 기초
-  - 데이터 분석
-  - 캐글
-  - kaggle
-  - 프로젝트
-  - project
-  - machine learning
-  - classification
-  - titanic
-  - prediction
-  - eda
-
-
+title: "[Kaggle] 타이타닉 생존자 예측모델 1 - EDA"
+description: "캐글 compoetition의 가장 기본인 타이타닉 생존자 예측 예제를 공부해보자"
+permalink: /competition/kaggle_titanic_1/
+categories: [Data Science, Competition]
+tags: ["python", "데이터", "기초", "데이터 분석", "캐글", "kaggle", "프로젝트", "project", "machine learning", "classification", "titanic", "prediction", "eda"]
 last_modified_at: 2019-12-01T19:00-19:30
+image:
+  path: /assets/images/kaggle_logo.jpg
 ---
 
 # 1. 데이터 정보  
 
-![jpg](/assets/images/kaggle_logo.jpg){: .align-center}{: width="80%" height="80%"} 
+![jpg](/assets/images/kaggle_logo.jpg){: width="80%" height="80%"} 
 
 - url : https://www.kaggle.com/c/titanic  
 - train set : 891 row

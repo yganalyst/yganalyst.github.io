@@ -1,36 +1,17 @@
 ---
-title:  "[Dacon] 제주 퇴근시간 버스 승하차 인원 예측 2 - feature engineering"
-excerpt: "Dacon에서 주최되었던 제주 퇴근시간 버스 승하차 인원 예측, 프로젝트를 진행해보자"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/dacon_logo.png
-
-categories:
-  - competition
-
-tags:
-  - dacon
-  - project
-  - machine learning
-  - feature engineering
-  - 프로젝트
-  - 데이콘
-  - 제주도
-  - 버스승하차
-  - 예측
-  - correlation
-  - 상관관계
-  - 파생변수
-  - 머신러닝 프로젝트
-  - dataset
-
+title: "[Dacon] 제주 퇴근시간 버스 승하차 인원 예측 2 - feature engineering"
+description: "Dacon에서 주최되었던 제주 퇴근시간 버스 승하차 인원 예측, 프로젝트를 진행해보자"
+permalink: /competition/dacon_bus_inout_2/
+categories: [Data Science, Competition]
+tags: ["dacon", "project", "machine learning", "feature engineering", "프로젝트", "데이콘", "제주도", "버스승하차", "예측", "correlation", "상관관계", "파생변수", "머신러닝 프로젝트", "dataset"]
 last_modified_at: 2020-03-12T19:00-19:30
+image:
+  path: /assets/images/dacon_logo.png
 ---
 
 # 개요  
 
-![png](/assets/images/dacon_logo.png){: .align-center}{: width="60%" height="60%"} 
+![png](/assets/images/dacon_logo.png){: width="60%" height="60%"} 
 
 이번 포스팅에서는 지난 [EDA 포스팅](https://yganalyst.github.io/competition/dacon_bus_inout_1/)에 이어서 내부데이터와 외부데이터를 이용해서 여러가지 파생변수들을 생성하고, 기계학습이 가능한 형태로 Dataset을 구성해보기로 한다.  
   

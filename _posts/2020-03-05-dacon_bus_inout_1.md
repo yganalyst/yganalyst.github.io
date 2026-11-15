@@ -1,39 +1,17 @@
 ---
-title:  "[Dacon] 제주 퇴근시간 버스 승하차 인원 예측 1 - EDA"
-excerpt: "Dacon에서 주최되었던 제주 퇴근시간 버스 승하차 인원 예측, 프로젝트를 진행해보자"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/dacon_logo.png
-
-categories:
-  - competition
-
-tags:
-  - dacon
-  - project
-  - machine learning
-  - eda
-  - histogram
-  - describe
-  - folium
-  - geopandas
-  - 프로젝트
-  - 데이콘
-  - 제주도
-  - 버스승하차
-  - 예측
-  - correlation
-  - 상관관계
-  - 파생변수
-  - 머신러닝 프로젝트
-
+title: "[Dacon] 제주 퇴근시간 버스 승하차 인원 예측 1 - EDA"
+description: "Dacon에서 주최되었던 제주 퇴근시간 버스 승하차 인원 예측, 프로젝트를 진행해보자"
+permalink: /competition/dacon_bus_inout_1/
+categories: [Data Science, Competition]
+tags: ["dacon", "project", "machine learning", "eda", "histogram", "describe", "folium", "geopandas", "프로젝트", "데이콘", "제주도", "버스승하차", "예측", "correlation", "상관관계", "파생변수", "머신러닝 프로젝트"]
 last_modified_at: 2020-03-05T19:00-19:30
+image:
+  path: /assets/images/dacon_logo.png
 ---
 
 # 개요  
 
-![png](/assets/images/dacon_logo.png){: .align-center}{: width="60%" height="60%"} 
+![png](/assets/images/dacon_logo.png){: width="60%" height="60%"} 
 
 이미 종료된 Competition이지만 데이콘에서 주최했던, "제주도 퇴근시간 버스 승하차 인원 예측"이라는 프로젝트를 사내 스터디겸 진행해보았다.  
 개인적으로 모델링에 집중해서 머신러닝 알고리즘, 페이퍼 리뷰에 초점을 맞추려고 했지만, 결론적으로 시간... 할애를 많이 못했다ㅠㅠ

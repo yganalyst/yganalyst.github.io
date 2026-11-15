@@ -1,36 +1,17 @@
 ---
-title:  "[Kaggle] 타이타닉 생존자 예측모델 3 - modeling"
-excerpt: "캐글 compoetition의 가장 기본인 타이타닉 생존자 예측 예제를 공부해보자"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/kaggle_logo.jpg
-
-categories:
-  - competition
-
-tags:
-  - python
-  - 데이터
-  - 기초
-  - 데이터 분석
-  - 캐글
-  - kaggle
-  - 프로젝트
-  - project
-  - machine learning
-  - classification
-  - titanic
-  - prediction
-  - feature engineering
-
-
+title: "[Kaggle] 타이타닉 생존자 예측모델 3 - modeling"
+description: "캐글 compoetition의 가장 기본인 타이타닉 생존자 예측 예제를 공부해보자"
+permalink: /competition/kaggle_titanic_3/
+categories: [Data Science, Competition]
+tags: ["python", "데이터", "기초", "데이터 분석", "캐글", "kaggle", "프로젝트", "project", "machine learning", "classification", "titanic", "prediction", "feature engineering"]
 last_modified_at: 2019-12-06T19:00-19:30
+image:
+  path: /assets/images/kaggle_logo.jpg
 ---
 
 # 개요  
 
-![jpg](/assets/images/kaggle_logo.jpg){: .align-center}{: width="80%" height="80%"} 
+![jpg](/assets/images/kaggle_logo.jpg){: width="80%" height="80%"} 
 
 이번 포스팅에서는 기계학습이 가능한 형태로 정제된 데이터셋을 여러가지 모델에 적용하여 캐글 프로젝트에 제출해 보는 시간을 가져보기로 하자.  
 

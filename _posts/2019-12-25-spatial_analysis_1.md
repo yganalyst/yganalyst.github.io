@@ -1,39 +1,17 @@
 ---
-title:  "[GIS] 공간정보 데이터의 구성 및 기본 이해하기"
-excerpt: "GIS 공간정보 데이터를 이해하고 geopandas를 이용해서 다루는 방법을 알아보자"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/gis_logo.jpg
-
-categories:
-  - spatial_analysis
-
-tags:
-  - python
-  - gis
-  - qgis
-  - 데이터 분석
-  - 파이썬 독학
-  - geopandas
-  - coordinates
-  - point
-  - polygon
-  - linestring
-  - 공간분석
-  - 공간데이터
-  - spatial analysis
-  - shapefile
-  - geodataframe
-  - geoseries
-  - shapely
-
+title: "[GIS] 공간정보 데이터의 구성 및 기본 이해하기"
+description: "GIS 공간정보 데이터를 이해하고 geopandas를 이용해서 다루는 방법을 알아보자"
+permalink: /spatial_analysis/spatial_analysis_1/
+categories: [Data Science, Spatial Analysis]
+tags: ["python", "gis", "qgis", "데이터 분석", "파이썬 독학", "geopandas", "coordinates", "point", "polygon", "linestring", "공간분석", "공간데이터", "spatial analysis", "shapefile", "geodataframe", "geoseries", "shapely"]
 last_modified_at: 2019-12-25T19:00-19:30
+image:
+  path: /assets/images/gis_logo.jpg
 ---
 
 # 개요  
 
-![png](/assets/images/gis_logo.jpg){: .align-center}{: width="60%" height="60%"} 
+![png](/assets/images/gis_logo.jpg){: width="60%" height="60%"} 
 
 
 도시공학적 측면에서 데이터를 기반으로 접근할 때 공간데이터(지리정보데이터)를 다뤄야 할 때가 많다.  
@@ -52,7 +30,7 @@ last_modified_at: 2019-12-25T19:00-19:30
 
 이렇게 위치정보를 포함하고 있는 데이터는 크게 **Vector**와 **Raster**의 Raster는 우리가 흔히 아는 이미지 형태의 데이터 이고, Vector는 대표적인 세 가지 유형의 데이터가 있다.  
 
-![png](/assets/images/gis/geopandas_1/vector_raster.png){: .align-center}  
+![png](/assets/images/gis/geopandas_1/vector_raster.png)  
 
 출처 : [Robinson_Mugo's publication](https://www.researchgate.net/figure/A-graphic-representation-of-the-core-GIS-data-types-vector-point-line-and-polygon-and_fig2_255850776)
 
@@ -191,7 +169,7 @@ print(polygon.geom_type)
 
 출처는 위 링크를 타고가면 되고, 해당 데이터는 [github](https://github.com/yganalyst/spatial_analysis/tree/master/data)에 올려두었다. 
 
-![png](/assets/images/gis/geopandas_1/shape_data.PNG){: .align-center}
+![png](/assets/images/gis/geopandas_1/shape_data.PNG)
 
 Point 좌표 데이터의 경우 csv파일로 서을시 소방안전센터의 경도와 위도 좌표를 가지고 있다.  
 Polygon의 경우 GIS 데이터는 shapefile이라고 하는데 이는 하나의 파일이 아니라 3개 이상의 확장 포맷을 통틀어 부른다. `dbf`,`prj`,`shp`,`shx`의 확장자를 가지고 있다.  

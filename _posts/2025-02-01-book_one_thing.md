@@ -1,27 +1,17 @@
 ---
 title: "[서평] 한가지에 집중하라!, The One Thing - 게리 켈러, 제이 파파산"
-excerpt: "복잡한 세상을 이기는 단순함의 힘"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/book/same_as_ever.jpg
-
-categories:
-  - book
-
-tags:
-  - 게리 켈러
-  - 제이 파파산
-  - 한가지에 집중하라
-  - The One Thing
-
-use_math: true
-
+description: "복잡한 세상을 이기는 단순함의 힘"
+permalink: /book/book_one_thing/
+categories: [Books, Review]
+tags: ["게리 켈러", "제이 파파산", "한가지에 집중하라", "the one thing"]
 last_modified_at: 2025-02-20T20:00-20:30
+math: true
+image:
+  path: /assets/images/book/same_as_ever.jpg
 ---
 
 
-![jpg](/assets/images/book/one_thing.jpg){: .align-center}{: width="40%" height="40%"}  
+![jpg](/assets/images/book/one_thing.jpg){: width="40%" height="40%"}  
 
 <br/>  
 

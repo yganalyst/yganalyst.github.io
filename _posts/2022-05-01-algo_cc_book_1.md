@@ -1,33 +1,18 @@
 ---
-title:  "[Algorithm] 탐욕 알고리즘 (Greedy algorithm)"
-excerpt: "매일매일 알고리즘 공부하기"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/post_logo/algorithm_logo.jpg
-
-categories:
-  - concept
-
-tags:
-  - python
-  - 파이썬
-  - 코딩테스트
-  - 코테
-  - 알고리즘
-  - algorithm
-  - 그리디
-  - greedy
-  - 탐욕
-  - 거스름돈
-
+title: "[Algorithm] 탐욕 알고리즘 (Greedy algorithm)"
+description: "매일매일 알고리즘 공부하기"
+permalink: /concept/algo_cc_book_1/
+categories: [Algorithm, Concept]
+tags: ["python", "파이썬", "코딩테스트", "코테", "알고리즘", "algorithm", "그리디", "greedy", "탐욕", "거스름돈"]
 last_modified_at: 2022-05-01T16:00-16:30
+image:
+  path: /assets/images/post_logo/algorithm_logo.jpg
 ---
 
 
 # 개요  
 
-![jpg](/assets/images/post_logo/algorithm_logo.jpg){: .align-center}{: width="70%" height="70%"}  
+![jpg](/assets/images/post_logo/algorithm_logo.jpg){: width="70%" height="70%"}  
 
 이번 포스팅은 그리디(Greedy) 또는 탐욕 알고리즘에 대한 글이다. 가장 기초가 되는 알고리즘이기도 하며 복잡한 문제를 단순하고 강력하게 해결할 수 있는 장점이 있다.  
 
@@ -40,7 +25,7 @@ last_modified_at: 2022-05-01T16:00-16:30
 
 예를 들어, 아래 그림과 같은 트리구조의 경로가 있고 우리는 경로마다 놓여있는 돈을 얻을 수 있다고 해보자.  
 
-![png](/assets/images/algorithm/concept_greedy_1.png){: .align-center}{: width="50%" height="50%"}  
+![png](/assets/images/algorithm/concept_greedy_1.png){: width="50%" height="50%"}  
   
 제일 많은 돈을 얻기 위해서는 빨간색 경로로 이동해야 하지만, 눈 앞에 놓인 갈림길에서 높은 금액만을 선택하는 그리디 방법은 파란색 경로로 이동한다. 따라서 $50 밖에 얻지 못한다.  
 
@@ -58,7 +43,7 @@ last_modified_at: 2022-05-01T16:00-16:30
   
 예를 들면, 아래와 같은 경로 찾기가 있을 수 있다. 
 
-![png](/assets/images/algorithm/concept_greedy_2.png){: .align-center}{: width="50%" height="50%"}  
+![png](/assets/images/algorithm/concept_greedy_2.png){: width="50%" height="50%"}  
 
 위 그림 처럼 도시간 이동을 위와 같이 밖에 할 수 없다고 했을 때, 서울에서 대전의 최단경로(Local optimum)와 대전에서 부산의 최단 경로(Local optimum)가 모여 서울에서 부산까지 가는 최단 경로(Global optimum)가 될 것 이다.  
 

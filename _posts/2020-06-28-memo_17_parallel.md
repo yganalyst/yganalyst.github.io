@@ -1,32 +1,18 @@
 ---
-title:  "[Python] 병렬처리(Multiprocessing)를 통한 연산속도 개선"
-excerpt: "Pandas dataframe의 연산속도 개선을 위해 병렬처리를 활용해보자"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/python_logo.jpg
-
-categories:
-  - data_handling
-
-tags:
-  - python
-  - multiprocessing
-  - pool
-  - map
-  - split
-  - process
-  - cpu_count
-  - pool.join
-  - pool.close
-
+title: "[Python] 병렬처리(Multiprocessing)를 통한 연산속도 개선"
+description: "Pandas dataframe의 연산속도 개선을 위해 병렬처리를 활용해보자"
+permalink: /data_handling/memo_17_parallel/
+categories: [Python, Data Handling]
+tags: ["python", "multiprocessing", "pool", "map", "split", "process", "cpu_count", "pool.join", "pool.close"]
 last_modified_at: 2020-06-28T13:00-14:30
+image:
+  path: /assets/images/python_logo.jpg
 ---
 
 
 # 개요  
 
-![jpg](/assets/images/python_logo.jpg){: .align-center}{: width="80%" height="80%"} 
+![jpg](/assets/images/python_logo.jpg){: width="80%" height="80%"} 
 
 대용량 데이터를 다루기 위해서는 병렬처리 활용 방식을 필수적으로 알아두는게 필요하다. 데이터 전처리 방식들도 중요하지만 그 방식에 대한 연산속도 및 메모리 관리도 같이 해주는게 필요하다.  
 머신러닝/딥러닝 프레임워크를 활용하게 되면 학습 과정에서 function내 병렬처리 되도록 기능을 제공하지만, 데이터 가공 과정에서 주로 활용하는 Pandas에서는 따로 제공하지 않는다.  

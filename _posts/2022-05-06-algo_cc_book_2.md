@@ -1,46 +1,18 @@
 ---
-title:  "[Algorithm] 탐색을 위한 스택(Stack), 큐(Queue), 재귀함수(Recursive function)"
-excerpt: "매일매일 알고리즘 공부하기"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/post_logo/algorithm_logo.jpg
-
-categories:
-  - concept
-
-tags:
-  - python
-  - 파이썬
-  - 코딩테스트
-  - 코테
-  - 알고리즘
-  - algorithm
-  - 탐색
-  - search
-  - 재귀
-  - 재귀함수
-  - 재귀호출
-  - recursive
-  - 스택
-  - stack
-  - 큐
-  - queue
-  - collections
-  - deque
-  - 자료구조
-  - DFS
-  - BFS
-  - 깊이 우선
-  - 너비 우선
-
+title: "[Algorithm] 탐색을 위한 스택(Stack), 큐(Queue), 재귀함수(Recursive function)"
+description: "매일매일 알고리즘 공부하기"
+permalink: /concept/algo_cc_book_2/
+categories: [Algorithm, Concept]
+tags: ["python", "파이썬", "코딩테스트", "코테", "알고리즘", "algorithm", "탐색", "search", "재귀", "재귀함수", "재귀호출", "recursive", "스택", "stack", "큐", "queue", "collections", "deque", "자료구조", "dfs", "bfs", "깊이 우선", "너비 우선"]
 last_modified_at: 2022-05-06T16:00-16:30
+image:
+  path: /assets/images/post_logo/algorithm_logo.jpg
 ---
 
 
 # 개요  
 
-![jpg](/assets/images/post_logo/algorithm_logo.jpg){: .align-center}{: width="70%" height="70%"}  
+![jpg](/assets/images/post_logo/algorithm_logo.jpg){: width="70%" height="70%"}  
 
 이번 포스팅은 탐색(원하는 데이터를 찾는 과정)을 위해 이해해야할 자료구조인 스택(stack)과 큐(queue) 그리고 재귀함수(recursive function)에 대한 것이다.  
 

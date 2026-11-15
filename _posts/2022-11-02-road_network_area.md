@@ -1,55 +1,17 @@
 ---
-title:  "[GIS] 도로 네트워크 데이터를 활용한 도시의 공간단위 분할"
-excerpt: "서울시 도로 네트워크를 활용하여 도시의 공간단위 분할을 통해 공간 데이터 분석에 유용한 집계공간을 생성해보자."
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/gis/road_area/road_area_logo.png
-
-categories:
-  - spatial_analysis
-
-tags:
-  - python
-  - gis
-  - qgis
-  - 데이터 분석
-  - 파이썬 독학
-  - geopandas
-  - 공간분석
-  - 공간데이터
-  - spatial analysis
-  - geodataframe
-  - buffer
-  - road network
-  - 도로명주소 전자지도
-  - 도로 네트워크
-  - 도로망
-  - linemerge
-  - topology
-  - topological error
-  - 도로 위계
-  - 도로폭
-  - undershoot
-  - line crossing
-  - node
-  - link
-  - edge
-  - cap_style
-  - join_style
-  - linestring
-  - multilinestring
-  - explode
-  - 
-
-
-
+title: "[GIS] 도로 네트워크 데이터를 활용한 도시의 공간단위 분할"
+description: "서울시 도로 네트워크를 활용하여 도시의 공간단위 분할을 통해 공간 데이터 분석에 유용한 집계공간을 생성해보자."
+permalink: /spatial_analysis/road_network_area/
+categories: [Data Science, Spatial Analysis]
+tags: ["python", "gis", "qgis", "데이터 분석", "파이썬 독학", "geopandas", "공간분석", "공간데이터", "spatial analysis", "geodataframe", "buffer", "road network", "도로명주소 전자지도", "도로 네트워크", "도로망", "linemerge", "topology", "topological error", "도로 위계", "도로폭", "undershoot", "line crossing", "node", "link", "edge", "cap_style", "join_style", "linestring", "multilinestring", "explode"]
 last_modified_at: 2022-11-02T20:00-21:00
+image:
+  path: /assets/images/gis/road_area/road_area_logo.png
 ---
 
 # 개요  
 
-![png](/assets/images/gis/road_area/road_area_logo.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/gis/road_area/road_area_logo.png){: width="80%" height="80%"}  
 
 이번 포스팅은 **도로 네트워크를 기반으로 도시의 공간 단위를 분할**하는 과정을 다룬다.  
 위 그림과 같이 도로에 의해 분할된 공간 단위들을 도출하는 방법 뿐 아니라, 진행 중 겪었던 **시행착오**들도 포함되어 있다.  
@@ -73,13 +35,13 @@ last_modified_at: 2022-11-02T20:00-21:00
 도로 네트워크는 다양한 기관에서 제공하고 있다. 여기서는 [도로명주소 전자지도 DB](https://business.juso.go.kr/addrlink/elctrnMapProvd/geoDBDwldList.do#this)를 사용하였다. 해당 링크로 들어가 아래와 좌측 탭의 도로명주소 전자지도를 클릭하여 신청하면, 1시간 내외로 승인받아 사용할 수 있다.  
 도로명주소 전자지도는 행정경계, 도로, 건물 등 총 11개의 공간 정보를 포함하고 있으며, 월 단위로 최신정보를 제공해준다(일변동 자료도 추가제공).  
 
-![png](/assets/images/gis/road_area/mapDB.png){: .align-center}{: width="70%" height="70%"}  
+![png](/assets/images/gis/road_area/mapDB.png){: width="70%" height="70%"}  
 
 사용할 데이터는 서울특별시의 **시도 경계**(`TL_SCCO_CTPRVN`)와 **도로구간**(`TL_SPRD_MANAGE`)이며, 간단하게 QGIS로 시각화한 결과는 아래와 같다.  
 도로구간 데이터는 **도로 위계**(`ROA_CLS_SE`)별로 분류한 예시이다.  
 고속도로 등으로 분류가 되어 있긴 하지만, 기능적 특성에 따라 **주/보조간선도로, 집산도로, 국지도로**로 나눠지는 것을 알 수 있다.  
 
-![png](/assets/images/gis/road_area/road_network.png){: .align-center}{: width="90%" height="90%"}  
+![png](/assets/images/gis/road_area/road_network.png){: width="90%" height="90%"}  
 
 참고로 도로명주소 전자지도 데이터들의 **좌표계는 [EPSG5179](https://yganalyst.github.io/spatial_analysis/spatial_analysis_3/#%EC%9E%90%EC%A3%BC%EC%93%B0%EB%8A%94-%EC%A2%8C%ED%91%9C%EC%A0%95%EB%B3%B4)**이며, 정의되어 있지 않기 때문에 **사용 시에 정의하고 사용**해야한다.  
 
@@ -293,7 +255,7 @@ road[["RN","ROAD_BT","ROAD_LT","ROA_CLS_SE","geometry"]]
 **topology**란 통신 네트워크 분야에서도 많이 사용되는 개념으로, 도로 네트워크에서는 **교차로(intersection)와 끝점(end point)은 노드**로, **노드 간의 연결은 링크(edge)**로 표현된 구조를 말한다.  
 따라서 **topological error**라는 것은 **이를 만족하지 않는 오류들**을 말한다.  
 
-![png](/assets/images/gis/road_area/topological_error.png){: .align-center}{: width="60%" height="60%"}    
+![png](/assets/images/gis/road_area/topological_error.png){: width="60%" height="60%"}    
 
 *Source: [gis.humboldt.edu](http://gis.humboldt.edu/olm_2018/Lessons/GIS/04%20CreatingSpatialData/DigitizingUncertainty.html)  
 
@@ -301,11 +263,11 @@ road[["RN","ROAD_BT","ROAD_LT","ROA_CLS_SE","geometry"]]
 (예를 들어, 분명히 분할되어야하는 공간이 분할되지 않았다던지)  
 대부분 아래 그림과 같이 **Line crossing(도로 구간별로 관리되기 때문)**과 **Undershoot(진짜 오류)**들이 있었다.  
 
-![png](/assets/images/gis/road_area/error_1.png){: .align-center}{: width="70%" height="70%"}    
+![png](/assets/images/gis/road_area/error_1.png){: width="70%" height="70%"}    
 
 또한 조금더 특이한 Case로 3개의 `LINESTRING`이 엇갈려 있는 오류(**Understring & Crossed**로 명명했다)와 행정구역 경계와 딱 맞지 않는 **Line과 Polygon 간의 Undershoot**가 있었다.  
 
-![png](/assets/images/gis/road_area/error_2.png){: .align-center}{: width="70%" height="70%"}    
+![png](/assets/images/gis/road_area/error_2.png){: width="70%" height="70%"}    
 
 이러한 오류들을 처리하기 위해 잘 알려지진 않았지만 다양한 연구들이 진행되고 있다(실제로 논문도 나온다).  
 QGIS보다 더 다양한 Toolbox를 제공하는 **ArcGIS**에서는 tolerance를 기준으로 묶어주거나 하는 [다양한 방법들](https://desktop.arcgis.com/en/arcmap/10.3/manage-data/topologies/topology-in-arcgis.htm)도 제시하고 있다.  
@@ -354,7 +316,7 @@ buffer함수에서 두 인자는 1값(round)으로 둥글게 확장되도록 되
 `buffer(distance, cap_style=1, join_style=1)`   
 **cap_style은 End point**를, **join_style은 꺽이는 부분**에 대한 설정값이다.  
 
-![png](/assets/images/gis/road_area/buffer_opt.png){: .align-center}  
+![png](/assets/images/gis/road_area/buffer_opt.png)  
 
 따라서 여기서는 아래 예시처럼 사각형으로 잡기위해 **각각 3과 2로 설정**되도록 했다.  
 
@@ -445,7 +407,7 @@ plt.show()
 - 1,2번: 하나는 hole이 있는 polygon이고, hole 역할을 하는 다른 polygon이 존재한다.  
 - 3번: hole이 있는 polygon만 존재한다.  
 
-![png](/assets/images/gis/road_area/error_3.png){: .align-center}{: width="70%" height="70%"}  
+![png](/assets/images/gis/road_area/error_3.png){: width="70%" height="70%"}  
 
 이런 객체들은 하나의 polygon은 맞기 때문에, Multypolygon으로 식별되지 않는다. 즉, **Linestring으로 식별**해야한다.  
 아래와 같이 **boundary**를 통해 Linestring으로 만들면, **내부 Line과 외부 Line으로 이루어진 MultiLinestring**이된다.  
@@ -517,7 +479,7 @@ result[result.boundary.geom_type=='MultiLineString']
 (데이터 하나하나도 소중히 해야한다..)  
 아이디어는 아래그림 처럼 식별된 Linestring들 중에 **area가 큰 것만 남기고 나머지는 버리는 간단한 방법**이다.  
 
-![png](/assets/images/gis/road_area/fill_holes.png){: .align-center}{: width="85%" height="85%"}  
+![png](/assets/images/gis/road_area/fill_holes.png){: width="85%" height="85%"}  
 
 다시 도로 네트워크로 돌아와서 아래와 같이 구현했다.  
 
@@ -572,7 +534,7 @@ result_final.to_file("result_final.shp")
 
 드디어.. 최종 결과물은 아래와 같이 나왔다. color는 의미는 없고 color가 잘 보이도록 id에 따라 random하게 찍은 것이다.  
 
-![png](/assets/images/gis/road_area/final_result.png){: .align-center}{: width="90%" height="90%"}  
+![png](/assets/images/gis/road_area/final_result.png){: width="90%" height="90%"}  
 
 
 나름은 완성도 있다고 생각은 하지만, 들여다보면 여기는 분할되거나 묶여야할 것 같은 공간들이 아직 많이 보인다.  

@@ -1,37 +1,17 @@
 ---
-title:  "[Git] Git & Github의 동작원리 이해하기 및 주요 명령어 정리"
-excerpt: "버전관리와 개발 협업을 위해 활용되는 Git과 Github을 근본적인 개념부터 주요 명령어까지 상세히 알아보자"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/git/git_github_logo.jpg
-
-categories:
-  - etc
-
-tags:
-  - python
-  - git
-  - github
-  - gitlab
-  - add
-  - push
-  - commit
-  - fetch
-  - pull
-  - clone
-  - diff
-  - log
-  - merge
-  - branch
-
-
+title: "[Git] Git & Github의 동작원리 이해하기 및 주요 명령어 정리"
+description: "버전관리와 개발 협업을 위해 활용되는 Git과 Github을 근본적인 개념부터 주요 명령어까지 상세히 알아보자"
+permalink: /etc/git_github_summary/
+categories: [Python, Etc]
+tags: ["python", "git", "github", "gitlab", "add", "push", "commit", "fetch", "pull", "clone", "diff", "log", "merge", "branch"]
 last_modified_at: 2023-04-20T20:00-20:30
+image:
+  path: /assets/images/git/git_github_logo.jpg
 ---
 
 # 개요  
 
-![jpg](/assets/images/git/git_github_logo.jpg){: .align-center}{: width="60%" height="80%"}  
+![jpg](/assets/images/git/git_github_logo.jpg){: width="60%" height="80%"}  
 
 이번 포스팅은 버전관리시스템인 [**Git**](https://git-scm.com/)과 git 저장소를 기반으로 한 협업도구 [**GitHub**](https://github.com/)에 대해 알아보자. 너무 잘 알려져있고 좋은 레퍼런스 자료들도 많지만 개념적인 내용을 확실하게 정리하고 근본부터 차근차근 이해하는 것이 이번 포스팅의 목표이다.  
 

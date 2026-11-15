@@ -1,49 +1,17 @@
 ---
-title:  "[GIS] 좌표 정의 및 변환 방법, 자주쓰는 좌표계"
-excerpt: "공간정보 데이터의 좌표를 정의하고 변환하는 방법을 알아보자."
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/gis_logo.jpg
-
-categories:
-  - spatial_analysis
-
-tags:
-  - python
-  - gis
-  - qgis
-  - 데이터 분석
-  - 파이썬 독학
-  - geopandas
-  - crs
-  - to_crs
-  - fiona
-  - shapely
-  - 좌표
-  - 좌표계
-  - coordinate
-  - coordinate system
-  - 투영
-  - 지리좌표계
-  - 투영좌표계
-  - 위경도
-  - wgs84
-  - grs80
-  - EPSG
-  - 5179
-  - TM
-  - UTM
-  - 타원체
-
-
-
+title: "[GIS] 좌표 정의 및 변환 방법, 자주쓰는 좌표계"
+description: "공간정보 데이터의 좌표를 정의하고 변환하는 방법을 알아보자."
+permalink: /spatial_analysis/spatial_analysis_3/
+categories: [Data Science, Spatial Analysis]
+tags: ["python", "gis", "qgis", "데이터 분석", "파이썬 독학", "geopandas", "crs", "to_crs", "fiona", "shapely", "좌표", "좌표계", "coordinate", "coordinate system", "투영", "지리좌표계", "투영좌표계", "위경도", "wgs84", "grs80", "epsg", "5179", "tm", "utm", "타원체"]
 last_modified_at: 2020-12-28T19:00-19:30
+image:
+  path: /assets/images/gis_logo.jpg
 ---
 
 # 개요  
 
-![png](/assets/images/gis_logo.jpg){: .align-center}{: width="60%" height="60%"}  
+![png](/assets/images/gis_logo.jpg){: width="60%" height="60%"}  
 
 이번 포스팅에서는 다양한 공공데이터의 좌표정의를 위해 사용되는 좌표계들을 소개하고, 좌표계를 정의하고 변환하는 방법들에 대해서 알아보자.  
 
@@ -65,12 +33,12 @@ last_modified_at: 2020-12-28T19:00-19:30
 
 ## 1-1. 지리좌표계  
 
-![jpg](/assets/images/gis/crs/earth1.jpg){: .align-center}  
+![jpg](/assets/images/gis/crs/earth1.jpg)  
 
 지리좌표계란, 지구상에 위치를 좌표로 표현하기 위해 **3차원의 구면을 이용하는 좌표계**를 의미한다. 한 지점은 **경도(longitude)**와 **위도(latitude)**로 표현되며 이 단위는 **도(degree)**로 표시된다.  
 
 
-![jpg](/assets/images/gis/crs/earth.jpg){: .align-center}{: width="80%" height="80%"}  
+![jpg](/assets/images/gis/crs/earth.jpg){: width="80%" height="80%"}  
 
 위 그림과 같이 사실 지구는 원이 아니라 타원체인데, 3차원의 지구를 좌표로 표현하기 위해서 지오이드(geoid)라는 방법론도 제안되었으나, 복잡성을 배제하기 위해 결과적으로는 평평한 타원체로 정의가 되있고 이를 지구 타원체(Earth Ellipsoid)라고 한다.  
 

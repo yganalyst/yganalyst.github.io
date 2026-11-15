@@ -1,47 +1,17 @@
 ---
-title:  "[Dacon] 제주 퇴근시간 버스 승하차 인원 예측 3 - modeling"
-excerpt: "Dacon에서 주최되었던 제주 퇴근시간 버스 승하차 인원 예측, 프로젝트를 진행해보자"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/dacon_logo.png
-
-categories:
-  - competition
-
-tags:
-  - dacon
-  - project
-  - machine learning
-  - modeling
-  - xgboost
-  - tree
-  - decision tree
-  - cart
-  - random forest
-  - ensemble
-  - boosting
-  - cross validate
-  - cv
-  - kfold
-  - stratified kfold
-  - 프로젝트
-  - 데이콘
-  - 제주도
-  - 버스승하차
-  - 예측
-  - correlation
-  - 상관관계
-  - 파생변수
-  - 머신러닝 프로젝트
-  - dataset
-
+title: "[Dacon] 제주 퇴근시간 버스 승하차 인원 예측 3 - modeling"
+description: "Dacon에서 주최되었던 제주 퇴근시간 버스 승하차 인원 예측, 프로젝트를 진행해보자"
+permalink: /competition/dacon_bus_inout_3/
+categories: [Data Science, Competition]
+tags: ["dacon", "project", "machine learning", "modeling", "xgboost", "tree", "decision tree", "cart", "random forest", "ensemble", "boosting", "cross validate", "cv", "kfold", "stratified kfold", "프로젝트", "데이콘", "제주도", "버스승하차", "예측", "correlation", "상관관계", "파생변수", "머신러닝 프로젝트", "dataset"]
 last_modified_at: 2020-03-12T19:00-19:30
+image:
+  path: /assets/images/dacon_logo.png
 ---
 
 # 개요  
 
-![png](/assets/images/dacon_logo.png){: .align-center}{: width="60%" height="60%"} 
+![png](/assets/images/dacon_logo.png){: width="60%" height="60%"} 
 
 이번 포스팅에서는 지난 [feature engineering 포스팅](https://yganalyst.github.io/competition/dacon_bus_inout_2/)에 이어서 여러가지 머신러닝 알고리즘을 적용해서, 최종 산출물을 내보기로 한다.  
 (미완성)  

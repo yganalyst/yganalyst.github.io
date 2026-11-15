@@ -1,37 +1,16 @@
 ---
 title: "[Linux] Linux 기본 명령어 정리"
-excerpt: "Linux 환경에서의 기본 명령어들에 대해 알아보자."
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/linux/linux_logo.png
-
-categories:
-  - linux
-
-tags:
-  - docker
-  - pwd
-  - ls
-  - du
-  - cp
-  - rm
-  - chmod
-  - for
-  - in
-  - do
-  - done
-  - array
-  - echo
-  - shell
-  - bash
-
-use_math: true
-
+description: "Linux 환경에서의 기본 명령어들에 대해 알아보자."
+permalink: /linux/linux_basic/
+categories: [Engineering, Linux]
+tags: ["docker", "pwd", "ls", "du", "cp", "rm", "chmod", "for", "in", "do", "done", "array", "echo", "shell", "bash"]
 last_modified_at: 2024-11-29T20:00-20:30
+math: true
+image:
+  path: /assets/images/linux/linux_logo.png
 ---
 
-![png](/assets/images/linux/linux_logo.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/linux/linux_logo.png){: width="80%" height="80%"}  
 
 <br/>  
 

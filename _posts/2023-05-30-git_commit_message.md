@@ -1,25 +1,17 @@
 ---
-title:  "[Git] Git Commit Message Convention"
-excerpt: "Git의 Commit 메세지 규칙에 대해 알아보자"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/git/git_github_logo.jpg
-
-categories:
-  - etc
-
-tags:
-  - git
-  - github
-
-
+title: "[Git] Git Commit Message Convention"
+description: "Git의 Commit 메세지 규칙에 대해 알아보자"
+permalink: /etc/git_commit_message/
+categories: [Python, Etc]
+tags: ["git", "github"]
 last_modified_at: 2023-05-30T20:00-20:30
+image:
+  path: /assets/images/git/git_github_logo.jpg
 ---
 
 # 개요  
 
-![jpg](/assets/images/git/git_github_logo.jpg){: .align-center}{: width="60%" height="80%"}  
+![jpg](/assets/images/git/git_github_logo.jpg){: width="60%" height="80%"}  
 
 이번 포스팅은 commit message의 규칙과 관련된 내용이다.  
 개발 시 Git을 사용하면서 수많은 Commit을 하게 되는데, 일관성 있는 message convention과 같은 약속된 규칙을 기반으로 보다 효율적인 팀원 간 협업이 가능하다.  
