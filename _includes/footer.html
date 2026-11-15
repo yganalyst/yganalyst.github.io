@@ -2,7 +2,8 @@
   <span>© {{ site.time | date: "%Y" }} {{ site.author.name }}</span>
   <span class="footer-links">
     <a href="https://github.com/{{ site.author.github }}">GitHub</a>
-    {% if site.author.linkedin != "" %}<a href="{{ site.author.linkedin }}">LinkedIn</a>{% endif %}
+    <a href="{{ site.author.linkedin }}">LinkedIn</a>
+    <a href="https://instagram.com/{{ site.author.instagram }}">Instagram</a>
     <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
     <a href="{{ '/llms.txt' | relative_url }}">llms.txt</a>
   </span>

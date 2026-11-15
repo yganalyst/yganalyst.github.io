@@ -39,11 +39,6 @@ layout: default
     {% if page.next %}<a class="next" href="{{ page.next.url | relative_url }}"><span>다음 글</span>{{ page.next.title }}</a>{% endif %}
   </nav>
 
-  <aside class="cta">
-    <p><strong>도움이 됐다면</strong> 방명록에 <code>git commit -m "다녀감"</code> 한 줄 부탁드려요.</p>
-    <a class="btn" href="{{ '/contact/' | relative_url }}">Contact →</a>
-  </aside>
-
   {% if page.comments and site.utterances.repo %}
   <section class="comments" id="comments" data-repo="{{ site.utterances.repo }}" data-term="{{ site.utterances.issue_term }}"></section>
   {% endif %}

@@ -6,7 +6,7 @@ permalink: /llms.txt
 
 > {{ site.description | strip }}
 
-작성자: {{ site.author.name }} ({{ site.author.github }}). 지도 데이터 엔지니어가 사이드 프로젝트를 직접 만들며 겪은 시행착오와 기술 노트를 기록하는 사이트입니다.
+작성자: {{ site.author.name }} ({{ site.author.github }}). 데이터 엔지니어의 기술 노트와 사이드 프로젝트 기록입니다.
 
 ## Projects
 {% for p in site.data.projects %}

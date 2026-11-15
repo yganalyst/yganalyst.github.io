@@ -19,11 +19,9 @@
   function syncEmbeds(theme) {
     var u = document.querySelector('.utterances-frame');
     if (u) u.contentWindow.postMessage({ type: 'set-theme', theme: theme === 'dark' ? 'github-dark' : 'github-light' }, 'https://utteranc.es');
-    var g = document.querySelector('iframe.giscus-frame');
-    if (g) g.contentWindow.postMessage({ giscus: { setConfig: { theme: theme === 'dark' ? 'dark' : 'light' } } }, 'https://giscus.app');
   }
 
-  // ---------- lazy embeds (utterances / giscus) ----------
+  // ---------- lazy embeds (utterances) ----------
   function loadWhenVisible(el, fn) {
     if (!el) return;
     if (!('IntersectionObserver' in window)) return fn();
@@ -45,30 +43,32 @@
     comments.appendChild(s);
   });
 
-  var gb = document.getElementById('guestbook');
-  loadWhenVisible(gb, function () {
-    var s = document.createElement('script');
-    s.src = 'https://giscus.app/client.js';
-    s.async = true;
-    s.crossOrigin = 'anonymous';
-    var attrs = {
-      'data-repo': gb.dataset.repo,
-      'data-repo-id': gb.dataset.repoId,
-      'data-category': gb.dataset.category,
-      'data-category-id': gb.dataset.categoryId,
-      'data-mapping': 'specific',
-      'data-term': 'guestbook',
-      'data-strict': '1',
-      'data-reactions-enabled': '1',
-      'data-emit-metadata': '0',
-      'data-input-position': 'top',
-      'data-theme': currentTheme() === 'dark' ? 'dark' : 'light',
-      'data-lang': 'ko',
-      'data-loading': 'lazy'
-    };
-    Object.keys(attrs).forEach(function (k) { s.setAttribute(k, attrs[k]); });
-    gb.appendChild(s);
-  });
+  // ---------- contact form ----------
+  var form = document.getElementById('contact-form');
+  if (form) {
+    var status = form.querySelector('.form-status');
+    var button = form.querySelector('button[type="submit"]');
+    if (form.hasAttribute('data-disabled')) {
+      button.disabled = true;
+      status.textContent = '폼 준비 중입니다. 급하시면 LinkedIn으로 연락 주세요.';
+    }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (form.hasAttribute('data-disabled')) return;
+      button.disabled = true;
+      status.textContent = '보내는 중…';
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+        .then(function (r) {
+          if (!r.ok) throw new Error(r.status);
+          form.reset();
+          status.textContent = '잘 받았습니다. 고맙습니다.';
+        })
+        .catch(function () {
+          status.textContent = '전송에 실패했습니다. 잠시 후 다시 시도하거나 LinkedIn으로 연락 주세요.';
+        })
+        .finally(function () { button.disabled = false; });
+    });
+  }
 
   // ---------- table of contents ----------
   var toc = document.querySelector('.toc');

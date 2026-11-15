@@ -3,23 +3,19 @@ layout: default
 ---
 <section class="hero">
   <p class="eyebrow">{{ site.author.role }} · {{ site.author.location }}</p>
-  <h1>낮엔 지도 데이터,<br>밤엔 사이드 프로젝트.</h1>
-  <p class="hero-text">
-    {{ site.author.name_ko }}입니다. 본캐는 데이터 엔지니어, 부캐는 퇴근 후 이것저것 만들어 보는 사람.
-    잘 되면 자랑하고, 망하면 회고합니다. 어느 쪽이든 <em>여기에 커밋합니다.</em>
-  </p>
+  <h1>{{ site.author.name_ko }}</h1>
+  <p class="hero-text">하고 싶은 게 많은 데이터 엔지니어. 만들어 본 것과 배운 것을 여기에 적습니다.</p>
   <p class="hero-links">
-    <a href="https://github.com/{{ site.author.github }}">GitHub ↗</a>
-    {% if site.author.linkedin != "" %}<a href="{{ site.author.linkedin }}">LinkedIn ↗</a>{% endif %}
-    <a href="{{ '/lab/' | relative_url }}">Lab</a>
-    <a href="{{ '/contact/' | relative_url }}">커피챗 ☕</a>
+    <a href="https://github.com/{{ site.author.github }}">GitHub</a>
+    <a href="{{ site.author.linkedin }}">LinkedIn</a>
+    <a href="https://instagram.com/{{ site.author.instagram }}">Instagram</a>
   </p>
 </section>
 
 <section class="section">
   <div class="section-head">
     <h2>최근 글</h2>
-    <a href="{{ '/posts/' | relative_url }}">{{ site.posts.size }}개 모두 보기 →</a>
+    <a href="{{ '/posts/' | relative_url }}">전체 {{ site.posts.size }}개 →</a>
   </div>
   <ul class="post-list">
     {% for post in site.posts limit: site.home_posts %}{% include post-row.html post=post %}{% endfor %}

@@ -1,7 +1,6 @@
 title: "yg's lab"
-tagline: 만들고, 부딪히고, 기록합니다
 description: >-
-  낮엔 지도 데이터, 밤엔 사이드 프로젝트. 데이터 엔지니어 신용근의 실험 기록과 기술 노트.
+  데이터 엔지니어 신용근의 기술 노트와 사이드 프로젝트 기록.
 url: "https://yganalyst.github.io"
 baseurl: ""
 lang: ko
@@ -10,11 +9,11 @@ timezone: Asia/Seoul
 author:
   name: Yonggeun Shin
   name_ko: 신용근
-  role: Maps Data Engineer
+  role: Data Engineer
   location: Seoul
   github: yganalyst
   instagram: tlsdydrms
-  linkedin: "" # 예: https://www.linkedin.com/in/your-id/
+  linkedin: https://www.linkedin.com/in/yonggeunshin/
 
 # Google Analytics 4 (production 빌드에서만 로드)
 analytics:
@@ -25,12 +24,9 @@ utterances:
   repo: yganalyst/yganalyst.github.io
   issue_term: pathname
 
-# 방명록 (GitHub Discussions)
-giscus:
-  repo: yganalyst/yganalyst.github.io
-  repo_id: MDEwOlJlcG9zaXRvcnkyMDUxNTc1NTk=
-  category: Announcements
-  category_id: DIC_kwDODDp0t84DLLB9
+# Contact 폼 전송 주소 (Formspree 등). 비어 있으면 폼이 비활성화됩니다.
+contact:
+  form_action: ""
 
 # 홈에 보여줄 최근 글 수
 home_posts: 8

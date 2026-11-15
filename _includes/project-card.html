@@ -19,7 +19,7 @@
   {%- if p.link or logs -%}
   <p class="project-links">
     {% if p.link %}<a href="{{ p.link }}">서비스 보기 ↗</a>{% endif %}
-    {% if logs %}<a href="{{ logs.first.url | relative_url }}">최근 기록: {{ logs.first.title }} →</a>{% endif %}
+    {% if logs %}<a href="{{ logs.first.url | relative_url }}">최근 기록 →</a>{% endif %}
   </p>
   {%- endif -%}
 </li>
