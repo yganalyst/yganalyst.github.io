@@ -1,44 +1,19 @@
 ---
-title:  "[Algorithm] 정렬 알고리즘 (선택 정렬, 삽입 정렬, 퀵 정렬, 계수 정렬)"
-excerpt: "매일매일 알고리즘 공부하기"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/post_logo/algorithm_logo.jpg
-
-categories:
-  - concept
-
-tags:
-  - python
-  - 파이썬
-  - 코딩테스트
-  - 코테
-  - 알고리즘
-  - algorithm
-  - 선택 정렬
-  - selection sort
-  - 삽입 정렬
-  - insertion sort
-  - 퀵 정렬
-  - quick sort
-  - 계수 정렬
-  - count sort
-  - sorted
-  - lambda
-  - key
-  - sort
-  - 시간 복잡도
-
-use_math: true
-
+title: "[Algorithm] 정렬 알고리즘 (선택 정렬, 삽입 정렬, 퀵 정렬, 계수 정렬)"
+description: "매일매일 알고리즘 공부하기"
+permalink: /concept/algo_cc_book_4/
+categories: [Algorithm, Concept]
+tags: ["python", "파이썬", "코딩테스트", "코테", "알고리즘", "algorithm", "선택 정렬", "selection sort", "삽입 정렬", "insertion sort", "퀵 정렬", "quick sort", "계수 정렬", "count sort", "sorted", "lambda", "key", "sort", "시간 복잡도"]
 last_modified_at: 2022-06-30T16:00-16:30
+math: true
+image:
+  path: /assets/images/post_logo/algorithm_logo.jpg
 ---
 
 
 # 개요  
 
-![jpg](/assets/images/post_logo/algorithm_logo.jpg){: .align-center}{: width="70%" height="70%"}  
+![jpg](/assets/images/post_logo/algorithm_logo.jpg){: width="70%" height="70%"}  
 
 이번 포스팅은 데이터를 특정한 기준에 따라 나열하는 정렬(Sorting) 알고리즘에 대해 알아보자. 예를 들어, `0,5,1,2,8,4,7`이라는 배열을 오름차순 정렬을 하려고 할 때 사람은 그냥 작은 수부터 직관적으로 나열할 수 있다. 그러나 컴퓨터는 어떤게 작은 숫자인지, 또 어떤 방식으로 정렬할지 등을 알려줘야하며 시간 복잡도도 계속 달라지므로 다양한 방식이 생겨나게 된다.  
 이번에 공부할 알고리즘 유형은 선택 정렬(Selection sort), 삽입 정렬(Insertion sort), 퀵 정렬(Quick sort), 계수 정렬(Count sort)이다.
@@ -155,7 +130,7 @@ print(array)
 3. 찾은 데이터(좌측, 우측)들이 서로 엇갈리게 될 때, 작은데이터와 기준데이터를 맞교환
 4. 피벗을 기준으로 나눠진 부분 배열(Sub part)에 대하여, 1~3을 반복한다.  
 
-![png](/assets/images/algorithm/concept_sort_1.png){: .align-center}{: width="70%" height="70%"}  
+![png](/assets/images/algorithm/concept_sort_1.png){: width="70%" height="70%"}  
 
 
 ## 구현 코드  

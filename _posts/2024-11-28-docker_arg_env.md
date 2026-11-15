@@ -1,34 +1,16 @@
 ---
 title: "[Docker] Argument & Environment Variables"
-excerpt: "Dockerfile과 shell 명령어를 통해 Argment와 글로벌 환경 변수를 다루는 방법을 알아보자."
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/docker/docker_logo.jpg
-
-categories:
-  - docker
-
-tags:
-  - docker
-  - kubernetes
-  - container
-  - build
-  - run
-  - Dockerfile
-  - ENV
-  - env
-  - e
-  - env-files
-  - ARG
-  - build-arg
-
-use_math: true
-
+description: "Dockerfile과 shell 명령어를 통해 Argment와 글로벌 환경 변수를 다루는 방법을 알아보자."
+permalink: /docker/docker_arg_env/
+categories: [Engineering, Docker]
+tags: ["docker", "kubernetes", "container", "build", "run", "dockerfile", "env", "e", "env-files", "arg", "build-arg"]
 last_modified_at: 2024-11-28T20:00-20:30
+math: true
+image:
+  path: /assets/images/docker/docker_logo.jpg
 ---
 
-![jpg](/assets/images/docker/docker_logo.jpg){: .align-center}{: width="80%" height="80%"}  
+![jpg](/assets/images/docker/docker_logo.jpg){: width="80%" height="80%"}  
 
 <br/>  
 

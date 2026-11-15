@@ -1,52 +1,17 @@
 ---
-title:  "[클러스터링] 비계층적(K-means, DBSCAN) 군집분석"
-excerpt: "비계층적 군집분석 방법인 K-means와 DBSCAN에 대해 알아보자"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/tens_sci.png
-
-categories:
-  - ML
-
-tags:
-  - python
-  - 데이터
-  - 기초
-  - 데이터 분석
-  - 머신러닝
-  - hierarchical
-  - clustering
-  - kmeans
-  - DBSCAN
-  - 중심기반
-  - 밀도기반
-  - 비계층
-  - 계층
-  - 클러스터링
-  - 군집분석
-  - sklearn
-  - centroid
-  - cluster_centers
-  - labels
-  - n_cluster
-  - init
-  - minpts
-  - eps
-  - epsilon
-  - core
-  - border
-  - noise
-  - make_moons
-  - min_sample
-  - 
-
+title: "[클러스터링] 비계층적(K-means, DBSCAN) 군집분석"
+description: "비계층적 군집분석 방법인 K-means와 DBSCAN에 대해 알아보자"
+permalink: /ml/ML_clustering/
+categories: [Data Science, Machine Learning]
+tags: ["python", "데이터", "기초", "데이터 분석", "머신러닝", "hierarchical", "clustering", "kmeans", "dbscan", "중심기반", "밀도기반", "비계층", "계층", "클러스터링", "군집분석", "sklearn", "centroid", "cluster_centers", "labels", "n_cluster", "init", "minpts", "eps", "epsilon", "core", "border", "noise", "make_moons", "min_sample"]
 last_modified_at: 2020-12-30T20:00-20:30
+image:
+  path: /assets/images/tens_sci.png
 ---
 
 # 개요  
 
-![png](/assets/images/tens_sci.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/tens_sci.png){: width="80%" height="80%"}  
 
 군집분석(clustering)이란 개체들을 분류(classification)하기 위한 기준이 없는 상태에서 주어진 데이터의 속성값들을 고려해 유사한 개체끼리 그룹(클러스터)화하는 방법이다. 그룹내 차이를 줄이고 그룹간 차이는 최대화 하도록 하여 대표성을 찾는 원리로 구현되는 것이 일반적이다.  
 즉, 비지도 학습(Unsupervised Learning)에 해당된다.  
@@ -78,7 +43,7 @@ n개의 데이터와 k(<=n)개의 중심점(centroid)이 주어졌을때 각 그
 
 말이 어려우니 아래 그림과 함께 보자  
 
-![png](/assets/images/ML/clustering/kmeans1.png){: .align-center}  
+![png](/assets/images/ML/clustering/kmeans1.png)  
 
 *출처 : https://brilliant.org/wiki/k-means-clustering/  
 
@@ -253,7 +218,7 @@ plt.show()
 
 아래 그림을 통해 그 원리를 알아보자.  
 
-![png](/assets/images/ML/clustering/dbscan1.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/ML/clustering/dbscan1.png){: width="80%" height="80%"}  
 
 1. 먼저 하나의 점(파란색)을 중심으로 반경(eps) 내에 최소 점이 4개(minPts=4)이상 있으면, 하나의 군집으로 판단하며 해당 점(파란색)은 Core가 된다.  
 2. 반경 내에 점이 3개 뿐이므로 Core가 되진 않지만 Core1의 군집에 포함된 점으로, 이는 Border가 된다.  
@@ -262,7 +227,7 @@ plt.show()
 
 이와 같은 방식으로 군집의 확산을 반복하면서, 자동으로 최적의 군집수가 도출된다.  
 
-![png](/assets/images/ML/clustering/dbscan2.png){: .align-center}{: width="50%" height="50%"}    
+![png](/assets/images/ML/clustering/dbscan2.png){: width="50%" height="50%"}    
 
 용어를 정리해보면 다음과 같다.  
 

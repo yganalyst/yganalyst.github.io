@@ -1,28 +1,16 @@
 ---
 title: "[Docker] Docker의 핵심 구성요소, Image와 Container"
-excerpt: "Docker의 핵심 구성요소인 Image와 Container에 대해 알아보자."
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/docker/docker_logo.jpg
-
-categories:
-  - docker
-
-tags:
-  - docker
-  - kubernetes
-  - container
-  - build
-  - run
-  - Dockerfile
-
-use_math: true
-
+description: "Docker의 핵심 구성요소인 Image와 Container에 대해 알아보자."
+permalink: /docker/docker_image_container/
+categories: [Engineering, Docker]
+tags: ["docker", "kubernetes", "container", "build", "run", "dockerfile"]
 last_modified_at: 2024-11-26T20:00-20:30
+math: true
+image:
+  path: /assets/images/docker/docker_logo.jpg
 ---
 
-![jpg](/assets/images/docker/docker_logo.jpg){: .align-center}{: width="80%" height="80%"}  
+![jpg](/assets/images/docker/docker_logo.jpg){: width="80%" height="80%"}  
 
 <br/>  
 

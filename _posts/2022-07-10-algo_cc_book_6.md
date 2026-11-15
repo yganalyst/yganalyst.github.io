@@ -1,43 +1,19 @@
 ---
-title:  "[Algorithm] 다이나믹 프로그래밍 (Dynamic Programming)"
-excerpt: "매일매일 알고리즘 공부하기"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/post_logo/algorithm_logo.jpg
-
-categories:
-  - concept
-
-tags:
-  - python
-  - 파이썬
-  - 코딩테스트
-  - 코테
-  - 알고리즘
-  - algorithm
-  - 다이나믹 프로그래밍
-  - dynamic programming
-  - 동적계획법
-  - Tabulation
-  - Memoization
-  - 메모제이션
-  - 탑다운
-  - top down
-  - 바텀업
-  - bottom up
-  - 피보나치
-  - 점화식
-
-use_math: true
-
+title: "[Algorithm] 다이나믹 프로그래밍 (Dynamic Programming)"
+description: "매일매일 알고리즘 공부하기"
+permalink: /concept/algo_cc_book_6/
+categories: [Algorithm, Concept]
+tags: ["python", "파이썬", "코딩테스트", "코테", "알고리즘", "algorithm", "다이나믹 프로그래밍", "dynamic programming", "동적계획법", "tabulation", "memoization", "메모제이션", "탑다운", "top down", "바텀업", "bottom up", "피보나치", "점화식"]
 last_modified_at: 2022-07-10T16:00-16:30
+math: true
+image:
+  path: /assets/images/post_logo/algorithm_logo.jpg
 ---
 
 
 # 개요  
 
-![jpg](/assets/images/post_logo/algorithm_logo.jpg){: .align-center}{: width="70%" height="70%"}  
+![jpg](/assets/images/post_logo/algorithm_logo.jpg){: width="70%" height="70%"}  
 
 이번 포스팅은 최적해를 계산할 때 연산속도를 개선하고 메모리 공간을 효율적으로 사용할 수 있는 다이나믹 프로그래밍(dynamic programming)에 대해 알아보자. 알고리즘이라기 보다는 계산 효율성을 향상시키기 위한 수단으로 이해할 수 있다.  
 
@@ -76,7 +52,7 @@ $$a_n=a_{n-1}+a_{n-2}, a_1=a_2=1$$
 
 아래 그림은 $a_6$을 구하기 위한 하위 원소들을 그래프 형태로 나타낸 것이다.  
 
-![png](/assets/images/algorithm/concept_dp_1.png){: .align-center}{: width="70%" height="70%"}  
+![png](/assets/images/algorithm/concept_dp_1.png){: width="70%" height="70%"}  
 
 즉, 피보나치 수열은 하나의 항을 구하기 위해서는(큰 문제) 하위 항들(작은 문제)을 연쇄적으로 계산해야한다.  
 

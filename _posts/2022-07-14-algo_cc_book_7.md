@@ -1,42 +1,19 @@
 ---
-title:  "[Algorithm] 최단경로 - 다익스트라 (Dijkstra) 알고리즘"
-excerpt: "매일매일 알고리즘 공부하기"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/post_logo/algorithm_logo.jpg
-
-categories:
-  - concept
-
-tags:
-  - python
-  - 파이썬
-  - 코딩테스트
-  - 코테
-  - 알고리즘
-  - algorithm
-  - 최단경로
-  - shortest path
-  - 다익스트라
-  - dijkstra
-  - heapq
-  - 힙
-  - 우선순위 큐
-  - queue
-  - 큐
-  - heappush
-  - heappop 
-
-use_math: true
-
+title: "[Algorithm] 최단경로 - 다익스트라 (Dijkstra) 알고리즘"
+description: "매일매일 알고리즘 공부하기"
+permalink: /concept/algo_cc_book_7/
+categories: [Algorithm, Concept]
+tags: ["python", "파이썬", "코딩테스트", "코테", "알고리즘", "algorithm", "최단경로", "shortest path", "다익스트라", "dijkstra", "heapq", "힙", "우선순위 큐", "queue", "큐", "heappush", "heappop"]
 last_modified_at: 2022-07-14T16:00-16:30
+math: true
+image:
+  path: /assets/images/post_logo/algorithm_logo.jpg
 ---
 
 
 # 개요  
 
-![jpg](/assets/images/post_logo/algorithm_logo.jpg){: .align-center}{: width="70%" height="70%"}  
+![jpg](/assets/images/post_logo/algorithm_logo.jpg){: width="70%" height="70%"}  
 
 최단 경로(Shortest path) 알고리즘은 길찾기 문제로, 말 그대로 특정 지점에서 특정 지점까지 가기 위한 최단 경로를 구하기 위한 알고리즘이다. 
 
@@ -73,28 +50,28 @@ last_modified_at: 2022-07-14T16:00-16:30
 최단거리 테이블은 각 노드에 대해 주어지며, 각 값들은 1번 노드에서 x번 노드로 가는 최단 경로를 의미한다.  
 처음에는 1번노드에서 자기 자신의 거리는 0이고, 나머지는 무한(`INF`)값으로 초기화한다.  
 
-![png](/assets/images/algorithm/concept_dijkstra_1.png){: .align-center}{: width="70%" height="70%"}  
+![png](/assets/images/algorithm/concept_dijkstra_1.png){: width="70%" height="70%"}  
 
 - **Step 1**: 출발인 1번 노드를 선택하고, 해당 노드를 거쳐 갈 수 있는 다른 노드들(2번과 3번)의 거리를 계산하여 갱신한다. 무한값 보다 작으므로 갱신된다.  
 
-![png](/assets/images/algorithm/concept_dijkstra_2.png){: .align-center}{: width="70%" height="70%"}  
+![png](/assets/images/algorithm/concept_dijkstra_2.png){: width="70%" height="70%"}  
 
 노드 위의 식별값은 `[최단거리, 이전 노드](*)`로 표현되며, 방문한 적이 있는 노드는 더이상 갱신할 필요가 없어 `*` 표시를 한다.  
 
 - **Step 2**: : 방문하지 않은 노드 중 가장 짧은 최단거리 노드(2번)를 선택하고 해당 노드를 거쳐갈 수 있는 다른 노드의 최단 거리 값을 갱신한다.  
 
-![png](/assets/images/algorithm/concept_dijkstra_3.png){: .align-center}{: width="70%" height="70%"}  
+![png](/assets/images/algorithm/concept_dijkstra_3.png){: width="70%" height="70%"}  
 
 - **Step 3**: 마찬가지로 3번 노드를 선택하여 반복  
 
-![png](/assets/images/algorithm/concept_dijkstra_4.png){: .align-center}{: width="70%" height="70%"}  
+![png](/assets/images/algorithm/concept_dijkstra_4.png){: width="70%" height="70%"}  
 
 여기서 중요한점은 **4번 노드의 최단거리는 2번 노드에 의해 13이었는데 이번 단계에서 3번 노드에 의해 12로 갱신된다**는 것이다.  
 즉, 다익스트라가 `One-To-All` 방식이므로 모든 Scan이 끝날떄까지 목적지 최단거리를 알기 어렵다.  
 
 - 이 과정을 계속 반복하면 결국 아래와 같은 결과와 최단거리 테이블을 얻을 수 있다.  
 
-![png](/assets/images/algorithm/concept_dijkstra_9.png){: .align-center}{: width="70%" height="70%"}  
+![png](/assets/images/algorithm/concept_dijkstra_9.png){: width="70%" height="70%"}  
 
   
 결국 1번 노드에서 다른 모든 노드로 가는 경로와 최단거리를 알 수 있고, 목적지 8번 노드까지의 거리는 14임을 알 수 있다.  

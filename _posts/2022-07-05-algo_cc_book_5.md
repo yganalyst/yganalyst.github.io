@@ -1,34 +1,19 @@
 ---
-title:  "[Algorithm] 이진 탐색 (Binary Search)"
-excerpt: "매일매일 알고리즘 공부하기"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/post_logo/algorithm_logo.jpg
-
-categories:
-  - concept
-
-tags:
-  - python
-  - 파이썬
-  - 코딩테스트
-  - 코테
-  - 알고리즘
-  - algorithm
-  - 이진 탐색
-  - 이분 탐색
-  - binary search
-
-use_math: true
-
+title: "[Algorithm] 이진 탐색 (Binary Search)"
+description: "매일매일 알고리즘 공부하기"
+permalink: /concept/algo_cc_book_5/
+categories: [Algorithm, Concept]
+tags: ["python", "파이썬", "코딩테스트", "코테", "알고리즘", "algorithm", "이진 탐색", "이분 탐색", "binary search"]
 last_modified_at: 2022-07-05T16:00-16:30
+math: true
+image:
+  path: /assets/images/post_logo/algorithm_logo.jpg
 ---
 
 
 # 개요  
 
-![jpg](/assets/images/post_logo/algorithm_logo.jpg){: .align-center}{: width="70%" height="70%"}  
+![jpg](/assets/images/post_logo/algorithm_logo.jpg){: width="70%" height="70%"}  
 
 이번 포스팅은 배열에서 특정 원소를 찾기 위한 탐색 알고리즘 중 이진 탐색(Binary search)에 대한 내용이다.
 
@@ -57,7 +42,7 @@ last_modified_at: 2022-07-05T16:00-16:30
    - **목표 == 중간**이면, **탐색을 종료**한다.
 
   
-![png](/assets/images/algorithm/concept_binary_1.png){: .align-center}{: width="70%" height="70%"}  
+![png](/assets/images/algorithm/concept_binary_1.png){: width="70%" height="70%"}  
 
 ## 구현 코드
 

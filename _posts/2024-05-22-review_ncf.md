@@ -1,43 +1,18 @@
 ---
 title: "[논문리뷰] NCF: Neural Collaborative Filtering"
-excerpt: "Implicit Feedback 문제에서 Collaborative Filtering (CF)에 Neural Network를 적용한 연구"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/paper/rag/rag_logo.jpg
-
-categories:
-  - paper
-
-tags:
-  - llm
-  - genai
-  - generative
-  - ai
-  - nlp
-  - rag
-  - retrieval
-  - augmented
-  - generation
-  - paper
-  - review
-  - fine tuning
-  - chunking
-  - vectordb
-  - embedding
-  - query classification
-  - llama
-  - repacking
-  - summarization
-
-use_math: true
-
+description: "Implicit Feedback 문제에서 Collaborative Filtering (CF)에 Neural Network를 적용한 연구"
+permalink: /paper/review_ncf/
+categories: [Data Science, Paper Review]
+tags: ["llm", "genai", "generative", "ai", "nlp", "rag", "retrieval", "augmented", "generation", "paper", "review", "fine tuning", "chunking", "vectordb", "embedding", "query classification", "llama", "repacking", "summarization"]
 last_modified_at: 2024-07-22T20:00-20:30
+math: true
+image:
+  path: /assets/images/paper/rag/rag_logo.jpg
 ---
 
 
 
-![png](/assets/images/paper/ncf/rec_logo.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/paper/ncf/rec_logo.png){: width="80%" height="80%"}  
 [출처](https://medium.com/@lalynjay/recommendation-systems-you-might-also-like-ca5e0ca03465)  
 
 # Abstract

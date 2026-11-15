@@ -1,39 +1,18 @@
 ---
-title:  "[ML] kNN Classifier, Numpy로 구현하기"
-excerpt: "전통적인 분류 알고리즘인 kNN을 numpy로 구현해보자."
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/cs231n/1/pc_4.PNG
-
-categories:
-  - ML
-
-tags:
-  - numpy
-  - python
-  - kNN
-  - k nearest neighbor
-  - classfication
-  - classifier
-  - np.tile
-  - np.repeat
-  - np.argsort
-  - distance
-  - l2
-  - sklearn
-  - scikit-learn
-  - random sampling
-
-
-use_math: true
-
+title: "[ML] kNN Classifier, Numpy로 구현하기"
+description: "전통적인 분류 알고리즘인 kNN을 numpy로 구현해보자."
+permalink: /ml/ML_kNN_numpy/
+categories: [Data Science, Machine Learning]
+tags: ["numpy", "python", "knn", "k nearest neighbor", "classfication", "classifier", "np.tile", "np.repeat", "np.argsort", "distance", "l2", "sklearn", "scikit-learn", "random sampling"]
 last_modified_at: 2022-10-30T20:00-20:30
+math: true
+image:
+  path: /assets/images/cs231n/1/pc_4.PNG
 ---
 
 # 개요  
 
-![png](/assets/images/cs231n/1/pc_4.PNG){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/cs231n/1/pc_4.PNG){: width="80%" height="80%"}  
 
 이번 포스팅에서는 [kNN classifier](https://yganalyst.github.io/dl/cs231n_1/#knn-k-nearest-neighbor)을 python으로 직접 구현한다. scikit-learn에서도 제공하긴 하지만, numpy로 작성하였다.  
 이전에 k=1이라는 가정 하에 Nearest Neighbor에 대해서는 구현했었고, 이번에는 k값에 대해 일반화된 코드를 구현한다. 자세한 내용들은 [여기](https://yganalyst.github.io/dl/cs231n_1/#nearest-neighbor-classifier)를 참고하자.  
@@ -187,7 +166,7 @@ plt.show()
 ```
 
 
-![png](/assets/images/ML/kNN/knn_plot.png){: .align-center}{: width="55%" height="55%"}  
+![png](/assets/images/ML/kNN/knn_plot.png){: width="55%" height="55%"}  
 
 
 <br/>

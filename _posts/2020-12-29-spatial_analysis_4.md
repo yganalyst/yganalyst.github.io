@@ -1,42 +1,17 @@
 ---
-title:  "[GIS] 공간 데이터 결합(Spatial Join)"
-excerpt: "geopandas를 이용해서 공간데이터를 결합해보자"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/gis_logo.jpg
-
-categories:
-  - spatial_analysis
-
-tags:
-  - python
-  - gis
-  - qgis
-  - 데이터 분석
-  - 파이썬 독학
-  - geopandas
-  - 공간분석
-  - 공간데이터
-  - spatial analysis
-  - geodataframe
-  - sjoin
-  - overlay
-  - merge
-  - within
-  - intersects
-  - contains
-  - buffer
-  - how
-  - geometry
-
-
+title: "[GIS] 공간 데이터 결합(Spatial Join)"
+description: "geopandas를 이용해서 공간데이터를 결합해보자"
+permalink: /spatial_analysis/spatial_analysis_4/
+categories: [Data Science, Spatial Analysis]
+tags: ["python", "gis", "qgis", "데이터 분석", "파이썬 독학", "geopandas", "공간분석", "공간데이터", "spatial analysis", "geodataframe", "sjoin", "overlay", "merge", "within", "intersects", "contains", "buffer", "how", "geometry"]
 last_modified_at: 2020-12-29T19:00-19:30
+image:
+  path: /assets/images/gis_logo.jpg
 ---
 
 # 개요  
 
-![png](/assets/images/gis_logo.jpg){: .align-center}{: width="60%" height="60%"} 
+![png](/assets/images/gis_logo.jpg){: width="60%" height="60%"} 
 
 이번 포스팅에서는 공간 데이터간의 결합에 대해서 배워보자.  
 공간결합(spatial join)이란, 두 공간 데이터프레임을 결합(merge)하는데, key값이 아닌 위치정보에 따라 결합(overlay)해 주는 방식이다.  

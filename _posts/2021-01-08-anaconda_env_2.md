@@ -1,54 +1,17 @@
 ---
-title:  "[Anaconda] 아나콘다 가상환경 IDE와 연동하기"
-excerpt: "jupyter notebook, spyder에 가상환경을 연결시켜보자!"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/anaconda.png
-
-categories:
-  - basic
-
-tags:
-  - python
-  - 데이터
-  - 기초
-  - 데이터 분석
-  - 머신러닝
-  - 아나콘다
-  - anaconda
-  - conda
-  - pip
-  - env
-  - envs
-  - activate
-  - deactivate
-  - conda install
-  - 가상환경
-  - 작업환경
-  - virtual
-  - environment
-  - ide
-  - 통합개발환경
-  - 개발환경
-  - jupyter notebook
-  - pycharm
-  - spyder
-  - ipykernel
-  - kernel
-  - 커널
-  - kernelspec
-  - zmq
-  - pyzmq
-  - navigator
-
-
+title: "[Anaconda] 아나콘다 가상환경 IDE와 연동하기"
+description: "jupyter notebook, spyder에 가상환경을 연결시켜보자!"
+permalink: /basic/anaconda_env_2/
+categories: [Python, Basic]
+tags: ["python", "데이터", "기초", "데이터 분석", "머신러닝", "아나콘다", "anaconda", "conda", "pip", "env", "envs", "activate", "deactivate", "conda install", "가상환경", "작업환경", "virtual", "environment", "ide", "통합개발환경", "개발환경", "jupyter notebook", "pycharm", "spyder", "ipykernel", "kernel", "커널", "kernelspec", "zmq", "pyzmq", "navigator"]
 last_modified_at: 2021-01-08T20:00-20:30
+image:
+  path: /assets/images/anaconda.png
 ---
 
 # 개요  
 
-![png](/assets/images/anaconda.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/anaconda.png){: width="80%" height="80%"}  
 
 이번에는 [저번 포스팅](https://yganalyst.github.io/ml/anaconda_env_1/)에서 생성했던 가상환경을 IDE에 연동하여 작업환경을 만드는 것에 대해 알아보고자 한다.  
 
@@ -59,7 +22,7 @@ last_modified_at: 2021-01-08T20:00-20:30
 
 2019년 기준 IDE의 순위는 아래와 같다(Python이 호환되지 않는 IDE도 포함).  
 
-![png](/assets/images/anaconda/ide_rank.png){: .align-center}{: width="90%" height="90%"}  
+![png](/assets/images/anaconda/ide_rank.png){: width="90%" height="90%"}  
 *출처 : https://businessoverbroadway.com/2020/07/14/most-popular-integrated-development-environments-ides-used-by-data-scientists/  
 
 나는 주로 Jupyter notebook과 Spyder를 사용한다. 개인적으로 Pycharm에 유용한 기능들이 많지만 무겁게 느껴져서 Spyder를 쓰는 편이다. Spyder가 R과 유사한 UI를 가져서 그런지 익숙하고 기능도 요즘엔 많이 개선되어 딱히 불편한 점 없이 사용하고 있다.  

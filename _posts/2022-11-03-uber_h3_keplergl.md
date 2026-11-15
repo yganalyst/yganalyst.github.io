@@ -1,37 +1,18 @@
 ---
-title:  "[GIS] Uber h3와 kepler.gl을 활용한 공간분석"
-excerpt: "Uber에서 개발한 h3(hexagonal grid system) 라이브러리와 공간 정보 시각화 도구인 kepler.gl에 대해 알아보자."
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/gis/uber_tool/main_hex.png
-
-categories:
-  - spatial_analysis
-
-tags:
-  - python
-  - gis
-  - 데이터 분석
-  - geopandas
-  - 공간분석
-  - 공간데이터
-  - spatial analysis
-  - Uber
-  - 우버
-  - h3
-  - hexagon
-  - hexagonal grid
-  - keplergl
-
-
+title: "[GIS] Uber h3와 kepler.gl을 활용한 공간분석"
+description: "Uber에서 개발한 h3(hexagonal grid system) 라이브러리와 공간 정보 시각화 도구인 kepler.gl에 대해 알아보자."
+permalink: /spatial_analysis/uber_h3_keplergl/
+categories: [Data Science, Spatial Analysis]
+tags: ["python", "gis", "데이터 분석", "geopandas", "공간분석", "공간데이터", "spatial analysis", "uber", "우버", "h3", "hexagon", "hexagonal grid", "keplergl"]
 last_modified_at: 2022-11-03T20:00-21:00
+image:
+  path: /assets/images/gis/uber_tool/main_hex.png
 ---
 
 
 # 개요  
 
-![png](/assets/images/gis/uber_tool/main_hex.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/gis/uber_tool/main_hex.png){: width="80%" height="80%"}  
 
 이번 포스팅은 미국의 승차 공유 서비스(Ride-Hailing Service) 회사인 Uber에서 제공하는 공간분석 도구에 대한 내용이다.  
 **`h3`라는 python 라이브러리**와 **공간 정보 시각화 도구인 `kepler.gl`**을 다룰 것이다.  
@@ -162,7 +143,7 @@ df.head()
 **h3**는 Uber에서 개발한 **Hexagonal Hierarchical Geospatial Indexing System**으로, 지구를 **계층을 갖는 육각형 그리드**로 매핑해 놓은 것이다.  
 이러한 공간단위를 기반으로 누구나 공간분석에 활용할 수 있도록 오픈소스 형태로 제공하고 있다.  
 
-![png](/assets/images/gis/uber_tool/h3_earth.png){: .align-center}  
+![png](/assets/images/gis/uber_tool/h3_earth.png)  
 
 *Source: [Uber Tech blog](https://www.uber.com/ko-KR/blog/h3/)  
 
@@ -171,7 +152,7 @@ df.head()
 아래 그림처럼 육각형 그리드는 정확히 각 6개의 **변마다 인접 grid가 존재**하며, 각 **grid간의 거리는 동일**하다.  
 반면, 삼각형(Triangle)이나 사각형(Square) 같은 경우 인접 grid 간의 거리가 다르게 나타난다.  
 
-![png](/assets/images/gis/uber_tool/h3_comp.png){: .align-center}  
+![png](/assets/images/gis/uber_tool/h3_comp.png)  
 
 *Source: [h3geo.org](https://h3geo.org/docs/highlights/aggregation/)  
 
@@ -598,7 +579,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-![png](/assets/images/gis/uber_tool/h3_plot8.png){: .align-center}  
+![png](/assets/images/gis/uber_tool/h3_plot8.png)  
 
 - 전반적으로 `AM_peak`는 비교적 넓게, `PM_peak`는 수요가 한쪽에 집중되는 것으로 보인다. 해당 지역은 엠파이어 스테이트 빌딩이 위치하고 있는 상업지구이다.  
 - 미국의 토지이용은 잘 모르지만, 해당 지역 부근에서 퇴근하는 사람이 많을 것이다.  
@@ -627,7 +608,7 @@ plt.show()
 
 VS Code에서 Extension으로 **Geo Data Viewer**를 검색하고 설치한다.  
 
-![png](/assets/images/gis/uber_tool/kepler_1.png){: .align-center}  
+![png](/assets/images/gis/uber_tool/kepler_1.png)  
 
 실행은 VS code의 Show all commands(`Ctrl`+`Shift`+`p`)에서 `Geo: View Map`을 선택하면 바로 실행된다.  
 **현재 이걸 사용중이다.**  
@@ -678,7 +659,7 @@ map_1
 User Guide: https://docs.kepler.gl/docs/keplergl-jupyter
 ``` 
 
-![png](/assets/images/gis/uber_tool/kepler_2.png){: .align-center}  
+![png](/assets/images/gis/uber_tool/kepler_2.png)  
 
 
 ## 다양한 시각화 방법  
@@ -699,21 +680,21 @@ User Guide: https://docs.kepler.gl/docs/keplergl-jupyter
 - **Height**
   - 집계된 값에 대해 가중치를 둬서 3D map으로 표현  
 
-![png](/assets/images/gis/uber_tool/kepler_3.png){: .align-center}  
+![png](/assets/images/gis/uber_tool/kepler_3.png)  
 
 - **Hexagon 기반 3D** 시각화    
 
 옵션들을 아래 그림과 같이 조정해서 앞서 h3 라이브러리로 진행했던 내용을 시각화해보았다(물론 시간대 등에 따라 필터링은 안되어 있다).  
 3D로 보기 위해서는 우측 탭의 2번째 아이콘을 잡아줘야한다.  
 
-![png](/assets/images/gis/uber_tool/kepler_4.png){: .align-center}  
+![png](/assets/images/gis/uber_tool/kepler_4.png)  
 
 
 - **시간적(Temporal) 특성** 시각화  
 
 좌측 상단의 두번째 탭(`Filters`)을 클릭하면 속성별로 filter를 할 수 있는 기능이 있다.  
 
-![png](/assets/images/gis/uber_tool/kepler_5.png){: .align-center}  
+![png](/assets/images/gis/uber_tool/kepler_5.png)  
 
 승차시간과 같은 시간 변수를 지정해주면, 자유롭게 시간대를 나눠서 볼 수 있고 애니메이션 형태로 관찰할 수도 있다. 개인적으로 이 기능이 좋다.  
 
@@ -722,7 +703,7 @@ User Guide: https://docs.kepler.gl/docs/keplergl-jupyter
 
 - **Heatmap**을 이용한 시각화  
 
-![png](/assets/images/gis/uber_tool/kepler_6.png){: .align-center}  
+![png](/assets/images/gis/uber_tool/kepler_6.png)  
 
 
 - **Arc를 이용한 OD(Origin-Destination)** 시각화  
@@ -731,7 +712,7 @@ User Guide: https://docs.kepler.gl/docs/keplergl-jupyter
 아래 그림과 같이 **Source(출발지)**와 **Target(도착지)** 좌표를 입력해주면, 데이터 하나하나 마다 Arc를 이용해 시각화해준다. Source는 연두색, Target은 빨간색으로 나타난다.  
 데이터가 많아서 가시적이진 않지만, 잘쓰면 유용할거 같다.  
 
-![png](/assets/images/gis/uber_tool/kepler_7.png){: .align-center}  
+![png](/assets/images/gis/uber_tool/kepler_7.png)  
 
 이 밖에도 다양한 시각화 방법이 존재하는데, 하나씩 시각화해보면 크게 어렵지 않게 활용이 가능하다.  
 

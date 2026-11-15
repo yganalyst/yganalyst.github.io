@@ -1,59 +1,17 @@
 ---
-title:  "[GIS] 공간정보 데이터를 자유롭게 변형, 가공, 처리하기"
-excerpt: "geopandas를 이용해서 공간데이터를 변형하거나 연산처리하는 방법을 알아보자"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/gis_logo.jpg
-
-categories:
-  - spatial_analysis
-
-tags:
-  - python
-  - gis
-  - qgis
-  - 데이터 분석
-  - 파이썬 독학
-  - geopandas
-  - 공간분석
-  - 공간데이터
-  - spatial analysis
-  - shapefile
-  - geodataframe
-  - shapely
-  - area
-  - length
-  - boundary
-  - exterior
-  - centroid
-  - xy
-  - coords
-  - is_valid
-  - geom_type
-  - within
-  - contain
-  - intersects
-  - crosses
-  - distance
-  - buufer
-  - envelope
-  - convexhull
-  - unary_union
-  - dissolve
-  - overlay
-  - intersection
-  - difference
-  - union
-  - symmetric_difference
-
-
+title: "[GIS] 공간정보 데이터를 자유롭게 변형, 가공, 처리하기"
+description: "geopandas를 이용해서 공간데이터를 변형하거나 연산처리하는 방법을 알아보자"
+permalink: /spatial_analysis/spatial_analysis_2/
+categories: [Data Science, Spatial Analysis]
+tags: ["python", "gis", "qgis", "데이터 분석", "파이썬 독학", "geopandas", "공간분석", "공간데이터", "spatial analysis", "shapefile", "geodataframe", "shapely", "area", "length", "boundary", "exterior", "centroid", "xy", "coords", "is_valid", "geom_type", "within", "contain", "intersects", "crosses", "distance", "buufer", "envelope", "convexhull", "unary_union", "dissolve", "overlay", "intersection", "difference", "union", "symmetric_difference"]
 last_modified_at: 2020-01-10T19:00-19:30
+image:
+  path: /assets/images/gis_logo.jpg
 ---
 
 # 개요  
 
-![png](/assets/images/gis_logo.jpg){: .align-center}{: width="60%" height="60%"} 
+![png](/assets/images/gis_logo.jpg){: width="60%" height="60%"} 
 
 
 [이전 포스팅](https://yganalyst.github.io/spatial_analysis/spatial_analysis_1/)에서 이어서, 서울특별시 시군구 영역(polyhon)과 소방안전센터(Point)위치 정보를 활영하여 공간 분석에 활용되는 다양한 처리 및 분석기법들을 알아보자.  
@@ -494,7 +452,7 @@ ax.set_axis_off()
 다음은 `overlay`이다.  
 공간 연산 규칙의 기본 4가지는 아래와 같다. 이는 개별 객체(Polygon, LineString)에 대한 연산이 아니라 데이터 프레임 전체를 다룰 수 있는 Geopandas 기능이다. 개별 객체에 대한 기능은 `shapely`의 함수이며 이를 연계하여 Geopandas에서 활용하게 되는 것이다.  
 
-![PNG](/assets/images/gis/geopandas_2/spatial_manipulation.PNG){: .align-center}
+![PNG](/assets/images/gis/geopandas_2/spatial_manipulation.PNG)
 
 [Geopandas 공식 org](https://geopandas.org/set_operations.html)의 예제로 알아보자.  
 

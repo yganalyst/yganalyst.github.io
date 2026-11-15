@@ -1,39 +1,16 @@
 ---
 title: "[Hive] Hive CREATE TABLE 다양한 옵션 정리"
-excerpt: "HIVE Table을 생성하기 위한 CREATE TABLE 구문에서 사용할 수 있는 다양한 옵션들에 대해 알아보자."
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/hadoop/hive_impala_logo.png
-
-categories:
-  - hadoop
-
-tags:
-  - hadoop
-  - hdfs
-  - hive
-  - impala
-  - create
-  - table
-  - managed
-  - external
-  - comment
-  - partitioned by
-  - clustered by
-  - row format
-  - delimited
-  - FIELDS TERMINATED
-  - LINES TERMINATED
-  - LOCATION
-  - TBLPROPERTIES
-
-use_math: true
-
+description: "HIVE Table을 생성하기 위한 CREATE TABLE 구문에서 사용할 수 있는 다양한 옵션들에 대해 알아보자."
+permalink: /hadoop/hive_create_table/
+categories: [Engineering, Hadoop]
+tags: ["hadoop", "hdfs", "hive", "impala", "create", "table", "managed", "external", "comment", "partitioned by", "clustered by", "row format", "delimited", "fields terminated", "lines terminated", "location", "tblproperties"]
 last_modified_at: 2024-12-01T20:00-20:30
+math: true
+image:
+  path: /assets/images/hadoop/hive_impala_logo.png
 ---
 
-![png](/assets/images/hadoop/hive_impala_logo.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/hadoop/hive_impala_logo.png){: width="80%" height="80%"}  
 
 <br/>  
 

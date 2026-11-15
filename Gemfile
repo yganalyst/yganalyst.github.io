@@ -1,7 +1,14 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
-# GitHub Pages(legacy 빌드)와 동일한 버전으로 로컬 빌드
-gem "github-pages", "~> 232", group: :jekyll_plugins
+gem "jekyll-theme-chirpy", "~> 7.6"
 
-gem "webrick" # Ruby 3+ 에서 jekyll serve 에 필요
+gem "html-proofer", "~> 5.0", group: :test
 
+platforms :windows, :jruby do
+  gem "tzinfo", ">= 1", "< 3"
+  gem "tzinfo-data"
+end
+
+gem "wdm", "~> 0.2.0", :platforms => [:windows]

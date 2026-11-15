@@ -1,43 +1,18 @@
 ---
 title: "[논문리뷰] Searching for Best Practices in Retrieval-Augmented Generation"
-excerpt: "기존 LLM의 한계 개선을 위한 RAG 기술의 상세한 Workflow 정리 및 다양한 실험을 통해 성능 평가를 수행한 연구"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/paper/rag/rag_logo.jpg
-
-categories:
-  - paper
-
-tags:
-  - llm
-  - genai
-  - generative
-  - ai
-  - nlp
-  - rag
-  - retrieval
-  - augmented
-  - generation
-  - paper
-  - review
-  - fine tuning
-  - chunking
-  - vectordb
-  - embedding
-  - query classification
-  - llama
-  - repacking
-  - summarization
-
-use_math: true
-
+description: "기존 LLM의 한계 개선을 위한 RAG 기술의 상세한 Workflow 정리 및 다양한 실험을 통해 성능 평가를 수행한 연구"
+permalink: /paper/review_rag/
+categories: [Data Science, Paper Review]
+tags: ["llm", "genai", "generative", "ai", "nlp", "rag", "retrieval", "augmented", "generation", "paper", "review", "fine tuning", "chunking", "vectordb", "embedding", "query classification", "llama", "repacking", "summarization"]
 last_modified_at: 2024-07-22T20:00-20:30
+math: true
+image:
+  path: /assets/images/paper/rag/rag_logo.jpg
 ---
 
 # 개요
 
-![jpg](/assets/images/paper/rag/rag_logo.jpg){: .align-center}{: width="100%" height="100%"}  
+![jpg](/assets/images/paper/rag/rag_logo.jpg){: width="100%" height="100%"}  
 출처: https://www.glean.com/  
 
 이번 포스팅은 AI application 기술로 급격히 발전하고 있는 **RAG(Retrieval-Augmented Generation)** 기술의 최신 논문([Wang et al.](https://arxiv.org/pdf/2407.01219))에 대한 리뷰이다. 연구에서는 RAG Workflow의 모듈별 상세한 정리와 각 모듈에 대한 다양한 실험을 통해 성능 비교가 수행된다.  
@@ -67,7 +42,7 @@ RAG 기술은 기존 LLM 활용한 AI Application을 만드려고 할때 생기�
 
 ## RAG workflow
 
-![png](/assets/images/paper/rag/1_workflow.png){: .align-center}{: width="90%" height="90%"}
+![png](/assets/images/paper/rag/1_workflow.png){: width="90%" height="90%"}
 
 1. **query classification**
    - Retrieval이 필요한 질문인지 여부를 분류
@@ -148,7 +123,7 @@ RAG 기술은 기존 LLM 활용한 AI Application을 만드려고 할때 생기�
 
 ### 3.2.1 Chunk size
 
-![png](/assets/images/paper/rag/2_table3.png){: .align-center}{: width="45%" height="45%"}
+![png](/assets/images/paper/rag/2_table3.png){: width="45%" height="45%"}
 
 - **Trade-off**
   - size가 클수록(크게 나눌수록) → 문맥 이해가 쉽지만 검색시간 등 증가
@@ -166,7 +141,7 @@ RAG 기술은 기존 LLM 활용한 AI Application을 만드려고 할때 생기�
 
 ### 3.2.2~3 Chinking Techniques & Embedding Model Selection
 
-![png](/assets/images/paper/rag/3_table4.png){: .align-center}{: width="45%" height="45%"}
+![png](/assets/images/paper/rag/3_table4.png){: width="45%" height="45%"}
 
 - **small-to-big, sliding window**
 
@@ -181,7 +156,7 @@ RAG 기술은 기존 LLM 활용한 AI Application을 만드려고 할때 생기�
   - Chunk Overlap: 20 tokens
   - Datasets: Lyft_2021
 
-![png](/assets/images/paper/rag/4_table2.png){: .align-center}{: width="85%" height="85%"}
+![png](/assets/images/paper/rag/4_table2.png){: width="85%" height="85%"}
 
 - **Embedding Model**
   - 질문(Query)와 Chunk block들 간의 의미를 매칭(유사도, 관련성 등)하는데 중요한 역할
@@ -201,7 +176,7 @@ RAG 기술은 기존 LLM 활용한 AI Application을 만드려고 할때 생기�
 
 ## 3.3 Vector Databases
 
-![png](/assets/images/paper/rag/5_table5.png){: .align-center}{: width="45%" height="45%"}  
+![png](/assets/images/paper/rag/5_table5.png){: width="45%" height="45%"}  
 
 - 위와 같이 임베딩된 vector들을 효율적으로 저장하고 검색할 수 있도록 고완된 DB
 - 4가지 Vector DB 유형
@@ -212,7 +187,7 @@ RAG 기술은 기존 LLM 활용한 AI Application을 만드려고 할때 생기�
 
 ## 3.4 Retrieval Methods
 
-![png](/assets/images/paper/rag/6_table6.png){: .align-center}{: width="100%" height="100%"}
+![png](/assets/images/paper/rag/6_table6.png){: width="100%" height="100%"}
 
 - 검색 성능 향상을 위해 주어진 Query를 그대로 사용하지 않고 변환하는 방법
   - **Query Rewriting**: LLM에게 Query를 입력해 개선된 Query로 반환
@@ -224,7 +199,7 @@ RAG 기술은 기존 LLM 활용한 AI Application을 만드려고 할때 생기�
 
 ### 3.4.2 HyDE - 가상 document 별 성능비교
 
-![png](/assets/images/paper/rag/7_table7.png){: .align-center}{: width="90%" height="90%"}
+![png](/assets/images/paper/rag/7_table7.png){: width="90%" height="90%"}
 
 - 가상 document를 늘리면 성능이 기본적으로 증가
 - But 지연 시간(Latency)도 증가하기 때문에 효율성이 감소함
@@ -281,9 +256,9 @@ $$ S_{h}= \alpha \cdot S_{s} + S_{d}$$
 
 ## 3.8 Generator Fine-tuning
 
-![png](/assets/images/paper/rag/9_figure3.png){: .align-center}{: width="50%" height="50%"}
+![png](/assets/images/paper/rag/9_figure3.png){: width="50%" height="50%"}
 
-![png](/assets/images/paper/rag/8_notation.png){: .align-center}{: width="90%" height="90%"}
+![png](/assets/images/paper/rag/8_notation.png){: width="90%" height="90%"}
 
 
 - 각각의 data로 모델들을 각각 fine-tuning하고, Validation set도 각각을 놓고 비교함
@@ -308,7 +283,7 @@ $$ S_{h}= \alpha \cdot S_{s} + S_{d}$$
   - RAG 평가 → Average(Faithfulness, Context Relevancy, Answer Relevancy, Answer Correctness)
 - 실험 결과  
 
-![png](/assets/images/paper/rag/10_table11.png){: .align-center}{: width="90%" height="90%"}  
+![png](/assets/images/paper/rag/10_table11.png){: width="90%" height="90%"}  
 
 
 - Query Classification Module

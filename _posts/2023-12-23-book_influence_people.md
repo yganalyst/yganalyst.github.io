@@ -1,26 +1,17 @@
 ---
 title: "[서평] 인간관계론, How to Win Friends & Influence People - 데일 카네기"
-excerpt: "모든 성공은 사람과의 관계에서 시작된다."
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/book/influence_people.jpg
-
-categories:
-  - book
-
-tags:
-  - 데일카네기
-  - 인간관계론
-  - How to Win Friends & Influence People
-
-use_math: true
-
+description: "모든 성공은 사람과의 관계에서 시작된다."
+permalink: /book/book_influence_people/
+categories: [Books, Review]
+tags: ["데일카네기", "인간관계론", "how to win friends & influence people"]
 last_modified_at: 2023-12-23T20:00-20:30
+math: true
+image:
+  path: /assets/images/book/influence_people.jpg
 ---
 
 
-![jpg](/assets/images/book/influence_people.jpg){: .align-center}{: width="40%" height="40%"}  
+![jpg](/assets/images/book/influence_people.jpg){: width="40%" height="40%"}  
 
 <br/>  
 

@@ -1,51 +1,18 @@
 ---
-title:  "[Algorithm] 깊이 우선 탐색(DFS)과 너비 우선 탐색(BFS)"
-excerpt: "매일매일 알고리즘 공부하기"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/post_logo/algorithm_logo.jpg
-
-categories:
-  - concept
-
-tags:
-  - python
-  - 파이썬
-  - 코딩테스트
-  - 코테
-  - 알고리즘
-  - algorithm
-  - 탐색
-  - search
-  - 그래프
-  - graph
-  - node
-  - edge
-  - adjacent
-  - matrix
-  - list
-  - dfs
-  - 깊이 우선 탐색
-  - depth first search
-  - 너비 우선 탐색
-  - Breadth first Search
-  - 스택
-  - stack
-  - 큐
-  - queue
-  - deque
-  - collections
-  - 
-
-
+title: "[Algorithm] 깊이 우선 탐색(DFS)과 너비 우선 탐색(BFS)"
+description: "매일매일 알고리즘 공부하기"
+permalink: /concept/algo_cc_book_3/
+categories: [Algorithm, Concept]
+tags: ["python", "파이썬", "코딩테스트", "코테", "알고리즘", "algorithm", "탐색", "search", "그래프", "graph", "node", "edge", "adjacent", "matrix", "list", "dfs", "깊이 우선 탐색", "depth first search", "너비 우선 탐색", "breadth first search", "스택", "stack", "큐", "queue", "deque", "collections"]
 last_modified_at: 2022-05-10T16:00-16:30
+image:
+  path: /assets/images/post_logo/algorithm_logo.jpg
 ---
 
 
 # 개요  
 
-![jpg](/assets/images/post_logo/algorithm_logo.jpg){: .align-center}{: width="70%" height="70%"}  
+![jpg](/assets/images/post_logo/algorithm_logo.jpg){: width="70%" height="70%"}  
 
 이번 포스팅은 탐색(원하는 데이터를 찾는 과정) 알고리즘인 깊이 우선 탐색(DFS, Depth-First Search)과 너비 우선 탐색(BFS, Breadth-First Search)에 대한 글이다.  
 
@@ -55,7 +22,7 @@ DFS와 BFS를 배우기 전에 먼저 그래프의 개념부터 가볍게 짚고
 
 아래 그림과 같이 그래프는 노드(node)와 링크(link or edge)로 구성되어 있다.  
 
-![png](/assets/images/algorithm/concept_DFSBFS_1.png){: .align-center}{: width="40%" height="40%"}  
+![png](/assets/images/algorithm/concept_DFSBFS_1.png){: width="40%" height="40%"}  
 
 여기서 두 노드가 연결되어 있으면 링크로 연결되며 이를 "인접하다(Adjacent)"라고 표현한다. 이와 같이 그래프는 도시의 도로망이나 인간관계(like 일촌) 등 다양한 관계를 표현하는데 활용된다.  
   
@@ -98,7 +65,7 @@ print(graph)
   
 이제 아래 그래프를 예시로 DFS와 BFS 방식을 알아보자.  
 
-![png](/assets/images/algorithm/concept_DFSBFS_2.png){: .align-center}{: width="50%" height="50%"}  
+![png](/assets/images/algorithm/concept_DFSBFS_2.png){: width="50%" height="50%"}  
 
 
 <br/>
@@ -117,7 +84,7 @@ DFS란 정의와 같이 그래프에서 깊은 부분을 우선적으로 탐색�
    - 방문하지 않은 인접 노드가 없으면 스택에서 최상단 노드를 꺼낸다.  
 3. 2번의 과정을 더 이상 수행할 수 없을 때까지 반복한다.  
   
-![png](/assets/images/algorithm/concept_DFSBFS_3.png){: .align-center}{: width="60%" height="60%"}  
+![png](/assets/images/algorithm/concept_DFSBFS_3.png){: width="60%" height="60%"}  
   
 - Step 1 : 탐색시작 노드인 1번 노드 방문처리 `[1]`  
 - Step 2 : 1번 노드의 인접 노드(2) 방문처리 `[1,2]`  
@@ -179,7 +146,7 @@ BFS란 쉽게 말해 가까운 노드부터 탐색하는 알고리즘이다. 즉
 2. 큐에서 노드를 꺼내 해당 노드의 인접 노드 중에서 방문하지 않은 노드를 모두 큐에 삽입하고 방문처리를 한다.  
 3. 2번의 과정을 더 이상 수행할 수 없을 때까지 반복한다.  
   
-![png](/assets/images/algorithm/concept_DFSBFS_4.png){: .align-center}{: width="60%" height="60%"}  
+![png](/assets/images/algorithm/concept_DFSBFS_4.png){: width="60%" height="60%"}  
   
 - Step 1 : 탐색시작 노드인 1번 노드 방문처리 `[1]`  
 - Step 2 : 1번 노드를 꺼내고 모든 인접 노드(2,4,6) 방문처리 `[2,4,6]`  

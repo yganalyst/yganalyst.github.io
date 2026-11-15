@@ -1,47 +1,17 @@
 ---
-title:  "[Anaconda] 아나콘다 가상환경의 개념 및 활용방법"
-excerpt: "가상환경이 도대체 뭘까? 그리고 어떻게 쓰는 걸까?"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/anaconda.png
-
-categories:
-  - basic
-
-tags:
-  - python
-  - 데이터
-  - 기초
-  - 데이터 분석
-  - 머신러닝
-  - 아나콘다
-  - anaconda
-  - conda
-  - pip
-  - env
-  - envs
-  - list
-  - create
-  - info
-  - activate
-  - deactivate
-  - conda install
-  - requirements
-  - 가상환경
-  - 버전관리
-  - git
-  - 작업환경
-  - virtual
-  - environment
-
-
+title: "[Anaconda] 아나콘다 가상환경의 개념 및 활용방법"
+description: "가상환경이 도대체 뭘까? 그리고 어떻게 쓰는 걸까?"
+permalink: /basic/anaconda_env_1/
+categories: [Python, Basic]
+tags: ["python", "데이터", "기초", "데이터 분석", "머신러닝", "아나콘다", "anaconda", "conda", "pip", "env", "envs", "list", "create", "info", "activate", "deactivate", "conda install", "requirements", "가상환경", "버전관리", "git", "작업환경", "virtual", "environment"]
 last_modified_at: 2021-01-07T20:00-20:30
+image:
+  path: /assets/images/anaconda.png
 ---
 
 # 개요  
 
-![png](/assets/images/anaconda.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/anaconda.png){: width="80%" height="80%"}  
 
 이번 포스팅에서는 가상환경(virtual environment)에 대해 알아보려고 한다.  
 파이썬을 처음 설치하고 배우기 시작할때 접하게 되는 개념이지만, 처음이라 그런지 무슨 말인지도 모르겠고 그냥 넘어갔던 기억이 난다. 컴퓨터와 파이썬이라는 언어와 꽤 친해지고 여러 오류들을 만난 뒤에서야 가상환경의 필요성을 느꼈고, 이번 기회에 제대로 개념을 알고 활용방법을 익히는 시간을 가지면 좋을 것 같다.  
@@ -54,7 +24,7 @@ last_modified_at: 2021-01-07T20:00-20:30
 
 또한 프로젝트마다 활용하는 다양한 라이브러리(특히 tensorflow 같은 경우)끼리 호환문제도 적지 않다. 다른 환경(컴퓨터, 서버 등)에서 동일한 작업을 하려면 이 환경을 똑같이 언제 다 만들까?  
 
-![png](/assets/images/anaconda/env_structure.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/anaconda/env_structure.png){: width="80%" height="80%"}  
 *출처 : https://django-easy-tutorial.blogspot.com/2015/08/python-virtual-environment-setup-in-ubuntu.html  
 
 이런 작업 환경들을 프로젝트별로 관리하고(like 폴더 개념) 공유도 할 수 있도록 도와주는 것이 바로 가상환경이다.  

@@ -1,41 +1,16 @@
 ---
 title: "[Hive] Hive Table 다루기 (DESCRIBE, CREATE, LOAD, INSERT, DROP, VIEW, CTAS)"
-excerpt: "HIVE Table을 다루기 위한 다양한 HiveQL 코드 작성법에 대해 알아보자"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/hadoop/hive_impala_logo.png
-
-categories:
-  - hadoop
-
-tags:
-  - hadoop
-  - hdfs
-  - hive
-  - impala
-  - create
-  - table
-  - database
-  - drop
-  - alter
-  - partition
-  - describe
-  - show
-  - formatted
-  - load
-  - inpath
-  - insert
-  - view
-  - managed
-  - external
-
-use_math: true
-
+description: "HIVE Table을 다루기 위한 다양한 HiveQL 코드 작성법에 대해 알아보자"
+permalink: /hadoop/hive_table/
+categories: [Engineering, Hadoop]
+tags: ["hadoop", "hdfs", "hive", "impala", "create", "table", "database", "drop", "alter", "partition", "describe", "show", "formatted", "load", "inpath", "insert", "view", "managed", "external"]
 last_modified_at: 2024-11-30T20:00-20:30
+math: true
+image:
+  path: /assets/images/hadoop/hive_impala_logo.png
 ---
 
-![png](/assets/images/hadoop/hive_impala_logo.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/hadoop/hive_impala_logo.png){: width="80%" height="80%"}  
 
 <br/>  
 

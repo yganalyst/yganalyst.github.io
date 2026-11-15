@@ -1,31 +1,16 @@
 ---
 title: "[Docker] Image와 Container에서의 Data Management"
-excerpt: "독립된 환경인 Image와 Container에서 Data를 다루는 방법에 대해서 알아보자."
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/docker/docker_logo.jpg
-
-categories:
-  - docker
-
-tags:
-  - docker
-  - kubernetes
-  - container
-  - build
-  - run
-  - Dockerfile
-  - volume
-  - mount
-  - bind mounts
-
-use_math: true
-
+description: "독립된 환경인 Image와 Container에서 Data를 다루는 방법에 대해서 알아보자."
+permalink: /docker/docker_data/
+categories: [Engineering, Docker]
+tags: ["docker", "kubernetes", "container", "build", "run", "dockerfile", "volume", "mount", "bind mounts"]
 last_modified_at: 2024-11-27T20:00-20:30
+math: true
+image:
+  path: /assets/images/docker/docker_logo.jpg
 ---
 
-![jpg](/assets/images/docker/docker_logo.jpg){: .align-center}{: width="80%" height="80%"}  
+![jpg](/assets/images/docker/docker_logo.jpg){: width="80%" height="80%"}  
 
 <br/>  
 

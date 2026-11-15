@@ -1,42 +1,18 @@
 ---
 title: "[Hadoop] Hadoop Ecosystem과 구성요소들에 대한 이해(HDFS, MapReduce, Hive, Imapla, Spark, Kudu, Sqoop 등)"
-excerpt: "빅데이터 활용을 위한 시스템이자 플랫폼인 Hadoop에 대해 전반적으로 알아보자"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/hadoop/ecosys/hdp_logo.png
-
-categories:
-  - hadoop
-
-tags:
-  - hadoop
-  - ecosystem
-  - HDFS
-  - YARN
-  - mapreduce
-  - hive
-  - impala
-  - spark
-  - kudu
-  - sqoop
-  - oozie
-  - airflow
-  - hue
-  - rdd
-  - dataframe
-  - dataset
-  - metastore
-  - bigdata
-
-use_math: true
-
+description: "빅데이터 활용을 위한 시스템이자 플랫폼인 Hadoop에 대해 전반적으로 알아보자"
+permalink: /hadoop/hdp_ecosys/
+categories: [Engineering, Hadoop]
+tags: ["hadoop", "ecosystem", "hdfs", "yarn", "mapreduce", "hive", "impala", "spark", "kudu", "sqoop", "oozie", "airflow", "hue", "rdd", "dataframe", "dataset", "metastore", "bigdata"]
 last_modified_at: 2023-11-02T20:00-20:30
+math: true
+image:
+  path: /assets/images/hadoop/ecosys/hdp_logo.png
 ---
 
 # 개요
 
-![png](/assets/images/hadoop/ecosys/hdp_logo.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/hadoop/ecosys/hdp_logo.png){: width="80%" height="80%"}  
 출처: https://1004jonghee.tistory.com/
 
 이번 포스팅에서는 [Hadoop](https://hadoop.apache.org/)이란 무엇인지, 이를 둘러싼 Ecosystem에 포함되는 서브프로젝트들이 어떤 배경에서 만들어졌고 어디에 쓰이게 되는지 전반적으로 정리해보려고 한다. 이후 포스팅들에서는 각 서브 프로젝트에 대해 세부 내용을 정리하는 시간이 있을 것 같다.
@@ -45,7 +21,7 @@ last_modified_at: 2023-11-02T20:00-20:30
 
 # BigData
 
-![png](/assets/images/hadoop/ecosys/hdp_2.png){: .align-center}{: width="65%" height="65%"}  
+![png](/assets/images/hadoop/ecosys/hdp_2.png){: width="65%" height="65%"}  
 출처: 도서-빅데이터를 지탱하는 기술
 
 먼저 Hadoop이 왜 필요해졌을까? 벌써 20년도 전이긴 하지만 모바일 및 인터넷의 보급으로 전세계적으로 접근 가능한 시스템이 증가함에 따라, 기존 RDB로는 취급할 수 없는 수준으로 대량의 데이터가 쌓이게 된다.
@@ -69,7 +45,7 @@ last_modified_at: 2023-11-02T20:00-20:30
 
 ## 스몰데이터와 빅데이터
 
-![png](/assets/images/hadoop/ecosys/hdp_3.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/hadoop/ecosys/hdp_3.png){: width="80%" height="80%"}  
 출처: 도서-빅데이터를 지탱하는 기술
 
 그럼 빅데이터 시스템인 Hadoop이 언제나 좋은 것일까?  
@@ -97,7 +73,7 @@ Hadoop은 아래 3가지 코어 프로젝트로 구성되어 있다.
 
 ## HDFS  
 
-![png](/assets/images/hadoop/ecosys/hdp_4.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/hadoop/ecosys/hdp_4.png){: width="80%" height="80%"}  
 출처: https://phoenixnap.com/kb/apache-hadoop-architecture-explained  
 
 HDFS는 위 그림처럼 FIle System의 **Metadata(파일명, 파일경로, 권한 등)을 포함하고 있는 NameNode**와 **실제 데이터들이 Block단위로 분산 및 복제 저장되어 있는 DataNode**로 구성되어 있다.  
@@ -116,7 +92,7 @@ HDFS는 파일을 Block이라는 단위로 나누어 관리하는데, 1개 파�
 
 ## MapReduce  
 
-![png](/assets/images/hadoop/ecosys/hdp_5.png){: .align-center}{: width="100%" height="100%"}  
+![png](/assets/images/hadoop/ecosys/hdp_5.png){: width="100%" height="100%"}  
 
 Hadoop은 위와 같이 HDFS에 분산 저장된 데이터를 처리하기 위해 기본적으로 구글에서 발표한 MapReduce 엔진을 사용한다. **MapReduce는 병렬 컴퓨팅 환경에서의 데이터 처리 엔진**으로, **각 Block에 대해 Map Task와 Reduce Task를 통해 원하는 데이터를 추출**하는 작업을 수행한다.  
 
@@ -134,7 +110,7 @@ Hadoop은 위와 같이 HDFS에 분산 저장된 데이터를 처리하기 위�
 
 ## YARN    
 
-![png](/assets/images/hadoop/ecosys/hdp_6.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/hadoop/ecosys/hdp_6.png){: width="80%" height="80%"}  
 출처: https://medium.com/@chenglong.w1/  
 
 YARN은 Yet Another Resource Negotiator의 약자로, Hadoop이 데이터를 저장하고 처리하는 모든 수행들에 대해 리소스(CPU, 메모리 등)를 관리하고 작업 스케쥴링을 도와주는 리소스 매니저이다.  
@@ -151,7 +127,7 @@ Resurce Manager와 하나 이상의 Node Manager로 구성되어 있으며, Node
 
 # Hadoop Ecosystem?
 
-![png](/assets/images/hadoop/ecosys/hdp_1.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/hadoop/ecosys/hdp_1.png){: width="80%" height="80%"}  
 출처: https://1004jonghee.tistory.com/  
 
 이후에는 Hadoop의 코어 기술만으로는 활용이 어렵거나 개선이 필요한 부분들을 보완하는 다양한 서브 프로젝트들이 등장하기 시작했다. 이러한 기술들은 Hadoop의 각 기술 도메인 파트에 붙어서 편의성을 향상시키고 있으며, 각 프로젝트들을 통틀어 **Hadoop Ecosystem**이라고 부른다.  
@@ -172,7 +148,7 @@ Resurce Manager와 하나 이상의 Node Manager로 구성되어 있으며, Node
 
 ## Hive  
 
-![png](/assets/images/hadoop/ecosys/hdp_7.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/hadoop/ecosys/hdp_7.png){: width="80%" height="80%"}  
 출처: https://datacookbook.kr/88     
 
 Hive는 **Hadoop을 기반으로 하는 데이터웨어하우징용 오픈소스 솔루션**이다.  
@@ -204,7 +180,7 @@ Hive는 **Hadoop을 기반으로 하는 데이터웨어하우징용 오픈소스
 
 ## Impala
 
-![png](/assets/images/hadoop/ecosys/hdp_8.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/hadoop/ecosys/hdp_8.png){: width="80%" height="80%"}  
 
 Impala는 Hive와 비슷한 특징을 가지고 있지만, 위에서 얘기한 대화형 Ad-Hoc 분석을 위한 Query 사용에 부적합한 단점을 보완하며 Cloudera에서 개발한 쿼리 엔진이다.  
 
@@ -218,7 +194,7 @@ Impala의 몇가지 특징들은 다음과 같다.
 
 ## Spark  
 
-![png](/assets/images/hadoop/ecosys/hdp_9.png){: .align-center}{: width="70%" height="70%"}  
+![png](/assets/images/hadoop/ecosys/hdp_9.png){: width="70%" height="70%"}  
 
 Spark는 **인메모리(In-memory)기반의 고속 데이터 처리 엔진**으로, 위에서 설명한 MapReduce의 한계를 혁신적으로 개선했다.  
 MapReduce가 데이터를 처리할 때마다 Disk I/O가 대량 발생했었는데 인메모리로 처리함으로써 연산속도가 대폭 개선되었다.  
@@ -240,7 +216,7 @@ Spark의 특징들은 아래와 같다.
 
 ## Kudu
 
-![png](/assets/images/hadoop/ecosys/hdp_10.png){: .align-center}{: width="80%" height="80%"}  
+![png](/assets/images/hadoop/ecosys/hdp_10.png){: width="80%" height="80%"}  
 출처: https://kudu.apache.org/docs/     
 
 Kudu는 Hadoop 환경에서 사용되는 **Column 기반 스토리지(Columnar Storage)**이다. 즉, **Column별로 파일에 저장**한다.
@@ -267,7 +243,7 @@ Kudu의 특징은 아래와 같다.
 
 ## Sqoop
 
-![jpg](/assets/images/hadoop/ecosys/hdp_11.jpg){: .align-center}{: width="90%" height="90%"}  
+![jpg](/assets/images/hadoop/ecosys/hdp_11.jpg){: width="90%" height="90%"}  
 출처: http://sqoop.apache.org/index.html  
 
 Sqoop은 SQL-to-Hadoop의 약자로 HDFS와 RDBMS(Oracle, MySQL 등) 간의 대량 데이터 전송 목적으로 만들어진 툴이다.  

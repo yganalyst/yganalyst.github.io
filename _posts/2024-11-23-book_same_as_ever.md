@@ -1,26 +1,17 @@
 ---
 title: "[서평] 불변의 법칙, Same as Ever - 모건 하우절"
-excerpt: "절대 변하지 않는 것들에 대한 23가지 이야기"
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/book/same_as_ever.jpg
-
-categories:
-  - book
-
-tags:
-  - 모건하우절
-  - 불변의 법칙
-  - same as ever
-
-use_math: true
-
+description: "절대 변하지 않는 것들에 대한 23가지 이야기"
+permalink: /book/book_same_as_ever/
+categories: [Books, Review]
+tags: ["모건하우절", "불변의 법칙", "same as ever"]
 last_modified_at: 2024-11-22T20:00-20:30
+math: true
+image:
+  path: /assets/images/book/same_as_ever.jpg
 ---
 
 
-![jpg](/assets/images/book/same_as_ever.jpg){: .align-center}{: width="40%" height="40%"}  
+![jpg](/assets/images/book/same_as_ever.jpg){: width="40%" height="40%"}  
 
 <br/>  
 

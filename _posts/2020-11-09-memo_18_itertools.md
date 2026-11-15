@@ -1,37 +1,17 @@
 ---
-title:  "[Python] itertools, 원소의 경우의 수(순열, 조합) 추출하기"
-excerpt: "itertools 라이브러리를 활용해서 원소들의 경우의 수를 추출하는 방법을 배워보자.  "
-toc: true
-toc_sticky: true
-header:
-  teaser: /assets/images/python_logo.jpg
-
-categories:
-  - etc
-
-tags:
-  - python
-  - 순열
-  - 중복순열
-  - 조합
-  - 중복조합
-  - factorial
-  - 팩토리얼
-  - 경우의 수
-  - itertools
-  - permutations
-  - product
-  - combinations
-  - combinations_with_replacement
-  - list
-  - parameter tuning
-
+title: "[Python] itertools, 원소의 경우의 수(순열, 조합) 추출하기"
+description: "itertools 라이브러리를 활용해서 원소들의 경우의 수를 추출하는 방법을 배워보자.  "
+permalink: /etc/memo_18_itertools/
+categories: [Python, Etc]
+tags: ["python", "순열", "중복순열", "조합", "중복조합", "factorial", "팩토리얼", "경우의 수", "itertools", "permutations", "product", "combinations", "combinations_with_replacement", "list", "parameter tuning"]
 last_modified_at: 2020-11-09T19:00-19:30
+image:
+  path: /assets/images/python_logo.jpg
 ---
 
 # 개요  
 
-![jpg](/assets/images/python_logo.jpg){: .align-center}{: width="80%" height="80%"} 
+![jpg](/assets/images/python_logo.jpg){: width="80%" height="80%"} 
 
 <br/>
 이번 포스팅에서는 `itertools`라는 파이썬 라이브러리를 활용해서, 원소들의 순열과 조합을 통해 경우의 수를 추출해내는 방법에 대해 알아보자.  
