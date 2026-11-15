@@ -11,13 +11,12 @@ permalink: /about/
   </div>
 </div>
 
-데이터 엔지니어로 일하고 있습니다.
-이곳에는 공부한 것, 만들어 본 것, 읽은 책에 대한 기록을 남깁니다.
+생각만 하던 일들을 하나씩 해봅니다.
+아직은 직장인이지만요.
 
 - GitHub: [@yganalyst](https://github.com/yganalyst)
 - LinkedIn: [yonggeunshin](https://www.linkedin.com/in/yonggeunshin/)
 - Instagram: [@tlsdydrms](https://instagram.com/tlsdydrms)
-- 연락: [Contact](/contact/)
 
 ## 내가 되고 싶은 사람
 

@@ -1,6 +1,6 @@
 title: 아직은 직장인
 description: >-
-  머릿속에만 두기엔 아까운 것들을 실행해 봅니다. 그리고 수습합니다. Maps Data Engineer 신용근의 기록.
+  생각만 하던 일들을 하나씩 해봅니다. 아직은 직장인이지만요. Maps Data Engineer 신용근의 기록.
 url: "https://yganalyst.github.io"
 baseurl: ""
 lang: ko
@@ -26,7 +26,7 @@ utterances:
 
 # Contact 폼 전송 주소 (Formspree 등). 비어 있으면 폼이 비활성화됩니다.
 contact:
-  form_action: ""
+  form_action: https://formspree.io/f/mbgogrbe
 
 # 홈에 보여줄 최근 글 수
 home_posts: 8

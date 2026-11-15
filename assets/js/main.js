@@ -5,6 +5,30 @@
     return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
   }
 
+  // ---------- work-hours bar (KST) ----------
+  var bar = document.querySelector('.workbar');
+  if (bar) {
+    var fill = bar.querySelector('.workbar-fill');
+    var start = +bar.dataset.start, end = +bar.dataset.end;
+    var tick = function () {
+      var kst = new Date(Date.now() + 9 * 3600 * 1000);
+      var day = kst.getUTCDay();
+      var h = kst.getUTCHours() + kst.getUTCMinutes() / 60;
+      var pct, label, state;
+      if (day === 0 || day === 6) { pct = 0; label = '주말'; state = 'weekend'; }
+      else if (h < start) { pct = 0; label = '출근 전'; state = 'before'; }
+      else if (h >= end) { pct = 100; label = '퇴근'; state = 'done'; }
+      else { pct = Math.floor((h - start) / (end - start) * 100); label = '오늘 근무 ' + pct + '%'; state = 'working'; }
+      fill.style.width = (state === 'weekend' ? 100 : pct) + '%';
+      bar.dataset.state = state;
+      bar.dataset.label = label;
+      bar.setAttribute('aria-valuenow', pct);
+      bar.setAttribute('aria-valuetext', label);
+    };
+    tick();
+    setInterval(tick, 60 * 1000);
+  }
+
   // ---------- theme toggle ----------
   var toggle = document.querySelector('.theme-toggle');
   if (toggle) {
@@ -61,7 +85,7 @@
         .then(function (r) {
           if (!r.ok) throw new Error(r.status);
           form.reset();
-          status.textContent = '잘 받았습니다. 퇴근하고 읽을게요.';
+          status.textContent = '잘 받았습니다!';
         })
         .catch(function () {
           status.textContent = '전송에 실패했습니다. 잠시 후 다시 시도하거나 LinkedIn으로 연락 주세요.';
