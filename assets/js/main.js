@@ -29,6 +29,31 @@
     setInterval(tick, 60 * 1000);
   }
 
+  // ---------- visitor count (GoatCounter) ----------
+  var visits = document.querySelector('.visits');
+  if (visits) {
+    var show = function (today, total) {
+      visits.querySelector('[data-today]').textContent = today;
+      visits.querySelector('[data-total]').textContent = total;
+      visits.hidden = false;
+    };
+    if (visits.hasAttribute('data-demo')) {
+      show('12', '1,234');
+    } else {
+      var todayKst = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+      var get = function (qs) {
+        return fetch(visits.dataset.counter + qs).then(function (r) {
+          if (r.status === 404) return { count: '0' };
+          if (!r.ok) throw new Error(r.status);
+          return r.json();
+        });
+      };
+      Promise.all([get('?start=' + todayKst), get('')])
+        .then(function (res) { show(res[0].count, res[1].count); })
+        .catch(function () {});
+    }
+  }
+
   // ---------- theme toggle ----------
   var toggle = document.querySelector('.theme-toggle');
   if (toggle) {

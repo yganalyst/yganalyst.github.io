@@ -1,8 +1,13 @@
 <header class="site-header">
-  <a class="brand" href="{{ '/' | relative_url }}">
-    <span class="brand-name">{{ site.title }}</span>
-    <span class="workbar" role="progressbar" aria-label="퇴근 로딩" aria-valuemin="0" aria-valuemax="100" data-start="10" data-end="19"><span class="workbar-fill"></span></span>
-  </a>
+  <div class="brand-wrap">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="brand-name">{{ site.title }}</span>
+      <span class="workbar" role="progressbar" aria-label="퇴근 로딩" aria-valuemin="0" aria-valuemax="100" data-start="10" data-end="19"><span class="workbar-fill"></span></span>
+    </a>
+    {%- if site.analytics.goatcounter %}
+    <p class="visits" data-counter="https://{{ site.analytics.goatcounter }}.goatcounter.com/counter/TOTAL.json"{% if jekyll.environment != 'production' %} data-demo{% endif %} hidden>today <span data-today>-</span> · total <span data-total>-</span></p>
+    {%- endif %}
+  </div>
   <nav class="nav">
     {%- assign nav = "Posts:/posts/,Lab:/lab/,About:/about/,Contact:/contact/" | split: "," -%}
     {%- for item in nav -%}

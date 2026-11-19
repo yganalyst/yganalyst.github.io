@@ -19,6 +19,8 @@ author:
 # Google Analytics 4 (production 빌드에서만 로드)
 analytics:
   google: G-Z2N5665R1V
+  # GoatCounter: 헤더의 today/total 방문자 수 (코드 이름만, 예: yganalyst)
+  goatcounter: yganalyst
 
 # 글 댓글 (기존 댓글이 GitHub Issues 에 있어 utterances 유지)
 utterances:
