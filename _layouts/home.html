@@ -2,6 +2,9 @@
 layout: default
 ---
 <section class="hero">
+  <a class="hero-photo" href="{{ '/about/' | relative_url }}" aria-label="About">
+    <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="{{ site.author.name_ko }} 프로필 사진" width="128" height="128">
+  </a>
   <div class="hero-main">
   <a class="eyebrow hiring" href="{{ '/contact/' | relative_url }}">상시 모집 · 경력 무관 · 먹성 우대</a>
   <h1>{{ site.author.name_ko }}입니다.</h1>
@@ -12,9 +15,6 @@ layout: default
     <a href="https://instagram.com/{{ site.author.instagram }}">Instagram</a>
   </p>
   </div>
-  <a class="hero-photo" href="{{ '/about/' | relative_url }}" aria-label="About">
-    <img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="{{ site.author.name_ko }} 프로필 사진" width="128" height="128">
-  </a>
 </section>
 
 <section class="section">
