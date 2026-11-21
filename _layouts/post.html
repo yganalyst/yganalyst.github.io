@@ -19,6 +19,19 @@ layout: default
   </header>
 
   <div class="post-body">
+    <aside class="side-profile" aria-label="글쓴이">
+      <div class="side-profile-inner">
+        <a href="{{ '/about/' | relative_url }}" class="side-profile-photo"><img src="{{ '/assets/img/profile.jpg' | relative_url }}" alt="{{ site.author.name_ko }} 프로필 사진" width="64" height="64" loading="lazy"></a>
+        <p class="side-profile-name"><a href="{{ '/about/' | relative_url }}">{{ site.author.name_ko }}</a></p>
+        <p class="side-profile-role">{{ site.author.role }}</p>
+        <p class="side-profile-bio">{{ site.tagline }}</p>
+        <p class="side-profile-links">
+          <a href="https://github.com/{{ site.author.github }}">GitHub</a>
+          <a href="{{ site.author.linkedin }}">LinkedIn</a>
+          <a href="https://instagram.com/{{ site.author.instagram }}">Instagram</a>
+        </p>
+      </div>
+    </aside>
     <aside class="toc" aria-label="목차" hidden>
       <p class="toc-title">목차</p>
       <ol></ol>
