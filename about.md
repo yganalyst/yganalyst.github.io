@@ -4,7 +4,7 @@ permalink: /about/
 ---
 
 <div class="about-head">
-  <img src="/assets/images/my.jpg" alt="신용근 프로필 사진" width="96" height="96">
+  <img src="/assets/img/profile.jpg" alt="신용근 프로필 사진" width="96" height="96">
   <div>
     <p class="about-name">신용근 <span>Yonggeun Shin</span></p>
     <p class="about-role">Maps Data Engineer · Seoul</p>
